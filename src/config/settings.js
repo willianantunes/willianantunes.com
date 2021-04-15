@@ -1,0 +1,9 @@
+const SITE_URL = process.env.SITE_URL
+const GOOGLE_TAG_MANAGER_ID = process.env.GOOGLE_TAG_MANAGER_ID
+const GTM_INCLUDE_DEVELOPMENT = process.env.GTM_INCLUDE_DEVELOPMENT === "false"
+
+module.exports = {
+  SITE_URL,
+  GOOGLE_TAG_MANAGER_ID,
+  GTM_INCLUDE_DEVELOPMENT,
+}
