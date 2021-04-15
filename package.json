@@ -8,7 +8,13 @@
   },
   "homepage": "https://github.com/willianantunes/willianantunes.com#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -16,5 +22,13 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "gatsby": "^3.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
