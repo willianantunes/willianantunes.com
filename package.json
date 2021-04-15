@@ -1,0 +1,20 @@
+{
+  "name": "willianantunes.com",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Willian Antunes <willian.lima.antunes@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/willianantunes/willianantunes.com/issues"
+  },
+  "homepage": "https://github.com/willianantunes/willianantunes.com#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willianantunes/willianantunes.com.git"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
