@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-// Now that ENV was loaded, we can check out the settings constants
+// Now that ENV was loaded, we can check out the constants
 const { GOOGLE_TAG_MANAGER_ID, GTM_INCLUDE_DEVELOPMENT, SITE_URL } = require("./src/config/settings")
 
 const myName = "Willian Antunes"
@@ -27,6 +27,15 @@ const siteMetadata = {
 }
 
 const plugins = [
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      path: `${__dirname}/static/assets`,
+      name: "uploads",
+    },
+  },
   {
     resolve: "gatsby-plugin-google-tagmanager",
     options: {
