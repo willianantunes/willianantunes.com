@@ -15,6 +15,7 @@ const siteMetadata = {
   },
   description: `Where I blog about technology, my personal life, tools that I've built as well as playgrounds, and many more.`,
   siteUrl: SITE_URL,
+  projectLicense: `https://github.com/willianantunes/willianantunes.com/blob/master/LICENSE`,
   social: {
     twitter: `https://twitter.com/willianantunes`,
     instagram: `https://www.instagram.com/willian.lima.antunes`,

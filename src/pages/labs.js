@@ -1,6 +1,17 @@
 import React from "react"
 import { Typography } from "@material-ui/core"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 
-export default function LabsPage() {
-  return <Typography>Tools I've built and some playground I've done!</Typography>
+const LabsPage = () => {
+  const title = "Labs"
+
+  return (
+    <Layout>
+      <SEO title={title} />
+      <Typography>This is the labs page!</Typography>
+    </Layout>
+  )
 }
+
+export default LabsPage

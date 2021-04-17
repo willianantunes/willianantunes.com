@@ -14,6 +14,7 @@ export function useSiteMetadata() {
             name
             description
             shortName
+            projectLicense
             author {
               name
             }
