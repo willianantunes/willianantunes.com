@@ -7,7 +7,6 @@ import { getMetaByName, getMetaByProperty } from "../../../support/html-utils"
 import SEO from "../../../../src/components/SEO"
 
 jest.mock("../../../../src/hooks/use-site-metadata")
-jest.mock("gatsby")
 
 describe("SEO component", () => {
   let fakeSiteMetadata
