@@ -1,3 +1,5 @@
+const path = require("path")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -38,6 +40,34 @@ const plugins = [
     },
   },
   {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/content/blog`,
+      name: `blog`,
+    },
+  },
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          // It will update the path related to images contained in a markdown file
+          resolve: "gatsby-remark-relative-images",
+          options: {
+            name: "uploads",
+          },
+        },
+        {
+          // It will create publicURL
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 630,
+          },
+        },
+      ],
+    },
+  },
+  {
     resolve: "gatsby-plugin-google-tagmanager",
     options: {
       id: GOOGLE_TAG_MANAGER_ID,
@@ -49,6 +79,14 @@ const plugins = [
   `gatsby-plugin-react-helmet`,
   `gatsby-theme-material-ui`,
   `gatsby-plugin-styled-components`,
+  {
+    resolve: `gatsby-plugin-netlify-cms`,
+    options: {
+      modulePath: path.join(__dirname, "src", "cms", "cms.js"),
+      publicPath: "genie",
+      manualInit: true,
+    },
+  },
 ]
 
 module.exports = {

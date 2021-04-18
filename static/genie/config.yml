@@ -1,0 +1,34 @@
+# https://www.netlifycms.org/docs/backends-overview/
+# I don't have a backend configuration here. I did it programmatically.
+
+# https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
+# https://www.netlifycms.org/docs/beta-features/#folder-collections-media-and-public-folder
+# https://github.com/netlify/netlify-cms/issues/2696#issuecomment-567081038
+media_folder: "/static/assets/posts"
+public_folder: "/assets"
+publish_mode: editorial_workflow
+
+collections:
+  # https://www.netlifycms.org/docs/collection-types/
+  # https://www.netlifycms.org/docs/configuration-options/#collections
+  - name: 'blog'
+    label: 'Blog'
+    folder: "/content/blog"
+    create: true
+    # How the file post is saved
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    # Where the file post is saved
+    path: '{{year}}/{{month}}/{{slug}}'
+    # When you upload a image, where it will be when you do it
+    media_folder: "{{media_folder}}"
+    public_folder: "{{public_folder}}"
+    editor:
+      preview: true
+    fields:
+      - { label: 'Id', name: 'id', widget: 'id' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Cover', name: 'cover', widget: 'image' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Tags', name: 'tags', widget: 'tags', required: true, separator: ',' }
