@@ -1,5 +1,9 @@
 # My honest personal website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/17cd91a0-e169-48d7-9948-526cb08d7826/deploy-status)](https://app.netlify.com/sites/hungry-leakey-3d2ebb/deploys)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=willianantunes_willianantunes.com&metric=coverage)](https://sonarcloud.io/dashboard?id=willianantunes_willianantunes.com)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=willianantunes_willianantunes.com&metric=ncloc)](https://sonarcloud.io/dashboard?id=willianantunes_willianantunes.com)
+
 It's very early to write something detailed here, isn't it? Soon to come!
 
 ## Running the project
