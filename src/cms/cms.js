@@ -21,10 +21,13 @@ function buildBackEndConfiguration() {
 }
 
 const backEndConfiguration = buildBackEndConfiguration()
-
-CMS.init({
+const initOptions = {
   config: {
     local_backend: NETLIFY_CMS_LOCAL_BACKEND,
     backend: backEndConfiguration,
   },
-})
+}
+
+console.debug(`Built configuration: ${JSON.stringify(initOptions)}`)
+
+CMS.init(initOptions)
