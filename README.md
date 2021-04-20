@@ -8,7 +8,7 @@ It's very early to write something detailed here, isn't it? Soon to come!
 
 ## Running the project
 
-Just issue the command `docker-compose up`. It will build the image and run it for you afterwards.
+Just issue the command `docker-compose up`. It will build the image and run it for you afterwards. If you have an [OAuth Provider configured on Netlify](https://docs.netlify.com/visitor-access/oauth-provider-tokens/), we can even access the admin page, which is `http://localhost:9000/genie`.
 
 If you'd like to run it without docker, first install the packages:
 
