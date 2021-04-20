@@ -1,5 +1,6 @@
 import { EnvironmentError } from "../../../src/config/exceps"
 
+// This marked as skipped because it breaks all the time given race conditions
 xdescribe("Settings module", () => {
   beforeEach(() => {
     delete process.env.SITE_URL
