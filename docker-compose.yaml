@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  blog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GOOGLE_TAG_MANAGER_ID: "GTM-PRTVFT3"
+        SITE_URL: "http://localhost:9000/"
+        NETLIFY_CMS_BACKEND_REPO: "willianantunes/willianantunes.com"
+        NETLIFY_CMS_BACKEND_BRANCH: "master"
+    ports:
+      - "9000:9000"

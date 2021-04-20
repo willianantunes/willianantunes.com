@@ -1,0 +1,9 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+*
+!content
+!src
+!static
+!.env.production
+!gatsby-*.js
+!package.json
+!package-lock.json
