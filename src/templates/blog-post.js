@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import BlogPost from "../components/BlogPost"
+import DisqusWrapper from "../components/DisqusWrapper"
 
 const BlogPostTemplate = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
@@ -32,6 +33,7 @@ const BlogPostTemplate = ({ data }) => {
         tags={tags}
         image={image}
       />
+      <DisqusWrapper identifier={identifier} title={title} />
     </Layout>
   )
 }

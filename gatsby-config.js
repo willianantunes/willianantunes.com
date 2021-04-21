@@ -5,7 +5,7 @@ require("dotenv").config({
 })
 
 // Now that ENV was loaded, we can check out the constants
-const { GOOGLE_TAG_MANAGER_ID, GTM_INCLUDE_DEVELOPMENT, SITE_URL } = require("./src/config/settings")
+const { GOOGLE_TAG_MANAGER_ID, GTM_INCLUDE_DEVELOPMENT, SITE_URL, DISQUS_SHORTNAME } = require("./src/config/settings")
 
 const myName = "Willian Antunes"
 const siteMetadata = {
@@ -85,6 +85,12 @@ const plugins = [
       modulePath: path.join(__dirname, "src", "cms", "cms.js"),
       publicPath: "genie",
       manualInit: true,
+    },
+  },
+  {
+    resolve: `gatsby-plugin-disqus`,
+    options: {
+      shortname: DISQUS_SHORTNAME,
     },
   },
 ]
