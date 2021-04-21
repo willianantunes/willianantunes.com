@@ -9,7 +9,9 @@ export default function BlogPost({ title, date, formattedDate, content, timeToRe
         <S.Title>{title}</S.Title>
         <S.BlogDetails>
           <S.DetailsEntry>
-            <time dateTime={date}>{formattedDate}</time> • {timeToRead} minute read
+            <S.WhenItWasCreated>
+              <time dateTime={date}>{formattedDate}</time> • {timeToRead} minute read
+            </S.WhenItWasCreated>
           </S.DetailsEntry>
           <S.DetailsEntry>
             <S.Tags>

@@ -17,12 +17,21 @@ export const Title = styled(Typography).attrs({
 
 export const BlogDetails = styled(Box)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: ${props => props.theme.spacing(4)}px;
   padding: ${props => props.theme.spacing(4)}px 0;
+
+  ${props => props.theme.breakpoints.up("sm")} {
+    flex-direction: row;
+  }
 `
 
 export const DetailsEntry = styled(Box)``
+
+export const WhenItWasCreated = styled(Typography).attrs({ align: "center" })`
+  font-size: small;
+`
 
 export const Tags = styled(Typography).attrs({ align: "center" })`
   & svg {
