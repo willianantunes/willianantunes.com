@@ -4,6 +4,7 @@ import { InstagramAlt, Twitter, Youtube, Linkedin, Github, StackOverflow } from 
 import { Docker } from "@styled-icons/fa-brands"
 import * as S from "./styled"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import ToggleTheme from "../ToggleTheme"
 
 const menuLinkSetup = [
   {
@@ -78,6 +79,9 @@ const Header = () => {
           <AllSiteLinks />
         </S.SiteLinksWrapper>
       </S.LinksWrapper>
+      <S.ThemeWrapper>
+        <ToggleTheme />
+      </S.ThemeWrapper>
     </S.MainWrapper>
   )
 }

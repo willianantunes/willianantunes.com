@@ -1,7 +1,7 @@
 import React from "react"
 import Header from "../../../../src/components/Header"
 import { render } from "../../../support/test-utils"
-import { screen } from "@testing-library/react"
+import { fireEvent, screen, waitFor } from "@testing-library/react"
 import { useSiteMetadata } from "../../../../src/hooks/use-site-metadata"
 
 jest.mock("../../../../src/hooks/use-site-metadata")
@@ -25,6 +25,18 @@ describe("Header component", () => {
       },
     }
     useSiteMetadata.mockReturnValue(fakeSiteMetadata)
+  })
+
+  beforeEach(() => {
+    window.__toggleTheme = jest.fn().mockImplementation(() => {
+      window.__theme = window.__theme === "dark" ? "light" : "dark"
+    })
+    window.__theme = "light"
+  })
+
+  afterEach(() => {
+    delete window.__toggleTheme
+    delete window.__theme
   })
 
   it("has links to social medias", async () => {
@@ -63,5 +75,37 @@ describe("Header component", () => {
     }
 
     expect(useSiteMetadata).toBeCalled()
+  })
+
+  it("has toggle theme", async () => {
+    // Act
+    const { container } = render(<Header />)
+    // Assert
+    const testId = "button-toggle-theme"
+    const element = container.querySelector(`[data-testid="${testId}"]`)
+
+    const titleWhenLight = "Change to light mode"
+    const titleWhenDark = "Change to dark mode"
+
+    const whenThemeIsLight = "theme-light"
+    const whenThemeIsDark = "theme-dark"
+
+    await waitFor(() => expect(document.querySelector(`.${whenThemeIsLight}`)).toBeInTheDocument())
+
+    // https://github.com/testing-library/react-testing-library/issues/402
+    // https://stackoverflow.com/questions/44073960/unit-testing-react-helmet-code
+    expect(document.body.classList.contains(whenThemeIsLight)).toBeTruthy()
+    expect(element.getAttribute("title")).toBe(titleWhenDark)
+    expect(element.getAttribute("aria-pressed")).toBe("false")
+
+    fireEvent.click(element)
+    await screen.findByTitle(titleWhenLight)
+    await waitFor(() => expect(document.querySelector(`.${whenThemeIsDark}`)).toBeInTheDocument())
+
+    expect(window.__toggleTheme).toHaveBeenCalledTimes(1)
+
+    expect(document.body.classList.contains(whenThemeIsDark)).toBeTruthy()
+    expect(element.getAttribute("title")).toBe(titleWhenLight)
+    expect(element.getAttribute("aria-pressed")).toBe("true")
   })
 })

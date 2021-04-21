@@ -12,7 +12,7 @@ export const MainWrapper = styled(Container).attrs({
 export const BrandWrapper = styled(Box)``
 
 export const Title = styled(Typography).attrs({
-  component: "p",
+  component: "h1",
   variant: "h6",
   align: "center",
 })``
@@ -38,9 +38,18 @@ export const SiteLinksWrapper = styled(Box)`
   & a {
     text-transform: uppercase;
   }
+  padding-top: 12px;
 `
 
 export const SocialLinksWrapper = styled(Box)`
   display: flex;
   justify-content: center;
+`
+
+export const ThemeWrapper = styled(Box)`
+  // Not the ideal, but good enough to start with
+  // TODO: Put it fixed relative to container
+  position: fixed;
+  top: 20px;
+  right: 20px;
 `

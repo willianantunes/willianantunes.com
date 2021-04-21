@@ -1,6 +1,6 @@
 import { createMuiTheme } from "@material-ui/core"
 
-const themeConfiguration = {
+export const themeConfiguration = {
   typography: {
     fontFamily: [
       "Montserrat",
@@ -21,7 +21,7 @@ const themeConfiguration = {
   },
   palette: {
     // https://material-ui.com/customization/color/#picking-colors
-    // https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=0D47A1&secondary.color=CFD8DC
+    // https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=26a69a&secondary.color=CFD8DC
     type: "light",
     primary: {
       main: "#26a69a",
