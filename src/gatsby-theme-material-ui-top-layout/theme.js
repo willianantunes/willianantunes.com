@@ -24,7 +24,7 @@ const themeConfiguration = {
     // https://material.io/resources/color/#!/?view.left=1&view.right=0&primary.color=0D47A1&secondary.color=CFD8DC
     type: "light",
     primary: {
-      main: "#0d47a1",
+      main: "#26a69a",
     },
     secondary: {
       main: "#cfd8dc",
