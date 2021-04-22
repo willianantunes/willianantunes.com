@@ -4,7 +4,14 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=willianantunes_willianantunes.com&metric=coverage)](https://sonarcloud.io/dashboard?id=willianantunes_willianantunes.com)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=willianantunes_willianantunes.com&metric=ncloc)](https://sonarcloud.io/dashboard?id=willianantunes_willianantunes.com)
 
-It's very early to write something detailed here, isn't it? Soon to come!
+At the beginning of 2021, I created a project called [Rave of Phonetics](https://www.raveofphonetics.com/), and you can know how I had the idea through the blog post [public and useful tool to understand phonetics](https://www.raveofphonetics.com/blog/2021/02/public-and-useful-tool-to-understand-phonetics/). With all the lessons learned I gathered from it, I thought it was time to create my very blog from scratch to discover even more things. That's how it came to life! Curiosity as always 👀
+
+I think this couldn't have been possible without the following projects:
+
+- https://github.com/felipefialho/felipefialho.com
+- https://github.com/dustinmoris/dustedcodes
+
+Hence here's my thanks! I am thankful for people that share stuff with the community 🤓
 
 ## Running the project
 
@@ -31,6 +38,10 @@ Now you can serve it through gatsby (not recommended for production, just as a m
     npm run serve
 
 Sadly, even when serving the generated static files, gatsby reads `gatsby-config.js`, that's why you need to set the environment variables.
+
+### Netlify CMS locally
+
+You need to run `npm run cms` and `npm run develop`, then you can use the CMS locally without the need of doing OAuth flow.
 
 ## I want to use your project. How do I use this template?
 

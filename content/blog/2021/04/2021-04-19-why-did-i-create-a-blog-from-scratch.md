@@ -50,4 +50,4 @@ Just a little piece of advice here in this very first article. One thing is disc
 
 There are others of course, but the purpose has been passed 😁.
 
-This is the first blog entry and I expect to post at least once per month at least. I hope I can keep with this goal! 😄
+This is the first blog entry and I expect to post once per month at least. I hope I can keep with this goal! 😄
