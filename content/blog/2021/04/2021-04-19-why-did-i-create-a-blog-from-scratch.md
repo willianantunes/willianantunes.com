@@ -10,7 +10,7 @@ tags:
   - open-source
   - comfort zone
 ---
-If I would have to recommend to someone, in a professional context assuming basic things like time to market, a huge ecosystem, many tutorials, no expected advanced knowledge in programming at all, I would tell this person to start right away with Blogger or WordPress, in case of more conditions. Now, if the idea is to know how stuff works, and utilize a technology that handles not only on the front-end but on the back-end side also, thinking carefully in terms of its usage on the job market, I'd advise using a technology built on top of JavaScript.
+If I had to recommend to someone, assuming important requirements like time to market, a huge ecosystem, many tutorials, no expected advanced knowledge in programming at all, I would tell this person to start right away with Blogger, but if more options are needed, then Wordpress. Now, if the idea is to know how stuff works, and utilize a technology that handles not only on the front-end but on the back-end also, thinking carefully in terms of its usage on the job market, I'd advise using a technology built on top of JavaScript.
 
 ## Why JavaScript and not PHP or another language
 
@@ -35,7 +35,7 @@ When people discuss this topic, I like to compare it to learning a new language.
 
 ## When you study technologies through playgrounds, leave them open-source
 
-Isn't it amazing when you need to create/build something and you find a playground project out there that you can base your own? Apart from that, when you create an open-source project, that can be used as your portfolio too. So use it wisely! Sell yourself!
+Isn't it amazing when you need to create/build something and you find a playground project out there that you can base your work from? Apart from that, when you create an open-source project, that can be used as your portfolio too. So use it wisely! Sell yourself!
 
 ## Final words and honest advice
 
@@ -46,8 +46,8 @@ Just a little piece of advice here in this very first article. One thing is disc
 * Does it have support from the community?
 * Does it have support from companies out there?
 * Is it hard to find people that can work with it?
-* Is it arduous to teach people that have never got in contact with the language or the framework?
+* Is it arduous to teach people that have never been in contact with the language or the framework?
 
-There are others of course, but the purpose has been passed 😁.
+There are others of course, but the point has been made 😁.
 
 This is the first blog entry and I expect to post once per month at least. I hope I can keep with this goal! 😄
