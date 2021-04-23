@@ -65,9 +65,16 @@ const AllSocialLinks = ({ twitter, instagram, youtube, linkedin, dockerhub, gith
 const Header = () => {
   const siteMetadata = useSiteMetadata()
   const { name } = siteMetadata.author
+  const projectLink = siteMetadata.project
 
   return (
     <S.MainWrapper>
+      <S.ForkMeOnGitHub to={projectLink} data-testid="fork-me-ribbon">
+        Fork me{" "}
+        <span role="img" aria-label="fork and knife">
+          🍴
+        </span>
+      </S.ForkMeOnGitHub>
       <S.BrandWrapper>
         <S.Title>{name}</S.Title>
       </S.BrandWrapper>

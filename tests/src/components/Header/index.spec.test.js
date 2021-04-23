@@ -11,6 +11,7 @@ describe("Header component", () => {
 
   beforeAll(() => {
     fakeSiteMetadata = {
+      project: `https://github.com/willianantunes/willianantunes.com`,
       author: {
         name: `Willian Antunes`,
       },
@@ -37,6 +38,18 @@ describe("Header component", () => {
   afterEach(() => {
     delete window.__toggleTheme
     delete window.__theme
+  })
+
+  it("has fork me ribbon", async () => {
+    // Act
+    render(<Header />)
+    // Assert
+    const testId = "fork-me-ribbon"
+    const element = await screen.findByTestId(testId)
+    expect(element.textContent).toBe("Fork me 🍴")
+    expect(element.getAttribute("href")).toBe(fakeSiteMetadata.project)
+
+    expect(useSiteMetadata).toBeCalled()
   })
 
   it("has links to social medias", async () => {

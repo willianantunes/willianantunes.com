@@ -1,5 +1,3 @@
-const path = require("path")
-
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -17,7 +15,8 @@ const siteMetadata = {
   },
   description: `Where I blog about technology, my personal life, tools that I've built as well as playgrounds, and many more.`,
   siteUrl: SITE_URL,
-  projectLicense: `https://github.com/willianantunes/willianantunes.com/blob/master/LICENSE`,
+  project: `https://github.com/willianantunes/willianantunes.com`,
+  projectLicense: `https://github.com/willianantunes/willianantunes.com/blob/main/LICENSE`,
   social: {
     twitter: `https://twitter.com/willianantunes`,
     instagram: `https://www.instagram.com/willian.lima.antunes`,
@@ -82,7 +81,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-netlify-cms`,
     options: {
-      modulePath: path.join(__dirname, "src", "cms", "cms.js"),
+      modulePath: `${__dirname}/src/cms/cms.js`,
       publicPath: "genie",
       manualInit: true,
     },
