@@ -106,7 +106,7 @@ describe("Settings module", () => {
       expect(Object.keys(feed).length).toBe(2)
       expect(query).toBe(`
       {
-        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {tags: {ne: null}}}) {
           edges {
             node {
               id

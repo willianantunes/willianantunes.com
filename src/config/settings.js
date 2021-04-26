@@ -5,7 +5,7 @@ class GatsbyPluginFeed {
   static getFeedSetup() {
     const queryResponsibleToRetrievePosts = `
       {
-        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {tags: {ne: null}}}) {
           edges {
             node {
               id
