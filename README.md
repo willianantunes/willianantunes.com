@@ -15,7 +15,7 @@ Hence here's my thanks! I am thankful for people that share stuff with the commu
 
 ## Running the project
 
-Just issue the command `docker-compose up`. It will build the image and run it for you afterwards. If you have an [OAuth Provider configured on Netlify](https://docs.netlify.com/visitor-access/oauth-provider-tokens/), we can even access the admin page!. Links:
+Just issue the command `docker-compose up`. It will build the image and run it for you afterwards. If you have an [OAuth Provider configured on Netlify](https://docs.netlify.com/visitor-access/oauth-provider-tokens/), you can even access the admin page. Accessible links:
 
 - Home: http://localhost:9000/
 - RSS: http://localhost:9000/rss.xml
