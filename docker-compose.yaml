@@ -10,5 +10,6 @@ services:
         SITE_URL: "http://localhost:9000/"
         NETLIFY_CMS_BACKEND_REPO: "willianantunes/willianantunes.com"
         NETLIFY_CMS_BACKEND_BRANCH: "main"
+        DISQUS_SHORTNAME: "willianantunes"
     ports:
       - "9000:9000"
