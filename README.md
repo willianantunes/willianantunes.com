@@ -8,14 +8,19 @@ At the beginning of 2021, I created a project called [Rave of Phonetics](https:/
 
 I think this couldn't have been possible without the following projects:
 
-- https://github.com/felipefialho/felipefialho.com
-- https://github.com/dustinmoris/dustedcodes
+- [felipefialho/felipefialho.com](https://github.com/felipefialho/felipefialho.com)
+- [dustinmoris/dustedcodes](https://github.com/dustinmoris/dustedcodes)
 
 Hence here's my thanks! I am thankful for people that share stuff with the community 🤓
 
 ## Running the project
 
-Just issue the command `docker-compose up`. It will build the image and run it for you afterwards. If you have an [OAuth Provider configured on Netlify](https://docs.netlify.com/visitor-access/oauth-provider-tokens/), we can even access the admin page, which is `http://localhost:9000/genie`.
+Just issue the command `docker-compose up`. It will build the image and run it for you afterwards. If you have an [OAuth Provider configured on Netlify](https://docs.netlify.com/visitor-access/oauth-provider-tokens/), we can even access the admin page!. Links:
+
+- Home: http://localhost:9000/
+- RSS: http://localhost:9000/rss.xml
+- Sitemap: http://localhost:9000/sitemap.xml
+- CMS: http://localhost:9000/genie
 
 If you'd like to run it without docker, first install the packages:
 
