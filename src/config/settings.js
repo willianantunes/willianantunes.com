@@ -1,5 +1,63 @@
 const { EnvironmentError } = require("./exceps")
 
+// https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-feed
+class GatsbyPluginFeed {
+  static getFeedSetup() {
+    const queryResponsibleToRetrievePosts = `
+      {
+        allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
+          edges {
+            node {
+              id
+              fields {
+                path
+              }
+              frontmatter {
+                title
+                description
+                date
+              }
+              excerpt(truncate: true, pruneLength: 500, format: HTML)
+            }
+          }
+        }
+      }
+    `
+    const createNodesHandler = ({ query: { site, allMarkdownRemark } }) => {
+      return allMarkdownRemark.edges.map(edge => {
+        const postUrl = `${site.siteMetadata.siteUrl}${edge.node.fields.path}`
+        const postId = edge.node.id
+        const firstSourceObjectToCopy = edge.node.frontmatter
+        const secondSourceObjectToCopy = {
+          url: postUrl,
+          guid: postId,
+          custom_elements: [{ "content:encoded": edge.node.excerpt }],
+        }
+        const target = {}
+
+        return Object.assign(target, firstSourceObjectToCopy, secondSourceObjectToCopy)
+      })
+    }
+
+    return {
+      serialize: createNodesHandler,
+      query: queryResponsibleToRetrievePosts,
+    }
+  }
+
+  static applyOptions(siteName) {
+    return {
+      feeds: [
+        {
+          output: "/rss.xml",
+          title: `${siteName}'s RSS Feed`,
+          ...GatsbyPluginFeed.getFeedSetup(),
+        },
+      ],
+    }
+  }
+}
+
 // Only statically analysable expressions are replaced by Webpack, thus I can't use process.env['ENV_NAME']
 // https://github.com/webpack/webpack/issues/6091#issuecomment-350840578
 function getEnvOrRaiseException(envName, envValue) {
@@ -58,4 +116,5 @@ module.exports = {
   NETLIFY_CMS_BACKEND_REPO,
   NETLIFY_CMS_BACKEND_BRANCH,
   DISQUS_SHORTNAME,
+  GatsbyPluginFeed,
 }
