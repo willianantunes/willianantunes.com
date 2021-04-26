@@ -32,3 +32,13 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'tags', required: true, separator: ',' }
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "/content/pages/about.md"
+        name: "about"
+        label: "About"
+        fields:
+          - {label: "Template File Name", name: "templateFileName", widget: "hidden", default: "about-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}

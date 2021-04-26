@@ -8,8 +8,8 @@ const configureMustHaveEnv = () => {
   process.env.DISQUS_SHORTNAME = "agrabah"
 }
 
-// This marked as skipped because it breaks all the time given race conditions
 describe("Settings module", () => {
+  // This marked as skipped because it breaks all the time given race conditions
   xdescribe("Constant ENV", () => {
     beforeEach(() => {
       delete process.env.SITE_URL

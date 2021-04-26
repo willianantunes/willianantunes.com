@@ -13,7 +13,11 @@ export const Title = styled(Typography).attrs({
   component: "h1",
   variant: "h2",
   align: "center",
-})``
+})`
+  &:only-child {
+    padding-bottom: ${props => props.theme.spacing(4)}px;
+  }
+`
 
 export const BlogDetails = styled(Box)`
   display: flex;
