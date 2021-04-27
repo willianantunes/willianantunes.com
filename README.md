@@ -48,6 +48,14 @@ Sadly, even when serving the generated static files, gatsby reads `gatsby-config
 
 You need to run `npm run cms` and `npm run develop`, then you can use the CMS locally without the need of doing OAuth flow.
 
+## Consulting `public` folder after build through Docker
+
+First access the container:
+
+    docker-compose run blog bash
+
+Then you can issue `ls -l public`! `gatsby-plugin-netlify` generates `_headers` file for Netlify Platform. You can consult it issuing `cat public/_headers`.
+
 ## I want to use your project. How do I use this template?
 
 That is quite simple. Just follow the bullets:
