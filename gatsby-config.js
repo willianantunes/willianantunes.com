@@ -110,6 +110,7 @@ const plugins = [
     resolve: `gatsby-plugin-feed`,
     options: GatsbyPluginFeed.applyOptions(siteMetadata.name),
   },
+  `gatsby-plugin-netlify`,
 ]
 
 module.exports = {
