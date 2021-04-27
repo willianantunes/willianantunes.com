@@ -43,5 +43,6 @@ describe("ListOfGalleryEntries component", () => {
     const element = await screen.findByTestId(testId)
     const linksElements = element.querySelectorAll(`a`)
     expect(linksElements.length).toBe(sampleEntries.length)
+    expect(useSiteMetadata).toBeCalled()
   })
 })

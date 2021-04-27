@@ -1,14 +1,15 @@
 import React from "react"
 import * as S from "./styled"
 import { PurchaseTag } from "@styled-icons/boxicons-regular"
+import PropTypes from "prop-types"
 
-export default function BlogPost({ title, date, formattedDate, content, timeToRead, tags, image }) {
+const BlogPost = ({ title, date, formattedDate, content, timeToRead, tags, image }) => {
   const shouldRenderTime = date !== undefined
   const shouldRenderTags = tags !== undefined
   const shouldRenderBlogDetails = shouldRenderTime || shouldRenderTags
 
   return (
-    <S.ArticleWrapper>
+    <S.ArticleWrapper data-testid="blog-post-article-wrapper">
       <S.HeaderWrapper>
         <S.Title>{title}</S.Title>
         {shouldRenderBlogDetails && (
@@ -34,3 +35,15 @@ export default function BlogPost({ title, date, formattedDate, content, timeToRe
     </S.ArticleWrapper>
   )
 }
+
+BlogPost.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  date: PropTypes.string,
+  formattedDate: PropTypes.string,
+  timeToRead: PropTypes.number,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  image: PropTypes.string,
+}
+
+export default BlogPost

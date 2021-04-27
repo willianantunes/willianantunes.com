@@ -3,8 +3,6 @@ import { render } from "../../../support/test-utils"
 import { screen } from "@testing-library/react"
 import ListOfBlogEntries from "../../../../src/components/ListOfBlogEntries"
 
-jest.mock("../../../../src/hooks/use-site-metadata")
-
 describe("ListOfBlogEntries component", () => {
   it("is rendered properly", async () => {
     // Arrange
