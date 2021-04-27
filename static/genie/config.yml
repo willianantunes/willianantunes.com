@@ -39,6 +39,24 @@ collections:
         name: "about"
         label: "About"
         fields:
-          - {label: "Template File Name", name: "templateFileName", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - { label: "Template File Name", name: "templateFileName", widget: "hidden", default: "about-page" }
+          - { label: "Path", name: "path", widget: "hidden", default: "/about" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "/content/pages/labs.md"
+        name: "labs"
+        label: "Labs"
+        fields:
+          - { label: "Template File Name", name: "templateFileName", widget: "hidden", default: "labs-page" }
+          - { label: "Path", name: "path", widget: "hidden", default: "/labs" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Gallery"
+            name: "galleryLabs"
+            widget: "list"
+            add_to_top: true
+            fields:
+              - { label: 'Cover', name: 'cover', widget: 'image' }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Project link", name: "projectLink", widget: "string" }
+              - { label: 'Description', name: 'description', widget: 'string' }
+              - { label: 'When it was published', name: 'date', widget: 'datetime', time_format: false, date_format: "YYYY" }

@@ -18,9 +18,7 @@ const AboutPage = ({ data }) => {
   )
 }
 
-export default AboutPage
-
-export const pageQuery = graphql`
+export const query = graphql`
   query($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
@@ -30,3 +28,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default AboutPage

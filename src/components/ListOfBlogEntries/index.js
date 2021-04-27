@@ -25,7 +25,7 @@ const ListOfBlogEntries = ({ year, posts }) => {
   }
 
   return (
-    <S.MainWrapper>
+    <S.MainWrapper data-testid="posts-entries-wrapper">
       <S.YearTitle>{year}</S.YearTitle>
       <BlogEntries />
     </S.MainWrapper>
