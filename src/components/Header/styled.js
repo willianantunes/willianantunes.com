@@ -81,4 +81,5 @@ export const ThemeWrapper = styled(Box)`
   position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 50;
 `
