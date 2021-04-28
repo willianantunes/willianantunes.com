@@ -12,12 +12,12 @@ export const MainWrapper = styled(Box).attrs({
 `
 
 export const GalleryEntryWrapper = styled(Card)`
-  max-width: 345px;
+  max-width: 300px;
   height: 100%;
 `
 
 export const GalleryEntryCover = styled(CardMedia)`
-  height: 160px;
+  height: 170px;
 `
 
 export const GalleryEntryCardActionArea = styled(CardActionArea).attrs({
