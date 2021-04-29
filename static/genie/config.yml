@@ -5,7 +5,7 @@
 # https://www.netlifycms.org/docs/beta-features/#folder-collections-media-and-public-folder
 # https://github.com/netlify/netlify-cms/issues/2696#issuecomment-567081038
 media_folder: "/static/assets/posts"
-public_folder: "/assets"
+public_folder: "/assets/posts"
 publish_mode: editorial_workflow
 
 collections:
@@ -58,5 +58,5 @@ collections:
               - { label: 'Cover', name: 'cover', widget: 'image' }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Project link", name: "projectLink", widget: "string" }
-              - { label: 'Description', name: 'description', widget: 'string' }
+              - { label: 'Description', name: 'description', widget: 'text' }
               - { label: 'When it was published', name: 'date', widget: 'datetime', time_format: false, date_format: "YYYY" }

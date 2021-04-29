@@ -35,8 +35,6 @@ const siteMetadata = {
 }
 
 const plugins = [
-  `gatsby-plugin-sharp`,
-  `gatsby-transformer-sharp`,
   {
     resolve: "gatsby-source-filesystem",
     options: {
@@ -58,23 +56,18 @@ const plugins = [
       name: `pages`,
     },
   },
+  `gatsby-transformer-sharp`,
+  `gatsby-plugin-sharp`,
   {
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
-        {
-          // It will update the path related to images contained in a markdown file
-          resolve: "gatsby-remark-relative-images",
-          options: {
-            name: "uploads",
-          },
-        },
+        // It will update the path related to images contained in a markdown file
+        `gatsby-remark-relative-images`,
         {
           // It will create publicURL
           resolve: `gatsby-remark-images`,
-          options: {
-            maxWidth: 630,
-          },
+          options: {},
         },
       ],
     },

@@ -4,7 +4,7 @@ path: /labs
 title: Labs
 galleryLabs:
   - date: 2021-04-27T21:52:33.835Z
-    cover: /assets/labs-django-multiple-schemas.png
+    cover: /assets/posts/labs-django-multiple-schemas.png
     title: Django Multiple Schemas
     projectLink: https://github.com/willianantunes/django-multiple-schemas
     description: Here you'll find a simple project that shows how to use schema with
@@ -12,7 +12,7 @@ galleryLabs:
       scenarios the project needs in PostgreSQL. It even has tests to guarantee
       that it's created as expected.
   - date: 2021-04-27T21:38:26.635Z
-    cover: /assets/labs-transcriber-wrapper.png
+    cover: /assets/posts/labs-transcriber-wrapper.png
     projectLink: https://github.com/willianantunes/transcriber-wrapper
     title: Transcriber Wrapper
     description: It's a wrapper of back-ends that convert text to phones for
@@ -24,9 +24,9 @@ galleryLabs:
     projectLink: https://github.com/willianantunes/willianantunes.com
     description: It was built from the ground up using Gatsby. It uses Netlify CMS,
       Jest, React Testing Library, SonarCloud, styled-components, and many more!
-    cover: /assets/labs-my-own-blog.png
+    cover: /assets/posts/labs-my-own-blog.png
   - date: 2021-04-27T13:21:42.402Z
-    cover: /assets/labs-rop.png
+    cover: /assets/posts/labs-rop.png
     title: A place where you can learn Phonetics
     projectLink: https://www.raveofphonetics.com/
     description: I realized that there were many phonetic transcription sites, but
@@ -35,7 +35,7 @@ galleryLabs:
   - date: 2020-04-28T15:26:09.713Z
     projectLink: https://github.com/willianantunes/runner-said-no-one-ever/
     title: "Runner #SaidNoOneEver"
-    cover: /assets/labs-runner-saidnooneever.png
+    cover: /assets/posts/labs-runner-saidnooneever.png
     description: It can be identified as the Word Suggestion API on the image. The
       idea here is to delay 1 second or more (given your custom configuration)
       to answer a request. Thus you can use this behavior for interesting tests,
@@ -49,5 +49,14 @@ galleryLabs:
       tests with PostgreSQL. As it uses Docker, you can easily make the service
       up and play a game!
     projectLink: https://github.com/willianantunes/tic-tac-toe-csharp-playground
-    cover: /assets/labs-tic-tac-toe-c-playground.png
+    cover: /assets/posts/labs-tic-tac-toe-c-playground.png
+  - date: 2019-04-29T12:18:42.006Z
+    title: Next.JS Playground through a code challenge
+    projectLink: https://github.com/willianantunes/nextjs-playground
+    description: You'll see my solution for a code challenge which I think is not
+      used anymore as it's old; maybe if you search for this code challenge, you
+      may find it somewhere on GitHub. As I made it to do a playground on some
+      technologies, I  even used Redux to test it. Thus it's important to say
+      that I don't recommend it for simple cases.
+    cover: /assets/posts/labs-next.js-playground.png
 ---

@@ -40,7 +40,7 @@
     "gatsby-plugin-sitemap": "^3.3.0",
     "gatsby-plugin-styled-components": "^4.3.0",
     "gatsby-remark-images": "^5.0.0",
-    "gatsby-remark-relative-images": "^0.2.3",
+    "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^3.3.0",
     "gatsby-theme-material-ui": "^2.0.1",
     "gatsby-transformer-remark": "^4.0.0",

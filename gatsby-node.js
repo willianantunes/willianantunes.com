@@ -1,4 +1,3 @@
-const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 const { BlogNodeHandler, PageNodeHandler } = require("./src/config/gatsby-node-handlers")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -12,7 +11,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   // https://www.gatsbyjs.com/docs/reference/config-files/actions/#createNodeField
   const { createNodeField } = actions
-  fmImagesToRelative(node)
 
   BlogNodeHandler.createNodeHandler(createNodeField, getNode, node)
 }
