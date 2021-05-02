@@ -48,6 +48,6 @@ One thing is discovering new tools and using them on your personal projects, and
 * Is it hard to find people that can work with it?
 * Is it arduous to teach people that have never been in contact with the language or the framework?
 
-There are others of course, but get the point 😁.
+There are others of course, but you get the point 😁.
 
-This is the first blog entry and I expect to post once per month at least. I hope I can achieve this goal 😄
+This is the first blog entry and I expect to post once per month at least. I hope I can achieve this goal! 😄
