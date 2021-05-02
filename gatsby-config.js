@@ -69,6 +69,8 @@ const plugins = [
           resolve: `gatsby-remark-images`,
           options: {},
         },
+        `gatsby-remark-prismjs`,
+        `gatsby-remark-external-links`,
       ],
     },
   },
