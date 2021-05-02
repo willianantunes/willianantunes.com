@@ -21,10 +21,6 @@ export default function ToggleTheme() {
     toggleTheme()
     // So the component can be rendered properly
     evaluateCurrentTheme()
-    // To refresh DISQUS
-    if (window && window.DISQUS !== undefined) {
-      window.setTimeout(() => window.DISQUS.reset({ reload: true }), 600)
-    }
   }
 
   return (

@@ -5,7 +5,6 @@ const configureMustHaveEnv = () => {
   process.env.GOOGLE_TAG_MANAGER_ID = "XPTO"
   process.env.NETLIFY_CMS_BACKEND_REPO = "agrabah/jasmine"
   process.env.NETLIFY_CMS_BACKEND_BRANCH = "main"
-  process.env.DISQUS_SHORTNAME = "agrabah"
 }
 
 describe("Settings module", () => {

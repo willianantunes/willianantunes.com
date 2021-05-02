@@ -1,17 +1,37 @@
-import React from "react"
+import React, { createRef, useEffect } from "react"
 import SEO from "../components/SEO"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import BlogPost from "../components/BlogPost"
-import DisqusWrapper from "../components/DisqusWrapper"
+import CommentSection from "../components/CommentSection"
+import { isCurrentThemeDark } from "../business/dark-mode-strategy"
 
 const BlogPostTemplate = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
-
+  // TODO: previousPost and nextPost should be used!
   const { previousPost, nextPost, markdownRemark: currentPost } = data
+  const commentSectionRef = createRef()
 
-  const identifier = currentPost.frontmatter.id
+  useEffect(() => {
+    const commentScript = document.createElement("script")
+    // TODO: When the user changes theme, this should be updated too
+    const theme = typeof window !== "undefined" && isCurrentThemeDark() ? "github-dark" : "github-light"
+    commentScript.async = true
+    commentScript.src = "https://utteranc.es/client.js"
+    // TODO: Use ENV variables for it
+    commentScript.setAttribute("repo", "willianantunes/comments")
+    commentScript.setAttribute("issue-term", "pathname")
+    commentScript.setAttribute("id", "utterances")
+    commentScript.setAttribute("theme", theme)
+    commentScript.setAttribute("crossorigin", "anonymous")
+    if (commentSectionRef && commentSectionRef.current) {
+      commentSectionRef.current.appendChild(commentScript)
+    } else {
+      console.log(`Error adding utterances comments on: ${commentSectionRef}`)
+    }
+  }, [])
+
   const description = currentPost.frontmatter.description
   const date = currentPost.frontmatter.date
   const formattedDate = currentPost.frontmatter.formattedDate
@@ -33,7 +53,7 @@ const BlogPostTemplate = ({ data }) => {
         tags={tags}
         image={image}
       />
-      <DisqusWrapper identifier={identifier} title={title} />
+      <CommentSection reactRef={commentSectionRef} />
     </Layout>
   )
 }

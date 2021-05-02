@@ -103,11 +103,6 @@ const NETLIFY_CMS_BACKEND_BRANCH = getEnvOrRaiseException(
   findValue(process.env.NETLIFY_CMS_BACKEND_BRANCH, process.env.GATSBY_NETLIFY_CMS_BACKEND_BRANCH)
 )
 
-const DISQUS_SHORTNAME = getEnvOrRaiseException(
-  "DISQUS_SHORTNAME",
-  findValue(process.env.DISQUS_SHORTNAME, process.env.GATSBY_DISQUS_SHORTNAME)
-)
-
 module.exports = {
   SITE_URL,
   GOOGLE_TAG_MANAGER_ID,
@@ -115,6 +110,5 @@ module.exports = {
   NETLIFY_CMS_LOCAL_BACKEND,
   NETLIFY_CMS_BACKEND_REPO,
   NETLIFY_CMS_BACKEND_BRANCH,
-  DISQUS_SHORTNAME,
   GatsbyPluginFeed,
 }
