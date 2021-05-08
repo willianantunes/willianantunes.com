@@ -50,7 +50,7 @@ why-use-argument-e-with-bug_1  | I am the /app/the_set_builtin/sample_3.py!
 the-set-builtin_why-use-argument-e-with-bug_1 exited with code 0
 ```
 
-The exit code is 0 😠. Now, if you include the option `set -e`, if you execute it again, the output changes, fixing the unexpected behavior:
+The exit code is 0 😠. Now, if you include the option `set -e` and execute it again, the output changes, fixing the unexpected behavior:
 
 ```shellsession
 ▶ docker-compose up why-use-argument-e-with-fix 
@@ -172,7 +172,7 @@ Its explanation:
 
 > If set, the return value of a pipeline is the value of the last (rightmost) command to exit with a non-zero status, or zero if all commands in the pipeline exit successfully. This option is disabled by default.
 
-## Protected you from working more than usual
+## Shield you from working outside working hours
 
 Wrapping everything up, this is the entry your bash script should have at the top: `set -eu -o pipefail`. Always insert it in all of your scripts, always. This simple protection will help you a lot during [TSHOOT](https://www.google.com/search?q=what+is+tshoot) 🙏. One example is when you're running your application without a migration that should have been applied.
 
