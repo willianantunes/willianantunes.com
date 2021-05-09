@@ -80,6 +80,10 @@ function findValue(v1, v2) {
 }
 
 const SITE_URL = getEnvOrRaiseException("SITE_URL", findValue(process.env.SITE_URL, process.env.GATSBY_SITE_URL))
+const UTTERANCES_REPOSITORY = getEnvOrRaiseException(
+  "UTTERANCES_REPOSITORY",
+  findValue(process.env.UTTERANCES_REPOSITORY, process.env.GATSBY_UTTERANCES_REPOSITORY)
+)
 
 const GOOGLE_TAG_MANAGER_ID = getEnvOrRaiseException(
   "GOOGLE_TAG_MANAGER_ID",
@@ -105,6 +109,7 @@ const NETLIFY_CMS_BACKEND_BRANCH = getEnvOrRaiseException(
 
 module.exports = {
   SITE_URL,
+  UTTERANCES_REPOSITORY,
   GOOGLE_TAG_MANAGER_ID,
   GTM_INCLUDE_DEVELOPMENT,
   NETLIFY_CMS_LOCAL_BACKEND,

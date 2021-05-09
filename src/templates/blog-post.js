@@ -1,44 +1,16 @@
-import React, { createRef, useEffect } from "react"
+import React, { createRef } from "react"
 import SEO from "../components/SEO"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import BlogPost from "../components/BlogPost"
 import CommentSection from "../components/CommentSection"
-import { paletteTypeDark, useDarkThemeContext } from "../contexts/dark-theme-context"
 
 const BlogPostTemplate = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
+  const commentSectionRef = createRef()
   // TODO: previousPost and nextPost should be used!
   const { previousPost, nextPost, markdownRemark: currentPost } = data
-  const { paletteType } = useDarkThemeContext()
-  const commentSectionRef = createRef()
-
-  useEffect(() => {
-    const commentScript = document.createElement("script")
-    // TODO: When the user changes theme, this should be updated too
-    const theme = paletteType === paletteTypeDark ? "github-dark" : "github-light"
-    commentScript.async = true
-    commentScript.src = "https://utteranc.es/client.js"
-    // TODO: Use ENV variables for it
-    commentScript.setAttribute("repo", "willianantunes/comments")
-    commentScript.setAttribute("issue-term", "pathname")
-    commentScript.setAttribute("id", "utterances")
-    commentScript.setAttribute("theme", theme)
-    commentScript.setAttribute("crossorigin", "anonymous")
-    if (commentSectionRef && commentSectionRef.current) {
-      commentSectionRef.current.appendChild(commentScript)
-    } else {
-      console.log(`Error adding utterances comments on: ${commentSectionRef}`)
-    }
-
-    const cleanUpFunctionToRemoveCommentSection = () => {
-      commentScript.remove()
-      document.querySelectorAll(".utterances").forEach(el => el.remove())
-    }
-
-    return cleanUpFunctionToRemoveCommentSection
-  }, [paletteType])
 
   const description = currentPost.frontmatter.description
   const date = currentPost.frontmatter.date
