@@ -3,7 +3,6 @@
 !content
 !src
 !static
-!.env.production
 !gatsby-*.js
 !package.json
 !package-lock.json
