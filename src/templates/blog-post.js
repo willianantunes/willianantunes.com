@@ -5,18 +5,19 @@ import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import BlogPost from "../components/BlogPost"
 import CommentSection from "../components/CommentSection"
-import { isCurrentThemeDark } from "../business/dark-mode-strategy"
+import { paletteTypeDark, useDarkThemeContext } from "../contexts/dark-theme-context"
 
 const BlogPostTemplate = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
   // TODO: previousPost and nextPost should be used!
   const { previousPost, nextPost, markdownRemark: currentPost } = data
+  const { paletteType } = useDarkThemeContext()
   const commentSectionRef = createRef()
 
   useEffect(() => {
     const commentScript = document.createElement("script")
     // TODO: When the user changes theme, this should be updated too
-    const theme = typeof window !== "undefined" && isCurrentThemeDark() ? "github-dark" : "github-light"
+    const theme = paletteType === paletteTypeDark ? "github-dark" : "github-light"
     commentScript.async = true
     commentScript.src = "https://utteranc.es/client.js"
     // TODO: Use ENV variables for it
@@ -30,7 +31,14 @@ const BlogPostTemplate = ({ data }) => {
     } else {
       console.log(`Error adding utterances comments on: ${commentSectionRef}`)
     }
-  }, [])
+
+    const cleanUpFunctionToRemoveCommentSection = () => {
+      commentScript.remove()
+      document.querySelectorAll(".utterances").forEach(el => el.remove())
+    }
+
+    return cleanUpFunctionToRemoveCommentSection
+  }, [paletteType])
 
   const description = currentPost.frontmatter.description
   const date = currentPost.frontmatter.date

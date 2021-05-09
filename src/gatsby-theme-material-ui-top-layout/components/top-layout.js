@@ -5,12 +5,12 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Viewport from "gatsby-theme-material-ui-top-layout/src/components/viewport"
 import { createMuiTheme } from "@material-ui/core"
 import { themeConfiguration } from "../theme"
-import { useWindowDarkModeStrategy } from "../../business/dark-mode-strategy"
+import { useDarkThemeContext } from "../../contexts/dark-theme-context"
 
 // Sadly the injected theme can't be updated, that is why I import the one in theme.js
 export default function TopLayout({ children }) {
   // https://material-ui.com/customization/palette/#user-preference
-  const paletteType = useWindowDarkModeStrategy()
+  const { paletteType } = useDarkThemeContext()
 
   const memoizedTheme = useMemo(() => {
     themeConfiguration.palette.type = paletteType

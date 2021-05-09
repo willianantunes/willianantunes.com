@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from "react"
 import * as S from "./styled"
 import { Helmet } from "react-helmet/es/Helmet"
-import { isCurrentThemeDark, toggleTheme } from "../../business/dark-mode-strategy"
+import {
+  paletteTypeDark,
+  paletteTypeLight,
+  paletteTypeLocalStorageKey,
+  useDarkThemeContext,
+} from "../../contexts/dark-theme-context"
 
 export default function ToggleTheme() {
+  const { paletteType, setPaletteType } = useDarkThemeContext()
   const [isDarkMode, setIsDarkMode] = useState(null)
 
   function evaluateCurrentTheme() {
-    const evaluation = isCurrentThemeDark()
+    const evaluation = paletteType === paletteTypeDark
     setIsDarkMode(evaluation)
     return evaluation
   }
 
+  function toggleTheme() {
+    const newTheme = paletteType === paletteTypeLight ? paletteTypeDark : paletteTypeLight
+    setPaletteType(newTheme)
+    try {
+      localStorage.setItem(paletteTypeLocalStorageKey, newTheme)
+    } catch (exceptionToBeIgnored) {}
+  }
+
   useEffect(() => {
     evaluateCurrentTheme()
-  }, [])
+  }, [paletteType])
 
   const onClick = () => {
-    // Please see dark-mode-strategy.js to understand what is going on
     toggleTheme()
-    // So the component can be rendered properly
-    evaluateCurrentTheme()
   }
 
   return (
