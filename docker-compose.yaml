@@ -8,6 +8,7 @@ services:
       args:
         GOOGLE_TAG_MANAGER_ID: "GTM-PRTVFT3"
         SITE_URL: "http://localhost:9000/"
+        UTTERANCES_REPOSITORY: "willianantunes/comments"
         NETLIFY_CMS_BACKEND_REPO: "willianantunes/willianantunes.com"
         NETLIFY_CMS_BACKEND_BRANCH: "main"
     ports:
