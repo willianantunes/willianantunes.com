@@ -28,18 +28,6 @@ describe("Header component", () => {
     useSiteMetadata.mockReturnValue(fakeSiteMetadata)
   })
 
-  beforeEach(() => {
-    window.__toggleTheme = jest.fn().mockImplementation(() => {
-      window.__theme = window.__theme === "dark" ? "light" : "dark"
-    })
-    window.__theme = "light"
-  })
-
-  afterEach(() => {
-    delete window.__toggleTheme
-    delete window.__theme
-  })
-
   it("has fork me ribbon", async () => {
     // Act
     render(<Header />)
@@ -114,8 +102,6 @@ describe("Header component", () => {
     fireEvent.click(element)
     await screen.findByTitle(titleWhenLight)
     await waitFor(() => expect(document.querySelector(`.${whenThemeIsDark}`)).toBeInTheDocument())
-
-    expect(window.__toggleTheme).toHaveBeenCalledTimes(1)
 
     expect(document.body.classList.contains(whenThemeIsDark)).toBeTruthy()
     expect(element.getAttribute("title")).toBe(titleWhenLight)

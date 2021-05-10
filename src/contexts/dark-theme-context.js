@@ -9,16 +9,20 @@ const DarkThemeContext = React.createContext(null)
 const useDarkThemeContext = () => React.useContext(DarkThemeContext)
 
 function currentTheme() {
-  const prefersDark = typeof window !== "undefined" && window.matchMedia(mediaQueryColorTheme).matches
-
   try {
-    const themeInWindow = typeof window !== "undefined" && localStorage.getItem(paletteTypeLocalStorageKey)
-    if (themeInWindow) {
-      return localStorage.getItem(paletteTypeLocalStorageKey)
-    }
-  } catch (exceptionToBeIgnored) {}
+    const prefersDark = typeof window !== "undefined" && window.matchMedia(mediaQueryColorTheme).matches
 
-  return prefersDark ? paletteTypeDark : paletteTypeLight
+    try {
+      const themeInWindow = typeof window !== "undefined" && localStorage.getItem(paletteTypeLocalStorageKey)
+      if (themeInWindow) {
+        return localStorage.getItem(paletteTypeLocalStorageKey)
+      }
+    } catch (exceptionToBeIgnored) {}
+
+    return prefersDark ? paletteTypeDark : paletteTypeLight
+  } catch (exceptionToBeIgnored) {
+    return paletteTypeLight
+  }
 }
 
 function DarkThemeProvider({ children }) {
@@ -33,4 +37,4 @@ function wrapWithDarkThemeProvider({ element }) {
   return <DarkThemeProvider>{element}</DarkThemeProvider>
 }
 
-export { useDarkThemeContext, wrapWithDarkThemeProvider }
+export { useDarkThemeContext, wrapWithDarkThemeProvider, DarkThemeProvider }
