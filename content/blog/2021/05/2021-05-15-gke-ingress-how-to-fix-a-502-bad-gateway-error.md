@@ -102,7 +102,13 @@ The targeted service returns 404 instead of 200 for the path `/`.
 
 ## Understanding GKE behavior
 
-Looking over *[GKE Ingress for HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#overview)* guide, the section [Default and inferred parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#def_inf_hc) shows us that the ingress will check the POD's spec `containers[].readinessProbe.httpGet.path` to get the path to verify the service health, but if it's empty, it will use the default value `/`. Moreover, this statement is important:
+Looking over *[GKE Ingress for HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#overview)* guide, the section [Default and inferred parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#def_inf_hc) shows us that the ingress will check the POD's spec:
+
+```json
+ containers[].readinessProbe.httpGet.path
+```
+
+Then using it value to get the path to verify the service health, but if it's empty, it will use the default value `/`. Moreover, this statement is important:
 
 > When you expose one or more Services through an Ingress using the default Ingress controller, GKE creates a Google Cloud external HTTP(S) load balancer or a Google Cloud internal HTTP(S) load balancer. Both of these load balancers support multiple backend services on a single URL map. Each of the backend services corresponds to a Kubernetes Service, and each backend service must reference a Google Cloud health check. This health check is different from a Kubernetes liveness or readiness probe because the health check is implemented outside of the cluster.
 
@@ -111,7 +117,7 @@ Looking over *[GKE Ingress for HTTP(S) Load Balancing](https://cloud.google.com
 To quickly solve it, I added the following to my deployment manifest:
 
 ```yaml
-livenessProbe:
+readinessProbe:
   httpGet:
     path: "/health-check"
     port: 8000
