@@ -47,7 +47,7 @@ The service named `spacejam-np-service` was bound to a deployment like the follo
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spacejam-deployment
+  name: spacejam-web-deployment
   namespace: production
 spec:
   replicas: 1
@@ -80,11 +80,7 @@ Notice that it does not have a readiness probe entry 🤔. After creating all of
 
 ## Is the service running correctly?
 
-My first idea was to check the service. Is it healthy or not? To do that, I ran the command `kubectl proxy` and then accessed the service through the link:
-
-* `http://127.0.0.1:8001/api/v1/namespaces/production/services/spacejam-np-service:8000/proxy/health-check`
-
-Everything was working as expected. My second idea was to understand how the ingress checks if a service is healthy or not.
+My first idea was to check the service. Is it healthy or not? The command `kubectl describe deployments spacejam-web-deployment` returned that it was fine, then I ran another command `kubectl port-forward deployment/spacejam-web-deployment 8000:8000` so I could access the service directly through `http://localhost:8000/health-check`. Everything was working as expected. My second idea was to understand how the ingress checks if a service is healthy or not.
 
 ### Checking backend health status and finding the root cause
 
