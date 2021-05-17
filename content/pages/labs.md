@@ -50,6 +50,22 @@ galleryLabs:
       up and play a game!
     projectLink: https://github.com/willianantunes/tic-tac-toe-csharp-playground
     cover: /assets/posts/labs-tic-tac-toe-c-playground.png
+  - date: 2020-05-17T12:29:23.888Z
+    title: Python Fluentd Testing
+    projectLink: https://github.com/juntossomosmais/python-fluentd-testing
+    description: Tired of testing fluentd and wasting lots of your precious time
+      with manual tests? How about the lag it causes to your machine? Now you
+      can easily test your configuration with this project using containers!
+    cover: /assets/posts/labs-fluentd-python-docker.png
+  - date: 2019-05-17T12:35:20.432Z
+    title: DRF Link Navigation Pagination
+    projectLink: https://github.com/juntossomosmais/drf-link-navigation-pagination
+    description: Django Rest Framework has a built-in pagination feature, and that's
+      awesome. Now suppose you have a reverse proxy intermediating the request
+      process. In that case, you may need to change some of the pagination
+      attributes to point to your API address correctly. You can use this
+      third-party package to help you out on this issue.
+    cover: /assets/posts/labs-drf-link-pagination.png
   - date: 2019-04-29T12:18:42.006Z
     title: Next.JS Playground through a code challenge
     projectLink: https://github.com/willianantunes/nextjs-playground
