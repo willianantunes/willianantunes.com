@@ -1,6 +1,6 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useEffect, useState } from "react"
 import { ThemeProvider as StyledComponentsThemeProvider } from "styled-components"
-import { ThemeProvider as MuiThemeProvider } from "@material-ui/styles"
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Viewport from "gatsby-theme-material-ui-top-layout/src/components/viewport"
 import { createMuiTheme } from "@material-ui/core"
@@ -17,8 +17,15 @@ export default function TopLayout({ children }) {
     return createMuiTheme(themeConfiguration)
   }, [paletteType])
 
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    // https://github.com/vercel/next.js/discussions/15003#discussioncomment-734715
+    // https://www.joshwcomeau.com/react/the-perils-of-rehydration/#the-solution
+    setMounted(true)
+  }, [])
+
   return (
-    <>
+    <div key={String(mounted)}>
       <Viewport />
       <MuiThemeProvider theme={memoizedTheme}>
         {/* https://material-ui.com/guides/interoperability/#theme */}
@@ -28,6 +35,6 @@ export default function TopLayout({ children }) {
           {children}
         </StyledComponentsThemeProvider>
       </MuiThemeProvider>
-    </>
+    </div>
   )
 }
