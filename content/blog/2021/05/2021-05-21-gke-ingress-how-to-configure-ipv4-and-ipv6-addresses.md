@@ -36,7 +36,6 @@ resource "google_compute_global_address" "gke_ingress_ipv4" {
   ip_version = "IPV4"
   address_type = "EXTERNAL"
 }
-
 ```
 
 After their creation, you can check them out by accessing [VPC Network and then External IP addresses through the Web Console](https://console.cloud.google.com/networking/addresses/list).
@@ -59,7 +58,6 @@ resource "google_compute_managed_ssl_certificate" "jasmine_certs" {
     ]
   }
 }
-
 ```
 
 Now we have everything to create our Ingress 🚀.
@@ -99,7 +97,7 @@ resource "kubernetes_ingress" "sample_ingress" {
     namespace = "production"
 
     annotations = {
-      "kubernetes.io/ingress.global-static-ip-name" = "external-address-gke-ingress-ipv6"
+      "kubernetes.io/ingress.global-static-ip-name" = "external-address-gke-ingress-ipv4"
       "ingress.gcp.kubernetes.io/pre-shared-cert" = "jasmine-certs"
     }
   }
@@ -125,7 +123,7 @@ Now you can execute `terraform apply` followed by your confirmation. After its c
 ```shellsession
 ▶ kubectl -n production get ingress
 NAME               CLASS    HOSTS         ADDRESS             PORTS   AGE
-sample-ingress     <none>   agrabah.com   2600:X:X:X::        80      7d18h
+sample-ingress     <none>   agrabah.com   34.X.X.X            80      42d
 ```
 
 We're almost there. Now we're at the part where we have to make our hands dirty 😬.
@@ -146,7 +144,7 @@ You can click on edit and then click on frontend configuration.
 
 ![You have four options to configure you load balancer. The one highlighted is the frontend one. ](/assets/posts/blog-6-image-3.png "Load balancer edit panel.")
 
-On the panel **Frontend configuration**, we can click on **Add Frontend IP and port** and then configure two new entries for ports 80 and 443 for the IPv4 address that is missing. You can base your configuration following what has been set for you automatically. Sample:
+On the panel **Frontend configuration**, we can click on **Add Frontend IP and port** and then configure two new entries for ports 80 and 443 for the IPv6 address that is missing. You can base your configuration following what has been set for you automatically. Sample:
 
 ![It lists 4 items of the frontend configuration, including two rows that were configured as an example.](/assets/posts/blog-6-image-4.png "Sample of how your configuration might be.")
 
