@@ -44,7 +44,13 @@ After their creation, you can check them out by accessing [VPC Network and then
 
 ## Creating certificate managers
 
-The resource [`google_compute_managed_ssl_certificate`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_managed_ssl_certificate) allows us to create certificate managers. To illustrate our fictional sample:
+The following [GCP resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_managed_ssl_certificate):
+
+```
+google_compute_managed_ssl_certificate
+```
+
+It allows us to create certificate managers. To illustrate our fictional sample:
 
 ```ruby
 resource "google_compute_managed_ssl_certificate" "jasmine_certs" {
