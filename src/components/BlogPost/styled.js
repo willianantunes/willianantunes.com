@@ -190,6 +190,10 @@ export const ContentWrapper = styled(Box).attrs({
     color: inherit;
   }
 
+  a.anchor.before > svg {
+    fill: var(--color-text);
+  }
+
   /* Prose */
 
   p {
