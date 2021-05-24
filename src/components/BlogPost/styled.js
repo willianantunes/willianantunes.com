@@ -92,7 +92,7 @@ export const ContentWrapper = styled(Box).attrs({
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
   --lineHeight-relaxed: 1.625;
-  /* 1.200 Minor Third Type Scale */
+  // 1.200 Minor Third Type Scale
   --fontSize-1: 1rem;
   --fontSize-2: 1.2rem;
   --fontSize-3: 1.44rem;
@@ -194,8 +194,6 @@ export const ContentWrapper = styled(Box).attrs({
     fill: var(--color-text);
   }
 
-  /* Prose */
-
   p {
     line-height: var(--lineHeight-relaxed);
     --baseline-multiplier: 0.179;
@@ -204,11 +202,14 @@ export const ContentWrapper = styled(Box).attrs({
     padding: var(--spacing-0);
   }
 
+  p:last-child {
+    margin-bottom: ${props => props.theme.spacing(3)}px;
+  }
+
   ul,
   ol {
     margin-left: var(--spacing-0);
     margin-right: var(--spacing-0);
-    //padding: var(--spacing-0);
     margin-bottom: var(--spacing-8);
     list-style-position: outside;
     list-style-image: none;
@@ -263,8 +264,6 @@ export const ContentWrapper = styled(Box).attrs({
   table thead tr th {
     border-bottom: 1px solid var(--color-accent);
   }
-
-  /* Link */
 
   a {
     color: var(--color-primary);

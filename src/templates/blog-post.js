@@ -6,12 +6,12 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import BlogPost from "../components/BlogPost"
 import CommentSection from "../components/CommentSection"
 import { groupLevels } from "../business/posts-dealer"
+import PreviousNextEntries from "../components/PreviousNextEntries"
 
 const BlogPostTemplate = ({ data }) => {
-  const { siteUrl } = useSiteMetadata()
   const commentSectionRef = createRef()
-  // TODO: previousPost and nextPost should be used!
-  const { previousPost, nextPost, markdownRemark: currentPost } = data
+  const { siteUrl } = useSiteMetadata()
+  const { previous: previousPost, next: nextPost, markdownRemark: currentPost } = data
 
   const description = currentPost.frontmatter.description
   const date = currentPost.frontmatter.date
@@ -36,6 +36,7 @@ const BlogPostTemplate = ({ data }) => {
         image={image}
         headings={groupedLevels}
       />
+      {(previousPost || nextPost) && <PreviousNextEntries previousEntry={previousPost} nextEntry={nextPost} />}
       <CommentSection reactRef={commentSectionRef} />
     </Layout>
   )
@@ -73,6 +74,8 @@ export const pageQuery = graphql`
         path
       }
       frontmatter {
+        formattedDate: date(formatString: "MMMM DD, YYYY")
+        date
         title
       }
     }
@@ -81,6 +84,8 @@ export const pageQuery = graphql`
         path
       }
       frontmatter {
+        formattedDate: date(formatString: "MMMM DD, YYYY")
+        date
         title
       }
     }
