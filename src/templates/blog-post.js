@@ -7,12 +7,14 @@ import BlogPost from "../components/BlogPost"
 import CommentSection from "../components/CommentSection"
 import { groupLevels } from "../business/posts-dealer"
 import PreviousNextEntries from "../components/PreviousNextEntries"
+import ContributionDetails from "../components/ContributionDetails"
 
 const BlogPostTemplate = ({ data }) => {
   const commentSectionRef = createRef()
   const { siteUrl } = useSiteMetadata()
   const { previous: previousPost, next: nextPost, markdownRemark: currentPost } = data
 
+  const fileAbsolutePath = currentPost.fileAbsolutePath
   const description = currentPost.frontmatter.description
   const date = currentPost.frontmatter.date
   const formattedDate = currentPost.frontmatter.formattedDate
@@ -36,6 +38,7 @@ const BlogPostTemplate = ({ data }) => {
         image={image}
         headings={groupedLevels}
       />
+      <ContributionDetails pathWhereEntryIsSaved={fileAbsolutePath} />
       {(previousPost || nextPost) && <PreviousNextEntries previousEntry={previousPost} nextEntry={nextPost} />}
       <CommentSection reactRef={commentSectionRef} />
     </Layout>
@@ -51,6 +54,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       timeToRead
+      fileAbsolutePath
       frontmatter {
         title
         formattedDate: date(formatString: "MMMM DD, YYYY")
@@ -67,6 +71,9 @@ export const pageQuery = graphql`
         id
         value
         depth
+      }
+      fields {
+        path
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

@@ -11,5 +11,6 @@ services:
         UTTERANCES_REPOSITORY: "willianantunes/comments"
         NETLIFY_CMS_BACKEND_REPO: "willianantunes/willianantunes.com"
         NETLIFY_CMS_BACKEND_BRANCH: "main"
+        TARGET_REPO_BRANCH_CONTRIBUTION: "https://github.com/willianantunes/willianantunes.com/edit/main/content"
     ports:
       - "9000:9000"
