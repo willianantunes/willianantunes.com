@@ -1,4 +1,4 @@
-import { groupByYear } from "../../../src/business/posts-dealer"
+import { groupByYear, groupLevels } from "../../../src/business/posts-dealer"
 
 function buildSamplePostWithMinimalAttrs(date, title) {
   return {
@@ -26,6 +26,115 @@ describe("Posts dealer", () => {
       { year: "2023", posts: [post_4] },
       { year: "2022", posts: [post_3] },
       { year: "2021", posts: [post_2, post_1, post_0] },
+    ])
+  })
+
+  it("should group levels of a given heading", () => {
+    // Arrange
+    const headings = [
+      {
+        id: "joey-stop-hitting-on-her",
+        value: "Joey, stop hitting on her! It's her wedding day!",
+        depth: 2,
+      },
+      {
+        id: "please-dont-do-that-again",
+        value: "Please don't do that again, it's a horrible sound.",
+        depth: 3,
+      },
+      {
+        id: "oh-god-is-it",
+        value: "Oh God, is it 6:30?",
+        depth: 4,
+      },
+      {
+        id: "buzz-him-in",
+        value: "Buzz him in!",
+        depth: 5,
+      },
+      {
+        id: "whos-paul",
+        value: "Who's Paul?",
+        depth: 4,
+      },
+      {
+        id: "so-rachel-whatre-you",
+        value: "So Rachel, what're you, uh... what're you up to tonight?",
+        depth: 3,
+      },
+      {
+        id: "hey-pheebs-you-wanna-help",
+        value: "Hey Pheebs, you wanna help",
+        depth: 2,
+      },
+      {
+        id: "oh-i-wish-i-could-but-i-dont-want-to",
+        value: "Oh, I wish I could, but I don't want to.",
+        depth: 3,
+      },
+      {
+        id: "i-have-no-idea",
+        value: "I have no idea.",
+        depth: 2,
+      },
+    ]
+    // Act
+    const result = groupLevels(headings)
+    // Assert
+    expect(result).toStrictEqual([
+      {
+        id: "joey-stop-hitting-on-her",
+        value: "Joey, stop hitting on her! It's her wedding day!",
+        depth: 2,
+        headings: [
+          {
+            id: "please-dont-do-that-again",
+            value: "Please don't do that again, it's a horrible sound.",
+            depth: 3,
+            headings: [
+              {
+                id: "oh-god-is-it",
+                value: "Oh God, is it 6:30?",
+                depth: 4,
+                headings: [
+                  {
+                    id: "buzz-him-in",
+                    value: "Buzz him in!",
+                    depth: 5,
+                  },
+                ],
+              },
+              {
+                id: "whos-paul",
+                value: "Who's Paul?",
+                depth: 4,
+              },
+            ],
+          },
+          {
+            id: "so-rachel-whatre-you",
+            value: "So Rachel, what're you, uh... what're you up to tonight?",
+            depth: 3,
+          },
+        ],
+      },
+      {
+        id: "hey-pheebs-you-wanna-help",
+        value: "Hey Pheebs, you wanna help",
+        depth: 2,
+        headings: [
+          {
+            id: "oh-i-wish-i-could-but-i-dont-want-to",
+            value: "Oh, I wish I could, but I don't want to.",
+            depth: 3,
+          },
+        ],
+      },
+      {
+        id: "i-have-no-idea",
+        value: "I have no idea.",
+        depth: 2,
+      },
     ])
   })
 })

@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import BlogPost from "../components/BlogPost"
 import CommentSection from "../components/CommentSection"
+import { groupLevels } from "../business/posts-dealer"
 
 const BlogPostTemplate = ({ data }) => {
   const { siteUrl } = useSiteMetadata()
@@ -20,6 +21,7 @@ const BlogPostTemplate = ({ data }) => {
   const content = currentPost.html
   const timeToRead = currentPost.timeToRead
   const image = `${siteUrl}${currentPost.frontmatter.cover.publicURL}`
+  const groupedLevels = groupLevels(currentPost.headings)
 
   return (
     <Layout>
@@ -32,6 +34,7 @@ const BlogPostTemplate = ({ data }) => {
         timeToRead={timeToRead}
         tags={tags}
         image={image}
+        headings={groupedLevels}
       />
       <CommentSection reactRef={commentSectionRef} />
     </Layout>
@@ -58,6 +61,11 @@ export const pageQuery = graphql`
           id
           publicURL
         }
+      }
+      headings {
+        id
+        value
+        depth
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

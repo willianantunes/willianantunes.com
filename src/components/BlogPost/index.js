@@ -2,8 +2,9 @@ import React from "react"
 import * as S from "./styled"
 import { PurchaseTag } from "@styled-icons/boxicons-regular"
 import PropTypes from "prop-types"
+import TableOfContents from "../TableOfContents"
 
-const BlogPost = ({ title, date, formattedDate, content, timeToRead, tags, image }) => {
+const BlogPost = ({ title, date, formattedDate, content, timeToRead, tags, image, headings }) => {
   const shouldRenderTime = date !== undefined
   const shouldRenderTags = tags !== undefined
   const shouldRenderBlogDetails = shouldRenderTime || shouldRenderTags
@@ -31,6 +32,7 @@ const BlogPost = ({ title, date, formattedDate, content, timeToRead, tags, image
           </S.BlogDetails>
         )}
       </S.HeaderWrapper>
+      {headings && <TableOfContents headings={headings} />}
       <S.ContentWrapper dangerouslySetInnerHTML={{ __html: content }} />
     </S.ArticleWrapper>
   )
@@ -44,6 +46,7 @@ BlogPost.propTypes = {
   timeToRead: PropTypes.number,
   tags: PropTypes.arrayOf(PropTypes.string),
   image: PropTypes.string,
+  headings: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default BlogPost

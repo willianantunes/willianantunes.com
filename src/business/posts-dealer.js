@@ -28,3 +28,37 @@ export function groupByYear(posts) {
   const orderedKeys = Object.keys(temporaryObject).reverse()
   return orderedKeys.flatMap(key => [{ year: key, posts: temporaryObject[key].reverse() }])
 }
+
+export function groupLevels(headings) {
+  const copiedHeadings = JSON.parse(JSON.stringify(headings))
+
+  const reducer = (accumulator, currentHeading) => {
+    const shouldPushFirstElement = accumulator.length === 0
+    if (shouldPushFirstElement) {
+      accumulator.push(currentHeading)
+      return accumulator
+    } else {
+      const lastHeading = accumulator.pop()
+      const createHeadingProperty = lastHeading.depth !== currentHeading.depth
+
+      if (createHeadingProperty) {
+        let configuredHeading = lastHeading.headings
+        if (configuredHeading) {
+          // Recursive call
+          configuredHeading = reducer(configuredHeading, currentHeading)
+        } else {
+          // Just fill with the first element
+          configuredHeading = [currentHeading]
+        }
+        lastHeading.headings = configuredHeading
+        accumulator.push(lastHeading)
+        return accumulator
+      } else {
+        accumulator.push(lastHeading, currentHeading)
+        return accumulator
+      }
+    }
+  }
+
+  return copiedHeadings.reduce(reducer, [])
+}
