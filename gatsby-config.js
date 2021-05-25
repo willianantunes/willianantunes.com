@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 
 // Now that ENV was loaded, we can check out the constants and plugins setup
-const { GOOGLE_TAG_MANAGER_ID, GTM_INCLUDE_DEVELOPMENT, SITE_URL, GatsbyPluginFeed } = require("./src/config/settings")
+const { SITE_URL, GatsbyPluginFeed } = require("./src/config/settings")
 
 const myName = "Willian Antunes"
 const siteMetadata = {
@@ -67,15 +67,6 @@ const plugins = [
         `gatsby-remark-prismjs`,
         `gatsby-remark-external-links`,
       ],
-    },
-  },
-  {
-    resolve: "gatsby-plugin-google-tagmanager",
-    options: {
-      id: GOOGLE_TAG_MANAGER_ID,
-      // Include GTM in development.
-      // Defaults to false meaning GTM will only be loaded in production.
-      includeInDevelopment: GTM_INCLUDE_DEVELOPMENT,
     },
   },
   `gatsby-plugin-react-helmet`,
