@@ -8,6 +8,7 @@ import CommentSection from "../components/CommentSection"
 import { groupLevels } from "../business/posts-dealer"
 import PreviousNextEntries from "../components/PreviousNextEntries"
 import ContributionDetails from "../components/ContributionDetails"
+import { Divider } from "@material-ui/core"
 
 const BlogPostTemplate = ({ data }) => {
   const commentSectionRef = createRef()
@@ -38,6 +39,7 @@ const BlogPostTemplate = ({ data }) => {
         image={image}
         headings={groupedLevels}
       />
+      <Divider />
       <ContributionDetails pathWhereEntryIsSaved={fileAbsolutePath} />
       {(previousPost || nextPost) && <PreviousNextEntries previousEntry={previousPost} nextEntry={nextPost} />}
       <CommentSection reactRef={commentSectionRef} />
