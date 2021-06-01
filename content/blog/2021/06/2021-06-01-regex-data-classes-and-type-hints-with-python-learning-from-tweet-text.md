@@ -221,9 +221,9 @@ With these:
 result = check_text_and_grab_its_details(sample_tweet)
 
 # Act and assert
-with pytest.raises(Exception):
+with pytest.raises(TextIsFalsyException):
     check_text_and_grab_its_details("")
-with pytest.raises(Exception):
+with pytest.raises(AttributeError):
     check_text_and_grab_its_details(None)   
 ```
 
@@ -272,6 +272,6 @@ Success: no issues found in 4 source files
 
 If you've been working with strong typing languages and dynamic ones for a time, once you start [gradually typing](https://en.wikipedia.org/wiki/Gradual_typing) projects, you'll notice how fast you can produce and deliver good quality code. Instead of typing everything, you can create types and apply them to important places on your code. It's been some years that I understood that 100% of pure dynamic code or typed one is a bad thing, depending, of course, in which context you are. Static type checkers enable Python projects to support gradual typing for our luck, and data classes are a fantastic way to help us with it. This technique must be used wisely, or more problems are brought up actually, though.
 
-You can take a look at [the whole project on GitHub](https://github.com/willianantunes/tutorials/tree/master/2021/06/regex-dataclasses-with-python-learning-from-tweet-text) 🤟. By the way, how about if you modify ***TextDetails*** class? Perhaps you can create a dedicated data class to contain the hashtag and its slug and then produce a list of it. There are many ways! Try it out 😜!
+You can take a look at [the whole project on GitHub](https://github.com/willianantunes/tutorials/tree/master/2021/06/regex-dataclasses-with-python-learning-from-tweet-text) 🤟. By the way, how about if you modify `TextDetails` class? Perhaps you can create a dedicated data class to contain the hashtag and its slug and then produce a list of it. There are many ways! Try it out 😜!
 
 Posted listening to [It's My Life, Talk Talk](https://youtu.be/cFH5JgyZK1I).
