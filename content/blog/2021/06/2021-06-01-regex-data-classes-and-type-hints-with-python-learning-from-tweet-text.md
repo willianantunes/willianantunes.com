@@ -4,8 +4,8 @@ title: "RegEx, Data Classes and Type Hints with Python: Learning from tweet text
 date: 2021-06-01T12:38:47.699Z
 cover: /assets/posts/blog-8-regex-data-classes-and-type-hints-with-python.png
 description: Let's use the RE module and Data Classes to check if a given tweet
-  text is valid to our fictional business rule. Type hints can make your project
-  safer. Don't know how? Just come!
+  text is valid to our fictional business rule. Type hints can help with gradual
+  typing. Come!
 tags:
   - gradual typing
   - regex
