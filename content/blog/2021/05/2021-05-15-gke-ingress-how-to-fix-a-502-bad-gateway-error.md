@@ -102,7 +102,7 @@ The targeted service returns 404 instead of 200 for the path `/`.
 
 ## Understanding GKE behavior
 
-Looking over *[GKE Ingress for HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#overview)* guide, the section [Default and inferred parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#def_inf_hc) shows us that the ingress will check the POD's spec:
+Looking over *[GKE Ingress for HTTP(S) Load Balancing](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#overview)* guide, the section [Default and inferred parameters](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#def_inf_hc) shows us that the ingress will check the POD's spec:
 
 ```json
  containers[].readinessProbe.httpGet.path
@@ -131,6 +131,6 @@ Afterward, the backend service was updated to the correct path:
 
 ## Summing-up
 
-There is a considerable debate on this very topic in the issue [Ingress Healthcheck Configuration](https://github.com/kubernetes/ingress-gce/issues/42) on [kubernetes/ingress-gce](https://github.com/kubernetes/ingress-gce) repository. Looking through issues on GitHub is an excellent way to understand how an application or service is evolving. It's been more than three years, and it's not resolved yet.
+There is a considerable debate on this very topic in the issue [Ingress Healthcheck Configuration](https://github.com/kubernetes/ingress-gce/issues/42) on [kubernetes/ingress-gce](https://github.com/kubernetes/ingress-gce) repository. Looking through issues on GitHub is an excellent way to understand how an application or service is evolving. It's been more than three years, and it's not resolved yet.
 
 In my next blog entry ✍, I'll explain how I configured IPv4 and IPv6 public addresses using only one ingress on GKE. Till next time!

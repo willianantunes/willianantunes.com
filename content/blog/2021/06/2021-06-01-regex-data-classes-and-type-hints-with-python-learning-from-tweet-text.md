@@ -16,9 +16,9 @@ Before we jump into the code, let's first define our fictional business rule ✍
 
 * After the mention, the word "concedes" must be present. It is identified as the trigger keyword.
 * After the keyword, at least one hashtag must be present. The tweet may contain more than one if the user wishes to.
-* The hashtag must be written using [Upper Camel Case (also known as Pascal Case)](https://en.wikipedia.org/wiki/Camel_case) to identify as separate words to create slugs. For instance, `#VillainJafar` turns into `villain-jafar`.
+* The hashtag must be written using [Upper Camel Case (also known as Pascal Case)](https://en.wikipedia.org/wiki/Camel_case) to identify as separate words to create slugs. For instance, `#VillainJafar` turns into `villain-jafar`.
 
-Thus if we receive something like `@GenieOfTheLamp concedes #FirstWish #SecondWish` we should get two hashtags and their slugs: `first-wish` and `second-wish`, as well as if the tweet is valid or not.
+Thus if we receive something like `@GenieOfTheLamp concedes #FirstWish #SecondWish` we should get two hashtags and their slugs: `first-wish` and `second-wish`, as well as if the tweet is valid or not.
 
 ## Starting from the test
 
@@ -89,7 +89,7 @@ def test_should_throw_exception_when_text_is_none_or_empty():
         pass      
 ```
 
-Let's jump into the concrete implementation! By the way, as you may have noticed, I'm using `pytest`, but you can see how it would be with `unittest` if you check [the repository](https://github.com/willianantunes/tutorials/blob/master/2021/06/regex-dataclasses-with-python-learning-from-tweet-text/tests/test_unittest_text_evaluator.py).
+Let's jump into the concrete implementation! By the way, as you may have noticed, I'm using `pytest`, but you can see how it would be with `unittest` if you check [the repository](https://github.com/willianantunes/tutorials/blob/master/2021/06/regex-dataclasses-with-python-learning-from-tweet-text/tests/test_unittest_text_evaluator.py).
 
 ## Defining method contract using type hints and data classes
 
@@ -100,7 +100,7 @@ def check_text_and_grab_its_details(text: str):
     pass
 ```
 
-We defined the argument's type, but what about the returned type? That's a good situation to use [Data Classes](https://docs.python.org/3/library/dataclasses.html#module-dataclasses)! From our tests, we know what the expected behavior is. Let's define our data class and use it and the returning type of our method:
+We defined the argument's type, but what about the returned type? That's a good situation to use [Data Classes](https://docs.python.org/3/library/dataclasses.html#module-dataclasses)! From our tests, we know what the expected behavior is. Let's define our data class and use it as the returning type of our method:
 
 ```python
 @dataclass(frozen=True)
@@ -114,28 +114,28 @@ def check_text_and_grab_its_details(text: str) -> TextDetails:
     pass
 ```
 
-The defined data class has the parameter `Frozen` as true, which means that its instance will be read-only, and any assignment attempt to fields will generate an exception. [Learn more about Frozen Instances in Python's documentation](https://docs.python.org/3/library/dataclasses.html#frozen-instances). It was two fields as optional and with value none. It allows us to instantiate the data class like the following:
+The defined data class has the parameter `Frozen` as true, which means that its instance will be read-only, and any assignment attempt to fields will generate an exception. [Learn more about Frozen Instances in Python's documentation](https://docs.python.org/3/library/dataclasses.html#frozen-instances). It has two fields as optional and with value none. It allows us to instantiate the data class like the following:
 
 ```python
 TextDetails(True)
 TextDetails(True, ["FirstWish"], ["first-wish"])
 ```
 
-The method contract is adequate, thanks to [type hints](https://docs.python.org/3/library/typing.html#module-typing). We can take advantage of it and use `mypy` to guarantee all the methods contracts, but let's configure it in the end. Let's dive into our method's implementation first.
+The method contract is adequate, thanks to [type hints](https://docs.python.org/3/library/typing.html#module-typing). We can take advantage of it and use `mypy` to guarantee all the methods contracts, but let's configure it in the end. Let's dive into our method's implementation first.
 
 ## Method implementation and the RE module
 
-To have a valid regular expression, I used the site [RegExr](https://regexr.com/) to create it. If you don't know how it works, I recommend the book [Piazinho](https://www.amazon.com.br/dp/8575224743/). [The regex pattern](https://regexr.com/5u3m2) can be defined in our Python code like the following:
+To have a valid regular expression, I used the site [RegExr](https://regexr.com/) to create it. If you don't know how it works, I recommend the book [Piazinho](https://www.amazon.com.br/dp/8575224743/). [The regex pattern](https://regexr.com/5u3m2) can be defined in our Python code like the following:
 
 ```python
 regex_valid_text = re.compile(r".* ?@GenieOfTheLamp concedes ( ?#([a-zA-Z]{1,}))+$")
 ```
 
-[The method compile](https://docs.python.org/3/library/re.html#re.compile) does the following according to Python documentation:
+[The method compile](https://docs.python.org/3/library/re.html#re.compile) does the following according to Python documentation:
 
 > Compile a regular expression pattern into a regular expression object, which can be used for matching using its match(), search() and other methods.
 
-We'll use [another regex pattern](http://regexr.com/5u3m8) to transform our hashtag into a slug. We just need to identify the upper case letters, ignoring the first matched group to avoid inserting a dash at the beginning. Now that we have our regex expressions determined, it's essential to clean our text before running them. Wrapping everything up, here's our code so far:
+We'll use [another regex pattern](http://regexr.com/5u3m8) to transform our hashtag into a slug. We just need to identify the upper case letters, ignoring the first matched group to avoid inserting a dash at the beginning. Now that we have our regex expressions determined, it's essential to clean our text before running them. Wrapping everything up, here's our code so far:
 
 ```python
 @dataclass(frozen=True)
@@ -156,7 +156,7 @@ def check_text_and_grab_its_details(text: str) -> TextDetails:
         raise TextIsFalsyException
 ```
 
-We'll use the methods [match](https://docs.python.org/3/library/re.html#re.Pattern.match), [findall](https://docs.python.org/3/library/re.html#re.Pattern.findall), and [sub](https://docs.python.org/3/library/re.html#re.Pattern.sub); they are all related to regex patterns. The first will check if the tweet is valid, the second will retrieve all matched hashtags with the help of [another regex pattern](https://regexr.com/5u59n), and the last one will replace a given match to a particular character; in our case, to transform the hashtag to slug. This is the final code:
+We'll use the methods [match](https://docs.python.org/3/library/re.html#re.Pattern.match), [findall](https://docs.python.org/3/library/re.html#re.Pattern.findall), and [sub](https://docs.python.org/3/library/re.html#re.Pattern.sub); they are all related to regex patterns. The first will check if the tweet is valid, the second will retrieve all matched hashtags with the help of [another regex pattern](https://regexr.com/5u59n), and the last one will replace a given match to a particular character; in our case, to transform the hashtag to slug. This is the final code:
 
 ```python
 @dataclass(frozen=True)
@@ -233,11 +233,11 @@ Now, if we run the tests 🚀:
 
 ## Bonus: static analysis with mypy
 
-Nowadays, a production-ready Python project must have a static type checker. You can gradually type your project, then make it safer to work with and ship to your environment. One that you can use is `mypy`; what is it according to [the documentation](https://github.com/python/mypy#what-is-mypy):
+Nowadays, a production-ready Python project must have a static type checker. You can gradually type your project, then make it safer to work with and ship to your environment. One that you can use is `mypy`; what is it according to [the documentation](https://github.com/python/mypy#what-is-mypy):
 
 > Mypy is an optional static type checker for Python. You can add type hints ([PEP 484](https://www.python.org/dev/peps/pep-0484/)) to your Python programs, and use mypy to type check them statically. Find bugs in your programs without even running them! You can mix dynamic and static typing in your programs. You can always fall back to dynamic typing when static typing is not convenient, such as for legacy code.
 
-I've found many bugs with the help of `mypy` since I started using it two years ago, so let's make our project a bit better. Let's apply [black](https://github.com/psf/black) and [isort](https://github.com/PyCQA/isort) also. Here's the script to evaluate our project:
+I've found many bugs with the help of `mypy` since I started using it two years ago, so let's make our project a bit better. Let's apply [black](https://github.com/psf/black) and [isort](https://github.com/PyCQA/isort) also. Here's the script to evaluate our project:
 
 ```shell
 #!/usr/bin/env bash
@@ -270,8 +270,8 @@ Success: no issues found in 4 source files
 
 ## Conclusion
 
-If you've been working with strong typing languages and dynamic ones for a time, once you start [gradually typing](https://en.wikipedia.org/wiki/Gradual_typing) projects, you'll notice how fast you can produce and deliver good quality code. Instead of typing everything, you can create types and apply them to important places on your code. It's been some years that I understood that 100% of pure dynamic code or typed one is a bad thing, depending, of course, in which context you are. Static type checkers enable Python projects to support gradual typing for our luck, and data classes are a fantastic way to help us with it. This technique must be used wisely, or more problems are brought up actually, though.
+If you've been working with strong typing languages and dynamic ones for a time, once you start [gradually typing](https://en.wikipedia.org/wiki/Gradual_typing) projects, you'll notice how fast you can produce and deliver good quality code. Instead of typing everything, you can create types and apply them to important places on your code. It's been some years that I understood that 100% of pure dynamic code or typed one is a bad thing, depending, of course, in which context you are. Static type checkers enable Python projects to support gradual typing for our luck, and data classes are a fantastic way to help us with it. This technique must be used wisely, or more problems are brought up actually, though.
 
-You can take a look at [the whole project on GitHub](https://github.com/willianantunes/tutorials/tree/master/2021/06/regex-dataclasses-with-python-learning-from-tweet-text) 🤟. By the way, how about if you modify `TextDetails` class? Perhaps you can create a dedicated data class to contain the hashtag and its slug and then produce a list of it. There are many ways! Try it out 😜!
+You can take a look at [the whole project on GitHub](https://github.com/willianantunes/tutorials/tree/master/2021/06/regex-dataclasses-with-python-learning-from-tweet-text) 🤟. By the way, how about if you modify `TextDetails` class? Perhaps you can create a dedicated data class to contain the hashtag and its slug and then produce a list of it. There are many ways! Try it out 😜!
 
-Posted listening to [It's My Life, Talk Talk](https://youtu.be/cFH5JgyZK1I).
+Posted listening to [It's My Life, Talk Talk](https://youtu.be/cFH5JgyZK1I).

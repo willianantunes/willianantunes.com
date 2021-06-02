@@ -11,7 +11,7 @@ tags:
   - shell
   - scripts
 ---
-When you build an application and make it available through container technology, either you have an [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) or [CMD](https://docs.docker.com/engine/reference/builder/#cmd) instructions at the end of its Dockerfile. Depending on which framework you're using and some requirements you have, sometimes it's better to have a bash script responsible for running your project. When it's available, generally, you'll see a bunch of commands that are executed, like [the following script I created for the project Django Multiple Schemas](https://github.com/willianantunes/django-multiple-schemas/blob/9b44d21c31c51b86d7089ac429fff8a14f8899b6/scripts/start-development.sh):
+When you build an application and make it available through container technology, either you have an [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint) or [CMD](https://docs.docker.com/engine/reference/builder/#cmd) instructions at the end of its Dockerfile. Depending on which framework you're using and some requirements you have, sometimes it's better to have a bash script responsible for running your project. When it's available, generally, you'll see a bunch of commands that are executed, like [the following script I created for the project Django Multiple Schemas](https://github.com/willianantunes/django-multiple-schemas/blob/9b44d21c31c51b86d7089ac429fff8a14f8899b6/scripts/start-development.sh):
 
 ```shell
 #!/usr/bin/env bash
@@ -23,7 +23,7 @@ python manage.py seed --create-super-user
 python manage.py runserver 0.0.0.0:8000
 ```
 
-Let's suppose the command `python manage.py migrate` failed its execution. What would happen 🤔? The answer is counter-intuitive, but the script would run fine, even with the error 🤯. It would execute the command `python manage.py seed --create-super-user` followed by `python manage.py runserver 0.0.0.0:8000`. How to fix that? Let's know a bit about some arguments of [The Set Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin).
+Let's suppose the command `python manage.py migrate` failed its execution. What would happen 🤔? The answer is counter-intuitive, but the script would run fine, even with the error 🤯. It would execute the command `python manage.py seed --create-super-user` followed by `python manage.py runserver 0.0.0.0:8000`. How to fix that? Let's know a bit about some arguments of [The Set Builtin](https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin).
 
 ## Exit immediately if any command returns a non-zero status
 

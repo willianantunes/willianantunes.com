@@ -11,7 +11,7 @@ tags:
   - csharp
   - tests
 ---
-It's fantastic when you have all of your unit tests returning green signs everywhere. Still, when you execute your project, it raises an error because an infrastructure setup is wrong, making it impossible to run your [Web API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio) properly 😑. It can be how you set up your logs, database, providers, well, many other things. One approach to fix it or minimize its impact is through integration tests. So how can you do a quick setup for that 🤔? By the way, in this blog post, we're going to consider the following technologies:
+It's fantastic when you have all of your unit tests returning green signs everywhere. Still, when you execute your project, it raises an error because an infrastructure setup is wrong, making it impossible to run your [Web API](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio) properly 😑. It can be how you set up your logs, database, providers, well, many other things. One approach to fix it or minimize its impact is through integration tests. So how can you do a quick setup for that 🤔? By the way, in this blog post, we're going to consider the following technologies:
 
 * [.NET Core 5](https://docs.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-5.0?view=aspnetcore-5.0)
 * [xUnit.net](https://github.com/xunit/xunit)
@@ -25,7 +25,7 @@ Here's the image that shows a sample flow:
 
 It is composed of three steps:
 
-1. The user calls the endpoint ***/api/v1/movies***.
+1. The user calls the endpoint ***/api/v1/movies***.
 2. The application will do fake processing.
 3. A random movie is returned to the user.
 
@@ -109,7 +109,7 @@ public class FilmSpecialistTests
 
 ## Making an actual HTTP request to our API
 
-To call our endpoint, we can use a [class fixture](https://xunit.net/docs/shared-context#class-fixture) with the help of [WebApplicationFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1?view=aspnetcore-5.0) (know more about it at the [section Basic tests with the default WebApplicationFactory](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-5.0#basic-tests-with-the-default-webapplicationfactory) in [Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-5.0) guide). In our class test constructor, we can use the factory to create a ***HttpClient***, hence allowing us to do HTTP calls to our endpoint. Moreover, let's say you'd like to replace an injected service with a mock: you can do that through `ConfigureTestServices`. To illustrate a complete example:
+To call our endpoint, we can use a [class fixture](https://xunit.net/docs/shared-context#class-fixture) with the help of [WebApplicationFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1?view=aspnetcore-5.0) (know more about it at the [section Basic tests with the default WebApplicationFactory](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-5.0#basic-tests-with-the-default-webapplicationfactory) in [Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-5.0) guide). In our class test constructor, we can use the factory to create a ***HttpClient***, hence allowing us to do HTTP calls to our endpoint. Moreover, let's say you'd like to replace an injected service with a mock: you can do that through `ConfigureTestServices`. To illustrate a complete example:
 
 ```csharp
 public class MoviesControllerITests : IClassFixture<WebApplicationFactory<Startup>>
@@ -158,7 +158,7 @@ By the way, to use `WebApplicationFactory`, you must install the package:
 Microsoft.AspNetCore.Mvc.Testing
 ```
 
-It's pretty simple 🤗. I'll leave it as it is, but we could abstract our integration test to avoid creating a ***HttpClient*** every time for each of our class tests 😏.
+It's pretty simple 🤗. I'll leave it as it is, but we could abstract our integration test to avoid creating a ***HttpClient*** every time for each of our class tests 😏.
 
 ## To end things off
 
@@ -166,4 +166,4 @@ I think you can get enormous benefits from doing a cheap integration test someti
 
 You can consult the code I showed here on [this GitHub repository](https://github.com/willianantunes/tutorials/tree/master/2021/05/c-sharp-web-api-how-to-endpoint-it). You can use Docker Compose to [run the project](https://github.com/willianantunes/tutorials/blob/332bdcee8385ceb27cecd7c95a1ec6dadfc4cfe4/2021/05/c-sharp-web-api-how-to-endpoint-it/docker-compose.yaml#L7) as well as [execute its tests](https://github.com/willianantunes/tutorials/blob/332bdcee8385ceb27cecd7c95a1ec6dadfc4cfe4/2021/05/c-sharp-web-api-how-to-endpoint-it/docker-compose.yaml#L19). Check the [README](https://github.com/willianantunes/tutorials/blob/master/2021/05/c-sharp-web-api-how-to-endpoint-it/README.md) for more details.
 
-Posted listening to [Toy Soldiers, Martika](https://www.youtube.com/watch?v=LvdLovAaYzM).
+Posted listening to [Toy Soldiers, Martika](https://www.youtube.com/watch?v=LvdLovAaYzM).
