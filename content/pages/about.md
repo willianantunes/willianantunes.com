@@ -169,6 +169,10 @@ As a consequence of the love I told you at the beginning of my journey, I've nev
 
 ## ☕ Buy me a coffee
 
-If you enjoy my content and would like to buy me an honest coffee ☕ for that, here's some options:
+If you enjoy my content and would like to buy me an honest coffee ☕ for that, I would very much appreciate it 😋.
 
-* Bitcoin: [bc1qrpj6q5nk0pakn4hks3ag50v3n2r37ml7l66pfg](https://www.blockchain.com/btc/address/bc1qrpj6q5nk0pakn4hks3ag50v3n2r37ml7l66pfg)
+* [Bitcoin](https://www.blockchain.com/btc/address/bc1qrpj6q5nk0pakn4hks3ag50v3n2r37ml7l66pfg)
+
+```
+bc1qrpj6q5nk0pakn4hks3ag50v3n2r37ml7l66pfg
+```

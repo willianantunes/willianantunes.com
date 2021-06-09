@@ -63,11 +63,15 @@ export const WrapperSocialButton = styled(IconButton).attrs({
 export const SiteLinksWrapper = styled(Box)`
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
   & a {
     text-transform: uppercase;
   }
   padding-top: 12px;
+
+  ${props => props.theme.breakpoints.up("sm")} {
+    gap: 50px;
+  }
 `
 
 export const SocialLinksWrapper = styled(Box)`
