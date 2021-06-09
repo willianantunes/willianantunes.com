@@ -66,7 +66,7 @@ describe("Header component", () => {
     const testId = "site-links-wrapper"
     const element = await screen.findByTestId(testId)
 
-    const expectedPages = ["/", "/about", "/labs"]
+    const expectedPages = ["/", "/about", "/labs", "https://github.com/willianantunes/tutorials"]
     const linksElements = element.querySelectorAll(`a`)
     expect(linksElements.length).toBe(expectedPages.length)
 

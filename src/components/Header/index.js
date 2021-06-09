@@ -22,15 +22,24 @@ const menuLinkSetup = [
     to: "/labs",
     testId: "link-labs",
   },
+  {
+    label: "Tutorials",
+    to: "https://github.com/willianantunes/tutorials",
+    testId: "link-labs",
+    external: true,
+  },
 ]
 
 const AllSiteLinks = () => {
-  return menuLinkSetup.map(({ label, to, testId, onClick }) => {
-    return (
-      <Link key={to} data-testid={testId} to={to} onClick={onClick}>
-        {label}
-      </Link>
-    )
+  return menuLinkSetup.map(({ label, to, testId, onClick, external }) => {
+    const props = { key: to, "data-testid": testId, to, onClick }
+
+    if (external === true) {
+      props.rel = "noreferrer noopener"
+      props.target = "_blank"
+    }
+
+    return <Link {...props}>{label}</Link>
   })
 }
 
