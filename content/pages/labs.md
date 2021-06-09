@@ -3,6 +3,13 @@ templateFileName: labs-page
 path: /labs
 title: Labs
 galleryLabs:
+  - date: 2021-06-09T16:54:22.501Z
+    title: DRF Like Paginations
+    projectLink: https://github.com/willianantunes/drf-like-paginations
+    description: It's a C# library that mimics LimitOffsetPagination class available
+      on DRF (Django Rest Framework). If you are tired of creating pagination
+      all the time in your .NET projects, this can come in handy for you.
+    cover: /assets/posts/labs-drf-like-paginations.png
   - date: 2021-04-27T21:52:33.835Z
     cover: /assets/posts/labs-django-multiple-schemas.png
     title: Django Multiple Schemas
