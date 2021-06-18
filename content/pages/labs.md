@@ -15,7 +15,7 @@ galleryLabs:
     title: Django Multiple Schemas
     projectLink: https://github.com/willianantunes/django-multiple-schemas
     description: Here you'll find a simple project that shows how to use schema with
-      Django and why you should use. It has a script that creates all the
+      Django and why you should use it. It has a script that creates all the
       scenarios the project needs in PostgreSQL. It even has tests to guarantee
       that it's created as expected.
   - date: 2021-04-27T21:38:26.635Z
@@ -50,11 +50,11 @@ galleryLabs:
       efficiently with some approaches like through Threads or Coroutines.
   - date: 2020-04-28T15:37:06.979Z
     title: Tic Tac Toe C# Playground
-    description: It's a fully implemented Tic Tac Toe API game made with .NET Core
-      3.1 Web API. I hadn't been touching C# language for over four years until
-      I decided to create this playground. The project has unit and integration
-      tests with PostgreSQL. As it uses Docker, you can easily make the service
-      up and play a game!
+    description: This project is a full implementation of the Tic Tac Toe game but
+      playable through a REST API! It's written in C# and uses ASP.NET Web API.
+      I hadn't been touching C# language for over four years until I decided to
+      create this program. It has unit and integration tests with PostgreSQL. As
+      it uses Docker, you can easily make the service up and play a game!
     projectLink: https://github.com/willianantunes/tic-tac-toe-csharp-playground
     cover: /assets/posts/labs-tic-tac-toe-c-playground.png
   - date: 2020-05-17T12:29:23.888Z
