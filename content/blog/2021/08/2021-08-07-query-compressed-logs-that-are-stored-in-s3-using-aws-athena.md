@@ -111,6 +111,8 @@ Given you created everything accordingly, you can use some [DQL](https://docs.a
 
 ![It shows a query editor with a simple DQL statement to retrieve the first 10 rows.](/assets/posts/blog-10-image-2-query.png "AWS Athena Query Editor.")
 
-It's worth mentioning that it can become expensive pretty quickly! Thus some care with [performance concerns](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/) is fundamental.
+## Conclusion
 
-Posted listening to [Shout, Disturbed](https://youtu.be/Bh_rCiU-9_A) 🎶.
+This approach to consulting data is compelling, but it's worth mentioning that it can become expensive pretty quickly though. Also, it depends on the requirements and how a person will use it. Therefore some care with [performance concerns](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/) is fundamental.
+
+Posted listening to [Shout, Disturbed](https://youtu.be/Bh_rCiU-9_A) 🎶.
