@@ -56,6 +56,8 @@ const plugins = [
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
+        `gatsby-remark-embed-video`,
+        `gatsby-remark-responsive-iframe`,
         // It will update the path related to images contained in a markdown file
         `gatsby-remark-relative-images`,
         {
