@@ -5,6 +5,29 @@ import { IdControl, IdPreview } from "./widgets/Id"
 
 CMS.registerWidget("tags", TagsField, TagsPreview)
 CMS.registerWidget("id", IdControl, IdPreview)
+CMS.registerEditorComponent({
+  id: "youtube",
+  label: "YouTube",
+  fields: [
+    {
+      name: "url",
+      label: "Youtube video URL",
+      widget: "string",
+    },
+  ],
+  pattern: /^`youtube:\s(.*)`$/,
+  fromBlock: function (match) {
+    return {
+      url: match[1],
+    }
+  },
+  toBlock: function (obj) {
+    return "`youtube: " + obj.url + "`"
+  },
+  toPreview: function (obj) {
+    return obj.url
+  },
+})
 
 function buildBackEndConfiguration() {
   if (NETLIFY_CMS_LOCAL_BACKEND) {
