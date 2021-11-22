@@ -27,6 +27,7 @@ export function useSiteMetadata() {
               linkedin
               twitter
               youtube
+              hackerrank
             }
           }
         }

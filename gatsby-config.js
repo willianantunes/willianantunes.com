@@ -25,6 +25,7 @@ const siteMetadata = {
     youtube: `https://www.youtube.com/channel/UCSbLr4rO7qvyZFaRt1LvErQ`,
     dockerhub: `https://hub.docker.com/u/willianantunes`,
     stackoverflow: `https://stackoverflow.com/users/3899136/willian-antunes`,
+    hackerrank: `https://www.hackerrank.com/willianantunes`,
   },
 }
 

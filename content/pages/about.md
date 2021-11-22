@@ -23,15 +23,17 @@ Either I code on Ubuntu or macOS. Thanks to my [personal-environment project](ht
 
 ### Hardware
 
-* CPU: [Intel i7-4770](https://ark.intel.com/content/www/us/en/ark/products/75122/intel-core-i7-4770-processor-8m-cache-up-to-3-90-ghz.html)
-* Motherboard: [Gigabyte GA-Z87X-UD3H](https://www.gigabyte.com/Motherboard/GA-Z87X-UD3H-rev-1x)
-* Memory: [32 GB of Corsair Vengeance LPX](https://www.corsair.com/br/pt/Categorias/Produtos/Mem%C3%B3ria/VENGEANCE%C2%AE-LPX-16GB-%282-x-8GB%29-DDR4-DRAM-3000MHz-C16-Memory-Kit---Black/p/CMK16GX4M2D3000C16)
-* GPU: [Radeon RX 560 Graphics](https://www.amd.com/en/products/graphics/radeon-rx-560)
-* PSU: [GAMEMAX GM500](https://www.gamemax-br.com/produto/gm500box)
-* Case: [Cooler Master ELITE 335U](https://www.coolermaster.com/catalog/legacy-products/cases/elite-335u/)
-* Headphones: [AKG K92](https://www.akg.com/Headphones/Professional%20Headphones/K92.html)
-* Keyboard and mouse: all from HP and wired
-* Webcam and microphone: [Logitech C270 HD](https://www.logitech.com/en-us/products/webcams/c270-hd-webcam.960-000694.html)
+* Gaming and working PC:
+  * CPU: [Intel i7-4770](https://ark.intel.com/content/www/us/en/ark/products/75122/intel-core-i7-4770-processor-8m-cache-up-to-3-90-ghz.html)
+  * Motherboard: [Gigabyte GA-Z87X-UD3H](https://www.gigabyte.com/Motherboard/GA-Z87X-UD3H-rev-1x)
+  * Memory: [32 GB of Corsair Vengeance LPX](https://www.corsair.com/br/pt/Categorias/Produtos/Mem%C3%B3ria/VENGEANCE%C2%AE-LPX-16GB-%282-x-8GB%29-DDR4-DRAM-3000MHz-C16-Memory-Kit---Black/p/CMK16GX4M2D3000C16)
+  * GPU: [Radeon RX 560 Graphics](https://www.amd.com/en/products/graphics/radeon-rx-560)
+  * PSU: [GAMEMAX GM500](https://www.gamemax-br.com/produto/gm500box)
+  * Case: [Cooler Master ELITE 335U](https://www.coolermaster.com/catalog/legacy-products/cases/elite-335u/)
+  * Headphones: [AKG K92](https://www.akg.com/Headphones/Professional%20Headphones/K92.html)
+  * Keyboard and mouse: all from HP and wired
+  * Webcam and microphone: [Logitech C270 HD](https://www.logitech.com/en-us/products/webcams/c270-hd-webcam.960-000694.html)
+* Working PC: [Laptop Vostro 14 5000](https://www.dell.com/pt-br/work/shop/laptop-2-em-1/notebook-vostro-14-5000/spd/vostro-14-5402-laptop/v5402w3003w?view=configurations)
 
 - - -
 

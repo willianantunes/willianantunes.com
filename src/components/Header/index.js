@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby-theme-material-ui"
 import { InstagramAlt, Twitter, Youtube, Linkedin, Github, StackOverflow } from "@styled-icons/boxicons-logos"
-import { Docker } from "@styled-icons/fa-brands"
+import { Docker, Hackerrank } from "@styled-icons/fa-brands"
 import * as S from "./styled"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
 import ToggleTheme from "../ToggleTheme"
@@ -43,7 +43,8 @@ const AllSiteLinks = () => {
   })
 }
 
-const AllSocialLinks = ({ twitter, instagram, youtube, linkedin, dockerhub, github, stackoverflow }) => {
+const AllSocialLinks = ({ twitter, instagram, youtube, linkedin, dockerhub, github, stackoverflow, hackerrank }) => {
+  console.log(hackerrank)
   return (
     <>
       <S.WrapperSocialButton to={twitter}>
@@ -66,6 +67,9 @@ const AllSocialLinks = ({ twitter, instagram, youtube, linkedin, dockerhub, gith
       </S.WrapperSocialButton>
       <S.WrapperSocialButton to={stackoverflow}>
         <StackOverflow />
+      </S.WrapperSocialButton>
+      <S.WrapperSocialButton to={hackerrank}>
+        <Hackerrank />
       </S.WrapperSocialButton>
     </>
   )
