@@ -12,20 +12,21 @@ tags:
   - ciam
   - functional testing
 ---
-Currently, I'm working for a company with a very particular problem that showed up after it created many products in different domains. It even bought some companies, making the problem worse: user who has an account on product A can't use the same account on product B. The following image illustrates this situation:
+Currently, I'm working for a company with a very particular problem that showed up after it created many products in different domains. It even bought some companies, making the problem worse: a user who has an account on "product A" can't use the same account on "product B". The following image illustrates this situation:
 
 ![If an organization has 5 products without unified login, the user has to keep 5 credentials to log in to each one, even though he is in the same ecosystem.](/assets/posts/blog-11-order-1-image-1-the-situation.png "Login has to keep 5 credentials for each application.")
 
-Nowadays, each product has a specific way to authenticate and authorize a person. Now the company wants to unify all the accounts to use only one credential instead of many. How to achieve this 🤔?
+Nowadays, each product has a specific way to authenticate and authorize a person. Now the company I'm working for wants to unify all the accounts to use only one universal login instead of many. How to achieve this 🤔?
 
 ## One possible way to unify accounts
 
-To simplify the solution I'd like to present you, let's make some assumptions:
+To simplify the solution, I'd like to present you the following assumptions:
 
-1. Every product has its way of authorizing the user.
-2. Each product has a single database line that represents the user on its entire ecosystem.
-3. To reference the user in other systems, it uses a UUID. Imagine that it could use a government ID or an email 🤯; for our lucky in our example, it doesn't 🥳.
-4. The authentication flow only uses an email and password for all products.
+1. Each product has its own method of authenticating the user
+2. Each product has its way of authorizing the user.
+3. Each product has a single database line that represents the user on its entire ecosystem.
+4. To reference the user in other systems, it uses a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Imagine that it could use a government ID or an email 🤯; fortunately, in our example it doesn't 🥳.
+5. Basically, each authentication flow uses an email and password as the credential.
 
 Now that the scenario is more manageable, here's the proposed solution:
 
@@ -33,20 +34,18 @@ Now that the scenario is more manageable, here's the proposed solution:
 
 Compiling the main points:
 
-* **One single place for login and signup:** The user will experience the same flow for login and registration. Same UX, same rules, less confusion.
-* **Given that the user is authenticated, if he goes from product A to B, he does not need to log in again (it depends):** Using a single domain to handle it makes this feature possible (the so-called SSO) as the session will be kept in one single place. For example, suppose products A and B are in the same domain as the Authorization Server. In that case, the user will be automatically authenticated on product B as it will know it through a cookie created by the Authorization Server. On the other hand, if product B is in another domain, the user will have to press a button to product B to receive his credentials.
-* **The Authorization Server will not ask for user consent for first-party applications:** [First-party applications](https://auth0.com/docs/configure/applications/confidential-public-apps/first-party-and-third-party-applications#first-party-applications) are controlled by the same organization or person who owns the Authorization Server. [Third-party applications](https://auth0.com/docs/configure/applications/confidential-public-apps/first-party-and-third-party-applications#third-party-applications) enable external parties or partners to securely access protected resources given user consent. Usually, all applications you create that use some grant type (like Authorization Code) will be first-party. Though you can generate third-party ones for your partners to consume APIs from you.
-* **Each product has to bind the unique ID associated with the user to its own way of authorizing him:** As I described above, any product has a database line to identify the user. The product will be responsible for creating a new line for him in its domain for new accounts. For existing users, it can check if the user who came from the Authorization Server has precisely the same email in its database or simply migrate all users upfront, in case it's feasible as [it depends](https://community.auth0.com/t/importing-users-from-365-azure-ad/34885/2) on which scenario you are in.
+* **One single place for SSO.** The user will experience a single flow for login and signup. Same UX, same rules, less confusion.
+* **Given that the user is authenticated, if he goes from product A to B, he does not need to log in again (it depends).** Using a single domain to serve as the Identity Provider, the feature SSO (single sign-on) is possible as the session will be kept in one single place. For example, suppose products A and B are in the same domain as the Authorization Server. In that case, the user will be automatically authenticated on "product B" as it will know the user through a cookie created by the Authorization Server. On the other hand, if "product B" is in another domain, the user will have to press a button on it to go to the Identity Provider in order to authenticate again.
+* **The Authorization Server will not ask for user consent for first-party applications.** [First-party applications](https://auth0.com/docs/configure/applications/confidential-public-apps/first-party-and-third-party-applications#first-party-applications) are controlled by the same organization or person who owns the Authorization Server. [Third-party applications](https://auth0.com/docs/configure/applications/confidential-public-apps/first-party-and-third-party-applications#third-party-applications) enable external parties or partners to securely access protected resources given user consent. Usually, all applications you create that use some grant type (like Authorization Code) will be first-party. Though you can generate third-party ones for your partners to consume APIs from you.
+* **Each product has to bind the unique ID associated with the user to its own way of authorizing him.** As I described above, each product has a database line to identify the user. The product will be responsible for creating a new line for the user in its domain for new accounts. For example, given an existing user who used the new universal login method, the application can check if the user has precisely the same email in its database. If that is true, the application can bind the existing line with the user ID provided by the Identity Provider.
 
 To illustrate the proposed solution in some parts, we'll go with [Cognito](https://aws.amazon.com/cognito/)! By the way, keep in mind that [Cognito has many limitations](https://github.com/willianantunes/cognito-auth-playground/tree/4532535582c3dbfe1f2ddaf0051f66efb2bef052#terrible-things-i-noticed), and I'm just using it for the sake of this blog post.
 
 ## Deploying Cognito as our Authorization Server through Terraform
 
-To serve the first bullet of the main points of our proposed solution, we will use the [Cognito Hosted UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) as our [Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#what-is-an-authorization-server). [Download the tutorial repository](https://github.com/willianantunes/tutorials) and access [the folder related to this blog post](https://github.com/willianantunes/tutorials/tree/master/2021/11/sso-cognito-authorization-code-grant-type). Now go to `cognito_iac` and then type `terraform apply`. Confirm and then wait until it's finished. You may see an error in case the domain has been already used by someone else:
+To serve the first bullet of the main points of our proposed solution, we will use the [Cognito Hosted UI](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) as our [Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#what-is-an-authorization-server). [Download the tutorial repository](https://github.com/willianantunes/tutorials) and access [the folder related to this blog post](https://github.com/willianantunes/tutorials/tree/master/2021/11/sso-cognito-authorization-code-grant-type). Now go to `cognito_iac` and then type `terraform apply`. Confirm and then wait until it's finished. You may see an error in case the domain has been already used by someone else (see the error below), in this case just change to another name and try again until it works.
 
 ![Cognito works like S3: The domain you configure for it must be unique in the entire cloud. If you use someone that has already been used, you as asked to pick another.](/assets/posts/blog-11-order-3-image-3-iac-possible-error.png "Error when you use an unavailable domain on Cognito.")
-
-Just change to another name and try again until it works.
 
 ## Emulating products A and B
 
@@ -67,7 +66,7 @@ Creating sso-cognito-authorization-code-grant-type_product-b_1 ... done
 Creating sso-cognito-authorization-code-grant-type_product-a_1 ... done
 ```
 
-Product A can be accessed through `http://localhost:8000/`, and product B can be accessed through `http://localhost:8001/`. A small notice: actually, I would like to use `http://localhost:8000/` for product A and `http://app-local:8001/` for product B, but sadly [this is not supported by Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html), which only accepts `localhost` for testing purposes.
+"Product A" can be accessed through `http://localhost:8000/`, and "product B" can be accessed through `http://localhost:8001/`. A small notice: actually, I would like to use `http://localhost:8000/` for product A and `http://app-local:8001/` for "product B", but sadly [this is not supported by Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html), which only accepts `localhost` for testing purposes.
 
 ### An important thing about the functional testing project
 
@@ -135,7 +134,7 @@ Another noteworthy mention is about the screenshot folder. Follow [this instruct
 
 ## Authorization Code Grant Type on product A
 
-If you look at products A and B, you'll notice they are Django applications, and both are using Django Template Engine. Then they are Multi-Page Apps, not SPA ones. As I have a back-end to handle requests, I can use [the Authorization Code grant type](https://auth0.com/docs/authorization/flows/authorization-code-flow) to retrieve the token, but nowadays, this is perfectly fine using [this grant type with PKCE (Proof Key for Code Exchange) on the front-end side with SPA apps](https://auth0.com/docs/authorization/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce). Making this clear, now we can test this flow and see it in action! Run the command below:
+If you look at products A and B, you'll notice they are Django applications, and both are using Django Template Engine. Consequently they are Multi-Page Apps, not SPA ones. As we have a back-end to handle requests, I can use [the Authorization Code grant type](https://auth0.com/docs/authorization/flows/authorization-code-flow) to retrieve the token, but nowadays, this is perfectly fine using [this grant type with PKCE (Proof Key for Code Exchange) on the front-end side with SPA apps](https://auth0.com/docs/authorization/flows/authorization-code-flow-with-proof-key-for-code-exchange-pkce). Making this clear, now we can test this flow and see it in action! Run the command below:
 
 ```shellsession
 ▶ docker-compose up functional-testing               
@@ -150,7 +149,7 @@ If you enable screenshots, you can open the folder `screenshots` and see the pic
 
 ## SSO on product B
 
-If you are logged on product A, that means you have something that identifies you as logged on in it (a cookie, for example). Still, if you go to product B, you won't be automatically logged because you are in another domain (in our case, you are in the localhost domain, but I changed how the session cookie is created for each application). Basically, this flow does the same we did previously, with the addition of the following steps:
+If you are logged in on "product A", that means you have something that identifies you as logged on in it (a cookie, for example). Still, if you go to product B, you won't be automatically logged in because you are in another domain (in our case, you are in the localhost domain, but I changed how the session cookie is created for each application). Basically, this flow does the same we previously did for "product A", with the addition of the following steps:
 
 * Go to product B.
 * Click on the `Login Auth Code Flow` link.
@@ -164,11 +163,11 @@ According to [Cognito Documentation](https://docs.aws.amazon.com/cognito/latest/
 
 > For access and ID tokens, don't specify a minimum of less than an hour. Amazon Cognito Hosted UI uses cookies that are valid for an hour; if you enter a minimum of less than an hour, you won't get a lower expiry time.
 
-Supposing that we use the default one, which is 1 hour, the user will experience an SSO if he goes from product A to B within 1 hour. Otherwise, he'll have to log in again.
+Supposing that we use the default session cookie, which is 1 hour, the user will experience an SSO if he goes from "product A" to "B" within 1 hour. Otherwise, he'll have to log in again.
 
 ## Conclusion
 
-The authorization code grant type is relatively easy, but don't underestimate it and other gran types you might face in an actual project, especially with topics that touch them, such as security issues. In addition, there are other points you should have in your mind when doing a project for an organization that obviously will go beyond what we discussed in this post:
+The authorization code grant type is relatively easy, but don't underestimate it and other grant types you might face in an actual project, especially with topics that touch them, such as security issues. In addition, there are other points you should have in your mind when doing a project for an organization that obviously will go beyond what we discussed in this post:
 
 * Do you need a [CIAM](https://en.wikipedia.org/wiki/Customer_identity_access_management) solution or an Internal User Access Management ([B2E](https://en.wikipedia.org/wiki/Business-to-employee) is a use case for the latter)?
 * Each type of authentication typically creates a new record in the identity provider's database. You should have a rule in your mind to merge all accounts into a record that represents the main one. This is known as [account linking](https://auth0.com/docs/users/user-account-linking).
