@@ -15,9 +15,9 @@ This post is different from the others where I talk about programming. Instead, 
 
 I review all the English tenses at least once per day to reduce forgetting. Most of the time, I do it after breakfast. When I started with this practice three years ago, I would read all the tense rules. Then, after 2 weeks or so, I started explaining all the tenses to myself in front of the mirror. It's fundamental to recite looking at you because you can gain confidence.
 
-Beyond tenses, I savor to say the exact phrases from Friends' characters from some episodes. I change them sometimes, but in summary, they're the same. For instance, before the commercial break, I know all the dialogues from the first part of the [first episode](https://fangj.github.io/friends/season/0101.html). This method I do once after two hours or so. 
+Beyond tenses, I like to repeat the exact phrases from Friends' characters from some episodes. I change the dialogues sometimes in order to be more versatile, but in summary, they're the same. For instance, before the commercial break, I know all the dialogues from the first part of the [first episode](https://fangj.github.io/friends/season/0101.html). I do this dialogue review at least once in a span of two hours.
 
-I usually review alone, and I use phonetics to correct my speaking. Sometimes, I mimic all the conversations in front of a native English person. [Cambly helps a lot when it comes to this, I recommend](https://www.cambly.com/invite/MNAB9BYA?st=120421&sc=4).
+I usually review alone and I use phonetics to correct my speaking. Sometimes, I mimic all the conversations in front of a native English person. [I highly recommend Cambly for this](https://www.cambly.com/invite/MNAB9BYA?st=120421&sc=4).
 
 ### Tools and books
 
@@ -38,15 +38,15 @@ I've used many during the last 10 years, but If I had to recommend some to someo
 
 ### Advice
 
-I think I started to learn a new language a bit late. I guess I was 21 years old. But, during the last three years, I took it more seriously. If I'd had the knowledge I have nowadays, I would have started a lot earlier. So, if you are in the same situation as me, don't worry. You'll learn it, just be patient, consistent, and disciplined to whatever method you'll use to study English or any other foreign language.
+I think I started to learn a new language a bit late. I guess I was 21 years old. But, during the last three years, I took it more seriously. If I'd had the knowledge I have nowadays, I would have started a lot earlier. So, if you are in the same situation as me, don't worry. You'll learn English if you are patient, consistent, and disciplined. This applies to whatever method you'll use to study English or any other foreign language.
 
-In the following few sections, I will list my notes to study English. Remember, as I described a moment ago, when I'm reviewing, I explain everything to myself or someone else. So only use the notes if you forgot something. Another important thing is that my notes are not complete. So if you need further explanation, just explore more details on the internet.
+In the following few sections, I will list my notes for studying English. Remember, as I described a moment ago, when I'm reviewing, I explain everything to myself or someone else. So only use the notes if you forget something. Another important thing is that my notes are not complete. So if you need further explanation, just explore more details on the internet.
 
 ## Notes for verb tenses
 
 ### Rule of thumb
 
-In reality, you only need to know the present, the past, and the past participle**.** Then, using these as the basis, you know all the rest.
+In reality, you only need to know the present, the past, and the past participle. Then, using these as the basis, you will know all the rest.
 
 ### Present simple
 
@@ -55,11 +55,11 @@ We use the present simple to talk about things in general. For example, we use i
 * I play games with people every time I go shopping.
 * I talk to you every morning.
 * I don't run very fast.
-* She doesn't speak hard words such as theoretically.
+* She doesn't speak hard words such as "theoretically".
 
 ### Past simple
 
-When you want to talk about actions finished in the past.
+We use this tense when we want to talk about actions finished in the past.
 
 * I swapped my cupcake for a candy bar yesterday.
 * I wasn't hungry yesterday night.
@@ -73,7 +73,7 @@ The simple future is a verb tense used to talk about things that haven't happene
 
 Basically, you have three conditions:
 
-1. Future actions happen without the speaker's intention.
+1. Future actions that happen without the speaker's intention.
 2. Predictions, assumptions.
 3. Spontaneous actions.
 
@@ -99,7 +99,7 @@ Samples:
 
 The present perfect indicates a link between the present and the past. The time of the action is before now but not specified, and we are often more interested in the result than in the action itself.
 
-Another way to explain is that it refers to an action or state that either occurred at an indefinite time in the past (e.g., we have talked before) or began in the past and continued to the present time (e.g., he has grown impatient over the last hour).
+Another way to explain this is that it refers to an action or state that either occurred at an indefinite time in the past (e.g., we have talked before) or began in the past and continued to the present time (e.g., he has grown impatient over the last hour).
 
 * I have swapped three toys with you already.
 * I've written 4 entries in my diary this week.
@@ -227,6 +227,61 @@ When the last sound before -ed is voiceless (which means you won't feel your voc
 When the last sound before -ed is /t/ or /d/ the -ed sound is /[i](https://en.wikipedia.org/wiki/Close_front_unrounded_vowel)[d](https://en.wikipedia.org/wiki/Voiced_dental_and_alveolar_plosives)/.
 
 * [Started, decided, ended, hated, needed](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=Started%2C%20decided%2C%20ended%2C%20hated%2C%20needed).
+
+## Notes about phonetics
+
+In regard to the video [Vowel and Diphthong Comparison](https://youtu.be/JbP4wcNyv3o) made by Rachel's English:
+
+* [ɑ (AH father) vs æ (AA bat).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=51s)
+* [ɑ (AH father) vs ʌ (UH butter).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=86s)
+* [æ (AA bat or sat) vs ɛ (EH bed or said).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=121s)
+* [ɑ (AH father) vs ɔ (AW law).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=164s)
+* [i (EE she) vs ɪ (IH sit).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=199s)
+* [ɪ (IH sit fix) vs ɛ (EH bed said).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=233s)
+* [i (EE she please) vs eɪ (AY say pay).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=280s)
+* [eɪ (AY say pay) vs ɪ (IH sit fix).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=322s)
+* [eɪ (AY say pay) vs ɛ (EH bed said).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=374s)
+* [ʌ (UH butter) vs ɜ (UR bird).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=425s)
+* [ʌ (UH butter) vs ə (UH supply astray) known as The Schwa.](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=463s)
+* [ʊ (UH push) vs u (OO boo).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=496s)
+* [ʊ (UH push) vs ʌ (UH butter).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=530s)
+* [oʊ (OH no) vs u (OO boo).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=563s)
+* [aʊ (OW now) vs ɔ (AW law).](https://www.youtube.com/watch?v=JbP4wcNyv3o&t=659s)
+
+[Monophthongs](https://en.wikipedia.org/wiki/Monophthong) (short vowels):
+
+* ɪ: sh**i**p, l**i**p, m**y**th, s**i**t.
+* ɛ: s**ai**d, b**e**d, h**ea**d.
+* æ: b**a**t, c**a**t, p**a**n, **a**nt.
+* ʌ: b**u**tter, c**u**t, b**u**ng, s**o**me.
+* ɒ: w**a**tch, p**o**t, h**o**t.
+* ʊ: p**u**sh, p**u**t, sh**ou**ld, w**oo**d.
+* ə: **a**stray, **a**gree, t**o**mato.
+
+Monophthongs (long vowels):
+
+* i: b**ee**, s**ea**, m**ea**l.
+* ɜ: b**u**rn, w**o**rm, t**u**rn.
+* ɑ: **a**rm, h**al**f, c**ar**.
+* ɔ: **or**der, l**aw**, c**augh**t.
+* u: sh**oe**, s**ue**, b**oo**t.
+
+[Diphthongs](https://en.wikipedia.org/wiki/Diphthong) (also known as vowel cluster):
+
+* ɪə: qu**eer**, h**ere**, n**ear**
+* ɛə: squ**are**, th**ere**, st**air**.
+* ʊə: n**ewer**, s**ure**, man**ure**.
+* eɪ: d**ai**ly, m**a**ke, l**ay**.
+* aɪ: m**y**, tr**y**, s**igh**.
+* ɔɪ: n**oi**se, b**oy**, **oy**ster.
+* əʊ: kn**ow**, t**oe**, **owe**
+* aʊ: n**ow**, tr**ou**t, b**ough**.
+
+I use the charts below to understand how I pronounce phonemes. Still, it's important to point out that they are not totally accurate, so check with a native English speaker as your last resource:
+
+* [IPA vowel chart with audio.](https://en.wikipedia.org/wiki/IPA_vowel_chart_with_audio)
+* [IPA pulmonic consonant chart with audio.](https://en.wikipedia.org/wiki/IPA_pulmonic_consonant_chart_with_audio)
+* [IPA Chart With Sounds.](https://www.internationalphoneticalphabet.org/ipa-sounds/ipa-chart-with-sounds/)
 
 ## Conclusion
 
