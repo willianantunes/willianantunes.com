@@ -103,7 +103,7 @@ Another way to explain this is that it refers to an action or state that either 
 
 * I have swapped three toys with you already.
 * I've written 4 entries in my diary this week.
-* They have worked together since they were working for XYZ company.
+* They have worked together since they were hired at XYZ company.
 
 ### Past perfect
 
@@ -118,9 +118,9 @@ The past perfect refers to a time earlier than before now. It is used to clarify
 
 We use it to express that something will already have happened before a specific time in the future.
 
-* I think I will have the letter written by the time you arrive.
+* I will have the letter written by the time you arrive.
 * I will have improved my English to a better level by tonight.
-* They will have shown everything about that topic when you come here.
+* If you don't come soon, they will have explained how a rocket works, and you will miss it.
 * They will have shown (demonstrated) the results by the time you arrive.
 
 ### Present simple continuous
@@ -135,7 +135,7 @@ We use the continuous for things happening at or around the time of speaking, wh
 The simple past continuous tense, also known as the past progressive tense, refers to a continuing action or state happening at some point in the past. For example, it is often used to describe conditions that existed in the past.
 
 * The sun was shining every day that summer.
-* They were explaining everything to him, but he couldn't understand it.
+* They were explaining how [N64](https://en.wikipedia.org/wiki/Nintendo_64) works, but he couldn't understand it.
 
 ### Simple future continuous
 
@@ -145,18 +145,19 @@ The future continuous refers to an unfinished action or event that will be in pr
 * When I come to school, the other kids will be waiting for me.
 * Just think, next week you will be working in your new job.
 
-### Present perfect continuos
+### Present perfect continuous
 
 Actions beginning in the past and still continuing (focus is on the action). Primarily used with since (point of time) or for (period of time).
 
 * I have been swapping phone numbers in clubs since I was eighteen.
+* I have been supporting all those people for 4 days. Could you help me please?
 * I've been proactively teaching people about how to program since I started my career as a tech lead.
 
 ### Past perfect continuous
 
 How long something had been happening before something else happened.
 
-* I had been swapping cards until you arrived with new ones.
+* I had been swapping cards until you arrived with the new ones.
 * I had been waiting for 2 minutes when you suddenly arrived.
 * I had been working at the company for five years when I got the promotion.
 
@@ -164,7 +165,8 @@ How long something had been happening before something else happened.
 
 Something that will have already begun and will be continuing after something else in the future.
 
-* I will have been cooking probably by the time you arrive.
+* I will have been cooking for 8 hours by the time you arrive.
+* At five o’clock, I will have been waiting for thirty minutes.
 
 ## Notes for conditionals
 
@@ -177,7 +179,7 @@ It's used to talk about situations that are always true, like a scientific fact.
 * If you heat ice, it melts.
 * If you pour oil on water, it floats.
 * If you mix blue and yellow, you get green.
-* If two or more people drift apart, their relationship gradually ends.
+* If two or more people drift apart, their relationship may gradually ends.
 
 ### First conditional
 
@@ -185,7 +187,7 @@ It's used to talk about events in the future that are likely to happen or have a
 
 * If it rains tomorrow, I will stay at home. It means I think there is a real possibility of rain tomorrow. In this condition, I will remain at home.
 * If you go by bus, it will be cheaper.
-* If I have money (and it's possible one day), I will donate.
+* If I have money (and it's possible one day), I will make a donation.
 * If I have enough money, I'll buy some new shoes.
 * She'll miss the bus if she doesn't leave soon.
 
@@ -196,22 +198,21 @@ It's used to talk about a situation in the future that is unlikely to happen or 
 * If I knew what to do, I'd do it.
 * If I won the lottery, I would travel worldwide and buy a castle.
 * If I had hair, I would cut it right away.
-* If I saw Jasmine, I would tell her to call you.
-* I don't know what I would do if I lost my password.
-* If you went right at the end of the street, you would see a bank on your left
+* I don't know what I'd do if I lost my password.
+* On your daily walk, If you went right at the end of the street, you would see a bank on your left.
 * I am not hungry, but if I were hungry, I would eat something.
-* I won't forget your birthday, but if I forgot your birthday, would you be angry with me?
+* I won't forget your birthday, but if did forget your birthday, would you be angry with me?
 
 ### Third conditional
 
-It's used to express the past consequence of an unrealistic action in the past. So you have an unreal past condition and its probable result in the past.
+It's used to express the past consequence of an unrealistic action in the past. So you have an unreal past condition and its possible result in the past.
 
 * If this thing had happened, then this thing would have happened.
 * If he'd had money, he would have made a donation.
 * If the weather had been good, we would have gone water-skiing.
 * If I had seen you, I would have said hello for sure.
-* If I'd had the knowledge I have nowadays, I wouldn't have bought all the books about English that I have nowadays.
-* If you had said "on Christmas day" instead of "on Christmas", you would have said it correctly. We use "on" for the day and "at" for the seasonal celebration. Then you can say "at Christmas".
+* If I'd had the knowledge I have nowadays, I wouldn't have bought all the books about English that I currently have.
+* If you had said "on Christmas day" instead of "on Christmas", you would have said it correctly. We use "on" for the day and "at" for the seasonal celebration. Consequently, you can say "at Christmas".
 * I wasn't hungry yesterday, but if I had been hungry, I would have eaten something.
 
 ## Notes for words that end in ED
@@ -222,7 +223,7 @@ When the last sound before -ed is voiced (which means you will feel your vocal c
 
 When the last sound before -ed is voiceless (which means you won't feel your vocal cords vibrate), the -ed sound is [/t/](https://en.wikipedia.org/wiki/Voiceless_dental_and_alveolar_plosives).
 
-* [Walked, developed, kissed, liked](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=Walked%2C%20developed%2C%20kissed%2C%20liked).
+* [Walked, developed, kissed, liked, chased](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=Walked%2C%20developed%2C%20kissed%2C%20liked%2C%20chased).
 
 When the last sound before -ed is /t/ or /d/ the -ed sound is /[i](https://en.wikipedia.org/wiki/Close_front_unrounded_vowel)[d](https://en.wikipedia.org/wiki/Voiced_dental_and_alveolar_plosives)/.
 
@@ -274,7 +275,7 @@ Monophthongs (long vowels):
 * eɪ: d**ai**ly, m**a**ke, l**ay**.
 * aɪ: m**y**, tr**y**, s**igh**.
 * ɔɪ: n**oi**se, b**oy**, **oy**ster.
-* əʊ: kn**ow**, t**oe**, **owe**
+* əʊ: kn**ow**, t**oe**, **owe**.
 * aʊ: n**ow**, tr**ou**t, b**ough**.
 
 I use the charts below to understand how I pronounce phonemes. Still, it's important to point out that they are not totally accurate, so check with a native English speaker as your last resource:
