@@ -115,7 +115,11 @@ services:
       ]
 ```
 
-If you look at the [volume section](https://github.com/willianantunes/tutorials/blob/2bbc8a0722b3dc3d7afc7c6ec9e66386ad7c1493/2021/12/how-to-set-up-ethereum-node-using-docker/docker-compose.yaml#L8), you'll see it will mount the directory responsible for storing the database and the keystore. If we don't do that, we won't be able to keep the state, so it's a must. By the way, the other [two volumes](https://github.com/willianantunes/tutorials/blob/2bbc8a0722b3dc3d7afc7c6ec9e66386ad7c1493/2021/12/how-to-set-up-ethereum-node-using-docker/docker-compose.yaml#L11-L12) are just [a trick to execute the container using my current user](https://stackoverflow.com/a/66112924/3899136). 
+If you look at the [volume section](https://github.com/willianantunes/tutorials/blob/2bbc8a0722b3dc3d7afc7c6ec9e66386ad7c1493/2021/12/how-to-set-up-ethereum-node-using-docker/docker-compose.yaml#L8), you'll see it will mount the directory responsible for storing the database and the keystore. If we don't do that, we won't be able to keep the state, so it's a must. By the way, the other [two volumes](https://github.com/willianantunes/tutorials/blob/2bbc8a0722b3dc3d7afc7c6ec9e66386ad7c1493/2021/12/how-to-set-up-ethereum-node-using-docker/docker-compose.yaml#L11-L12) are just [a trick to execute the container using my current user](https://stackoverflow.com/a/66112924/3899136).
+
+### Important thing
+
+It's too open the configuration for Geth as we are just doing this for testing purposes. Nevertheless, if you're going to use it for real, like creating a wallet and storing your ether tokens, do not forget to harden your computer; for instance, use a firewall to avoid someone using the RPC server. 
 
 ## Running the node and exploring it
 
@@ -195,7 +199,7 @@ Then you'll have a variety of commands available, such as (just copy one and exe
 
 ```
 eth.accounts
-personal.newAccount("123456")
+personal.newAccount("this-is-the-password-that-encrypts-your-private-key")
 personal.listWallets
 eth.accounts
 eth.getBlockByHash('0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3')
