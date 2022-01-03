@@ -284,6 +284,12 @@ I use the charts below to understand how I pronounce phonemes. Still, it's impor
 * [IPA pulmonic consonant chart with audio.](https://en.wikipedia.org/wiki/IPA_pulmonic_consonant_chart_with_audio)
 * [IPA Chart With Sounds.](https://www.internationalphoneticalphabet.org/ipa-sounds/ipa-chart-with-sounds/)
 
+### Tricky words
+
+Tricky words are those words that cannot be sounded out easily. One of the reasons is concerning phonemes that do not exist in people's mother language, like TH sound for Brazilians. In addition, [English has many vowels](https://www.babbel.com/en/magazine/english-vowel-sounds) that are not used in other languages, thus making the learning process a bit difficult.
+
+- [feel, fuel, fill, few](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=feel%2C%20fuel%2C%20fill%2C%20few)
+
 ## Conclusion
 
 Over time I'll come here and update this post with more data and even corrections. Ultimately, I'm going to use it for myself 🤣. As I explained initially, this repetition process helps me a lot, and it's crucial to have a native English tutor helping you during the path. I hope it turns out to be useful for you too.
