@@ -58,11 +58,11 @@ I always defend my passion for programming because of my curiosity 👀.
 
 ### The trigger
 
-My first job was with Cartográfica in 2006. It is (or was) a graphical industry company. I would use [Adobe Creative Suite 2](https://en.wikipedia.org/wiki/Adobe_Creative_Suite#Creative_Suite_1_and_2) (mainly with PhotoShop, Illustrator, and InDesign) and [CorelDraw 12](https://en.wikipedia.org/wiki/CorelDRAW), being the latest tool I used the most during that time. Because of an economic crisis emerging years later, the company where I was working suffered a massive drop in incoming requests. 
+My first job was with Cartográfica in 2006. It is (or was) a graphical industry company. I would use [Adobe Creative Suite 2](https://en.wikipedia.org/wiki/Adobe_Creative_Suite#Creative_Suite_1_and_2) (mainly with PhotoShop, Illustrator, and InDesign) and [CorelDraw 12](https://en.wikipedia.org/wiki/CorelDRAW), being the latest tool I used the most during that time. Because of an economic crisis emerging years later, the company where I was working suffered a massive drop in incoming requests. 
 
 Typically, I would work all day creating folders, flyers, cards, and many other graphical things, but it dropped to around 60%. Thus, I had a great deal of time to do whatever I wanted. Researching about some competitors, I noticed that most of them had websites, but my company did not. That's when suddenly the penny dropped. I realized an opportunity to create a site for them! From there, I started watching many tutorial videos about PHP, JavaScript, HTML, and CSS, as well as about how the internet works, what a domain is, HTTP, FTP (I'd use it a lot to deploy websites), and many more. Apart from graphical tools, this was my first contact with technology! Afterward, I could create and deploy a website using PHP! I fell in love at that time 😍. It was in 2008.
 
-As a result, I started developing many sites for some companies. 
+As a result, I started developing many sites for some companies. 
 
 Here I give my thanks to [Maujor](https://www.maujor.com/). It was essential. Many tutorials for HTML and CSS in there!
 
@@ -137,7 +137,7 @@ It was used in many services to accomplish many tasks and was one of our keys to
 
 ##### CI/CD
 
-We struggled a lot with it. We hired a third-party company to create what we needed, but it didn't work. Then we had to do that ourselves. We had to quickly choose one tool out there. Azure DevOps was our choice, and we had to understand how it works to match our gitflow and environments (like development, staging, and production). It was difficult, but we could handle it! 
+We struggled a lot with it. We hired a third-party company to create what we needed, but it didn't work. Then we had to do that ourselves. We had to quickly choose one tool out there. Azure DevOps was our choice, and we had to understand how it works to match our gitflow and environments (like development, staging, and production). It was difficult, but we could handle it! 
 
 Azure DevOps Classic Interface was good for people to quickly get to know how it works, then spreading the knowledge among the company.
 
@@ -163,7 +163,7 @@ At the beginning of 2021, I looked over some opportunities to work in a company 
 
 Since the English part of the interview wasn't good, I decided to focus on it. Also giving some personal projects that I would like to concentrate on, I thought it was time to quit my job at the beginning of 2021, and so I did.
 
-[Rave of Phonetics](https://www.raveofphonetics.com/) and this website are some results of my decision to take a sabbatical period. Nothing like new experiences 😄!
+[Rave of Phonetics](https://www.raveofphonetics.com/) and this website are some results of my decision to take a sabbatical period. Nothing like new experiences 😄!
 
 As a consequence of the love I told you at the beginning of my journey, I've never stopped studying and learning new things in programming. Have you ever read something like "software developers are students for life"? This can be seen as a burden because it's accurate, but I love it 😎!
 
