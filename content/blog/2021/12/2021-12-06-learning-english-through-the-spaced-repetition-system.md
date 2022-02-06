@@ -289,6 +289,7 @@ I use the charts below to understand how I pronounce phonemes. Still, it's impor
 Tricky words are those words that cannot be sounded out easily. One of the reasons is concerning phonemes that do not exist in people's mother language, like TH sound for Brazilians. In addition, [English has many vowels](https://www.babbel.com/en/magazine/english-vowel-sounds) that are not used in other languages, thus making the learning process a bit difficult.
 
 - [feel, fuel, fill, few](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=feel%2C%20fuel%2C%20fill%2C%20few)
+- [cheat, sheet, shit](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=cheat%2C%20sheet%2C%20shit)
 
 ## Conclusion
 
