@@ -477,7 +477,7 @@ class TestExampleView:
         assert result == {"user": token_body["sub"]}
 ```
 
-If you many other ways to configure it, for instance, [you can configure it globally](https://www.django-rest-framework.org/api-guide/authentication/#setting-the-authentication-scheme).
+There are other ways to configure it, for instance, [you can configure it globally](https://www.django-rest-framework.org/api-guide/authentication/#setting-the-authentication-scheme).
 
 ## Next steps and conclusion
 

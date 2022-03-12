@@ -173,8 +173,8 @@ As a consequence of the love I told you at the beginning of my journey, I've nev
 
 If you enjoy my content and would like to buy me an honest coffee ☕ for that, I would very much appreciate it 😋.
 
-* [Bitcoin](https://www.blockchain.com/btc/address/bc1qrpj6q5nk0pakn4hks3ag50v3n2r37ml7l66pfg)
+* [Bitcoin](https://www.blockchain.com/btc/address/bc1q7tcdads60k7m9qu9xemuc8rct3ut5zsed9ajfs)
 
 ```
-bc1qrpj6q5nk0pakn4hks3ag50v3n2r37ml7l66pfg
+bc1q7tcdads60k7m9qu9xemuc8rct3ut5zsed9ajfs
 ```
