@@ -13,7 +13,7 @@ tags:
   - jwt
   - redis
 ---
-By the [end of the last article](https://www.willianantunes.com/blog/2022/03/validating-jwt-authentication-using-django-rest-framework/#next-steps-and-conclusion) about [Authentication with DRF](https://www.willianantunes.com/blog/2022/03/validating-jwt-authentication-using-django-rest-framework/), I described an issue we ran into: our application consults [the JWKS endpoint](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets) all the time to validate a JWT. [The project](https://github.com/willianantunes/tutorials/tree/master/2022/03/authentication-django-rest-framework) I shared with the solution has this problem. [Django has a lovely cache abstraction](https://docs.djangoproject.com/en/4.0/topics/cache/), and recently, with version 4, it added [support for Redis](https://docs.djangoproject.com/en/4.0/topics/cache/#redis). So, to solve our problem, let's start configuring the development environment.
+By the [end of the last article](https://www.willianantunes.com/blog/2022/03/validating-jwt-authentication-using-django-rest-framework/#next-steps-and-conclusion) about [Authentication with DRF](https://www.willianantunes.com/blog/2022/03/validating-jwt-authentication-using-django-rest-framework/), I described an issue we ran into: our application consults [the JWKS endpoint](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets) all the time to validate a JWT. The project I shared [here](https://github.com/willianantunes/tutorials/tree/master/2022/03/authentication-django-rest-framework) has this problem. [Django has a lovely cache abstraction](https://docs.djangoproject.com/en/4.0/topics/cache/), and recently, with version 4, it added [support for Redis](https://docs.djangoproject.com/en/4.0/topics/cache/#redis). So, to solve our problem, let's start configuring the development environment.
 
 ## Redis as compose service
 
@@ -54,7 +54,7 @@ Learn more through [its documentation](https://redis.io/topics/rediscli).
 
 This discovery part is crucial. Knowing this, we can override the method responsible for this process, including the cache method in between.
 
-Looking at [the constructor method of ***PyJWKClient***](https://github.com/jpadilla/pyjwt/blob/6a624f42112661d1e4ea43ce7a78a9d6c693644b/jwt/jwks_client.py#L12-L17), it does nothing. So, next, the client retrieves the `key_id` [during the authenticate method execution](https://github.com/willianantunes/tutorials/blob/28cff84a2dfe7b09d0bbb632a3ee3e2357740549/2022/03/authentication-django-rest-framework/authentication_django_rest_framework/apps/core/api/authentication/authentications.py#L43) through the method `get_signing_key_from_jwt`. This method eventually calls [`fetch_data`](https://github.com/jpadilla/pyjwt/blob/6a624f42112661d1e4ea43ce7a78a9d6c693644b/jwt/jwks_client.py#L19-L21), and this one requests the JWKS endpoint. Look at its implementation:
+Looking at [the constructor method of ***PyJWKClient***](https://github.com/jpadilla/pyjwt/blob/6a624f42112661d1e4ea43ce7a78a9d6c693644b/jwt/jwks_client.py#L12-L17), it does not call the JWKS endpoint. So, next, the client retrieves the `key_id` [during the authenticate method execution](https://github.com/willianantunes/tutorials/blob/28cff84a2dfe7b09d0bbb632a3ee3e2357740549/2022/03/authentication-django-rest-framework/authentication_django_rest_framework/apps/core/api/authentication/authentications.py#L43) through the method `get_signing_key_from_jwt`. This method eventually calls [`fetch_data`](https://github.com/jpadilla/pyjwt/blob/6a624f42112661d1e4ea43ce7a78a9d6c693644b/jwt/jwks_client.py#L19-L21), and this procedure requests the JWKS endpoint. Look at its implementation:
 
 ```python
 def fetch_data(self) -> Any:
@@ -64,7 +64,7 @@ def fetch_data(self) -> Any:
 
 ## Adding a caching layer
 
-We can create a class extending the `PyJWKClient` and override the `fetch_data` method. Then, using [the low-level cache API](https://docs.djangoproject.com/en/4.0/topics/cache/#the-low-level-cache-api) from Django, we can use the [`get_or_set`](https://docs.djangoproject.com/en/4.0/topics/cache/#django.core.caches.cache.get_or_set) only to call the `fetch_data` if the value isn't available in the cache. Translating this idea into code:
+We can create a class extending the `PyJWKClient` and override the `fetch_data` method. Then, using [the low-level cache API](https://docs.djangoproject.com/en/4.0/topics/cache/#the-low-level-cache-api) from Django, we can use the [`get_or_set`](https://docs.djangoproject.com/en/4.0/topics/cache/#django.core.caches.cache.get_or_set) to call the `fetch_data` only if the value isn't available in the cache. Translating this idea into code:
 
 ```python
 class CachingJWKClient(PyJWKClient):
@@ -107,7 +107,7 @@ We can guarantee the test behavior because we can patch the `fetch_data` method 
 
 ## Next steps and conclusion
 
-The Cache API from Django has many options that we didn't cover here; then, I strongly recommend reading [its guide](https://docs.djangoproject.com/en/4.0/topics/cache/#the-low-level-cache-api). By the way, caching is difficult and risky. So don't ever underestimate its great potential to make disorder in your system, and I can tell you by experience. Use it wisely and do tests to certify that everything will work as expected.
+The Cache API from Django has many options that we didn't cover here. I strongly recommend reading [its guide](https://docs.djangoproject.com/en/4.0/topics/cache/#the-low-level-cache-api). By the way, from personal experience, I can tell you that caching is difficult and risky. So don't ever underestimate its great potential to make disorder in your system. Use it wisely and do tests to certify that everything will work as expected.
 
 We are close to the point where we can talk about [APIView](https://www.django-rest-framework.org/api-guide/views/#class-based-views) and [OpenAPI Schema](https://www.django-rest-framework.org/api-guide/schemas/). We already have [a sample in the project](https://github.com/willianantunes/tutorials/blob/bf1825ee8ac8c4e8fa716c47603a5930dac62485/2022/03/cache-django/cache_django/apps/core/api/v1/views.py#L9-L17) about the former, though it's not even close to being production-ready. See you soon 🤟!
 
