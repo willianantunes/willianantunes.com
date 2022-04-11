@@ -19,7 +19,7 @@ You can [check out the project](https://github.com/willianantunes/tutorials/tree
 
 ## Testing everything on RegTest
 
-We can opt-in for the test network (testnet) and the main network (mainnet) when we want to play for real. For the former, we can get [some money through faucets](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/ff4d5167f8ab5dfc95aa45dadc325ad5f8989b76/03_4_Receiving_a_Transaction.md#get-some-money), which requires some external procedure before executing any tests. The thing is: why play with random peers if we can use the [regression test mode](https://developer.bitcoin.org/examples/testing.html#regtest-mode)? This approach allows us to have our private blockchain. With that, we have complete control over the environment. Therefore, [using Bitcoin RegTest](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/8598756ae138608b21082d210f4f638a4507c67d/A3_0_Using_Bitcoin_Regtest.md#appendix-iii-using-bitcoin-regtest) is a must when creating bitcoin applications and testing its concepts with complete control.
+We can opt-in for the test network (testnet) or the main network (mainnet) when we want to play for real. For the former, we can get [some money through faucets](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/ff4d5167f8ab5dfc95aa45dadc325ad5f8989b76/03_4_Receiving_a_Transaction.md#get-some-money), which requires external procedures before executing any tests. The thing is: why play with random peers if we can use the [regression test mode](https://developer.bitcoin.org/examples/testing.html#regtest-mode)? This approach allows us to have our private blockchain. With that, we have complete control over the environment. Therefore, [using Bitcoin RegTest](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/8598756ae138608b21082d210f4f638a4507c67d/A3_0_Using_Bitcoin_Regtest.md#appendix-iii-using-bitcoin-regtest) is a must when creating bitcoin applications and testing Bitcoin concepts with complete control.
 
 ### Starting the node
 
@@ -111,7 +111,7 @@ bitcoin-core-regtest_1  | 2022-04-03T18:59:13Z opencon thread start
 bitcoin-core-regtest_1  | 2022-04-03T18:59:13Z msghand thread start
 ```
 
-As we're [mapping the `btc` folder as a volume for `.bitcoin`](https://github.com/willianantunes/tutorials/blob/1cfb39ff5e39bdd52150c2c6f7b7e231780e0930/2022/04/bitcoin-node-regtest-mode-docker/docker-compose.yaml#L10), we can easily check its content in the host machine. It's important to [know the bitcoin directory](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/5f0e49e8185d1a28318b0f37b996f15d041458b5/03_2_Knowing_Your_Bitcoin_Setup.md#know-your-bitcoin-directory). Here's its initial content:
+As we're [mapping the `btc` folder as a volume for `.bitcoin`](https://github.com/willianantunes/tutorials/blob/1cfb39ff5e39bdd52150c2c6f7b7e231780e0930/2022/04/bitcoin-node-regtest-mode-docker/docker-compose.yaml#L10), we can easily check the folder contents in the host machine. It's important to [know the bitcoin directory](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/5f0e49e8185d1a28318b0f37b996f15d041458b5/03_2_Knowing_Your_Bitcoin_Setup.md#know-your-bitcoin-directory). Here's its initial contents:
 
 ```
 btc
@@ -374,7 +374,7 @@ $ bitcoin-cli -regtest -rpcwallet=jafar getunconfirmedbalance
 
 ## Playing for real on mainnet
 
-What we have done so far is not sufficient. It's very high level and has [some disadvantages](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/ff4d5167f8ab5dfc95aa45dadc325ad5f8989b76/04_1_Sending_Coins_The_Easy_Way.md#summary-sending-coins-the-easy-way). When I read [about the descriptor](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/ff4d5167f8ab5dfc95aa45dadc325ad5f8989b76/03_5_Understanding_the_Descriptor.md#35-understanding-the-descriptor), I comprehended that using one is the recommended way to create a wallet. Nonetheless, the wallets we made have no passphrase, which plays a vital role in security. We didn't talk about [key reuse](https://developer.bitcoin.org/devguide/transactions.html#avoiding-key-reuse) also. Well, I think you get the point. No mistakes are allowed; otherwise, you might lose money.
+What we have done so far is not sufficient. It's very high level and has [some disadvantages](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/ff4d5167f8ab5dfc95aa45dadc325ad5f8989b76/04_1_Sending_Coins_The_Easy_Way.md#summary-sending-coins-the-easy-way). When I read [about the descriptor](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/ff4d5167f8ab5dfc95aa45dadc325ad5f8989b76/03_5_Understanding_the_Descriptor.md#35-understanding-the-descriptor), I comprehended that using one is the recommended way to create a wallet. Nonetheless, the wallets we made have no passphrase, which plays a vital role in security. We also didn't talk about [key reuse](https://developer.bitcoin.org/devguide/transactions.html#avoiding-key-reuse) also. Well, I think you get the point. No mistakes are allowed; otherwise, you might lose money.
 
 ## Conclusion
 
