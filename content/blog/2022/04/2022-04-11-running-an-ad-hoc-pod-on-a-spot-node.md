@@ -42,7 +42,7 @@ The thing is, it didn't work! The issue is that the [K8S scheduler](https://kube
 }
 ```
 
-Then I consulted about how I could achieve what I desired with a simple [ACME command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run), which led me to the `overrides` flag. Therefore, this is the final command:
+Then I consulted about how I could achieve what I desired with a simple [`kubectl run` command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run), which led me to the `overrides` flag. Therefore, this is the final command:
 
 ```shell
 kubectl -n development run  --overrides='{ "spec": { "nodeSelector": { "lifecycle": "Ec2Spot" }, "tolerations": [ { "effect": "NoSchedule", "key": "jafar", "operator": "Equal", "value": "iago" } ] } }' tmp-shell --rm -i --tty --image nicolaka/netshoot -- /bin/bash
