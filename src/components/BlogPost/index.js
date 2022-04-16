@@ -32,7 +32,7 @@ const BlogPost = ({ title, date, formattedDate, content, timeToRead, tags, image
           </S.BlogDetails>
         )}
       </S.HeaderWrapper>
-      {headings && <TableOfContents headings={headings} />}
+      {headings && headings.length > 0 && <TableOfContents headings={headings} />}
       <S.ContentWrapper dangerouslySetInnerHTML={{ __html: content }} />
     </S.ArticleWrapper>
   )
