@@ -5,7 +5,7 @@ date: 2022-04-16T00:52:53.041Z
 cover: /assets/posts/blog-21-estimating-an-initial-redis-setup-through-locust.png
 description: Locust is designed to work with HTTP requests. How about doing load
   testing with non-HTTP systems such as Redis and using the pleasant Django's
-  cache abstraction?
+  cache abstraction? 
 tags:
   - locust
   - django
@@ -15,17 +15,17 @@ I had to estimate an initial [ElastiCache for Redis](https://aws.amazon.com/elas
 
 ## The test plan
 
-I created a test plan targeting the Redis instead of the application to estimate the initial setup. This approach has some advantages, and to point out some:
+I created a test plan targeting the Redis instead of the application to estimate the initial setup. This approach has some advantages, and they include:
 
 * It's easy to hit the target system directly as it involves no intermediary layers.
 * Testing the application may need an authentication token, cookies, and whatever is required in its internals to accept an incoming request and then use the cache.
 * You can build the whole scenario faster and make it more manageable.
 
-By the way, I swear I attempted to use [JMeter](https://github.com/apache/jmeter) first because it's easy, and typically, it's pretty direct in its configuration. Still, sadly I couldn't do it this time. [The Redis Data Set](https://jmeter-plugins.org/wiki/RedisDataSet/) plugin was throwing exceptions. So, because the clock was ticking, I decided to use a new tool: [Locust](https://locust.io/).
+By the way, I swear I attempted to use [JMeter](https://github.com/apache/jmeter) first because it's easy, and typically, it's fairly direct in its configuration. Sadly I couldn't do it this time because [The Redis Data Set](https://jmeter-plugins.org/wiki/RedisDataSet/) plugin was throwing exceptions. So, because the clock was ticking, I decided to use a new tool: [Locust](https://locust.io/).
 
 ### Configuring Locust
 
-As Locust is written in Python, to make the test closer to production, I decided to write `user tasks` in a way that I could use the [Django's Cache Framework](https://docs.djangoproject.com/en/4.0/topics/cache/). The problem is, though, Locust handles only HTTP requests. So in order to [test non-HTTP systems](https://docs.locust.io/en/2.8.1/testing-other-systems.html), I wrote a custom abstract `User` class:
+As Locust is written in Python, to make the test closer to production environment, I decided to write `user tasks` in a way that I could use the [Django's Cache Framework](https://docs.djangoproject.com/en/4.0/topics/cache/). The problem is, though, Locust handles only HTTP requests. So in order to [test non-HTTP systems](https://docs.locust.io/en/2.8.1/testing-other-systems.html), I wrote a custom abstract `User` class:
 
 ```python
 import logging
@@ -194,7 +194,7 @@ class PerformanceTest(DjangoRedisUser):
 
 ### Loading data into Redis
 
-You can understand how much memory your in-memory database consumes after some load. You can also use the load during your own test plan. For example, using Locust, we can insert a data loader using the following [event](https://docs.locust.io/en/2.8.1/writing-a-locustfile.html#events) in a `locustfile`:
+You can understand how much memory your in-memory database consumes after some load. You can also use the same load during your own test plan. For example, using Locust, we can insert a data loader using the following [event](https://docs.locust.io/en/2.8.1/writing-a-locustfile.html#events) in a `locustfile`:
 
 ```python
 @events.test_start.add_listener
@@ -282,7 +282,7 @@ def load_data_into_redis():
 
 ## Starting Locust and accessing its web interface
 
-Having all the script, I could simply start the [Locust's web interface](https://docs.locust.io/en/2.8.1/quickstart.html#locust-s-web-interface) with the command:
+Having the script, I could simply start the [Locust's web interface](https://docs.locust.io/en/2.8.1/quickstart.html#locust-s-web-interface) with the command:
 
 ```bash
 locust -f your_locustfile.py
@@ -321,7 +321,7 @@ As I used the [default logging](https://docs.locust.io/en/2.8.1/logging.html) co
 
 ## Looking at Redis behavior during the load test
 
-While the load testing was being executed, I was checking Redis through `docker stats` and `redis-cli`. The latter has the [`INFO` command](https://redis.io/commands/info/), which is quite helpful to get insights! I did the first load test locally, but it's not sufficient. So I also did it in an ElastiCache Redis instance on AWS.
+While the load testing was being executed, I was checking Redis through `docker stats` and `redis-cli`. The latter has the [`INFO` command](https://redis.io/commands/info/), which is quite helpful to get insights! I did the first load test locally, but it wasn't sufficient. So I also did it in an ElastiCache Redis instance on AWS.
 
 ## Conclusion
 
