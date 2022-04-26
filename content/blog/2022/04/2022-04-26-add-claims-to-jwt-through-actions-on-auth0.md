@@ -98,6 +98,6 @@ The problem with [Auth0 Rules](https://auth0.com/docs/customize/rules) is its [e
 
 Our next article will use the post-login trigger we wrote here with a full-blown solution, including [Django](https://www.djangoproject.com/) with [Mozilla Django OIDC](https://github.com/mozilla/mozilla-django-oidc) and [Auth0 Deploy CLI.](https://www.willianantunes.com/blog/2022/02/getting-to-know-auth0-deploy-cli-with-a-practical-scenario/) Stay tuned 😉!
 
-[See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2022/05/add-claims-jwt-actions-auth0).
+[See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2022/04/add-claims-jwt-actions-auth0).
 
 Posted listening to [A nova bossa é violão, Paulinho Nogueira](https://youtu.be/j159kTbE2Zg) 🎶.
