@@ -9,15 +9,15 @@ tags:
   - auth0
   - jwt
 ---
-Recently I came up with a solution to handle single sign-on (SSO) internally for all enterprise applications inside the company. This scenario is typically known as [B2E](https://auth0.com/docs/get-started/architecture-scenarios/b2e) or workforce if you look at the Gartner report about [Critical Capabilities for Access Management](https://www.gartner.com/en/documents/4008096). So, for example, if a company uses [Azure AD](https://azure.microsoft.com/en-us/services/active-directory/) for its employees, their internal applications can use it to grant access (authentication), and utilize it to allow a user to execute something or not (permission).
+Recently, I came up with a solution to handle single sign-on (SSO) internally for all enterprise applications inside the company. This scenario is typically known as [B2E](https://auth0.com/docs/get-started/architecture-scenarios/b2e) or workforce. Look at the Gartner report about [Critical Capabilities for Access Management](https://www.gartner.com/en/documents/4008096) for more details. So, for example, if a company uses [Azure AD](https://azure.microsoft.com/en-us/services/active-directory/) for its employees, the companies's internal application can use it to grant access (authentication), and allow a user to execute something or not (permission).
 
-## What will we do
+## What will we do?
 
 This post is the first of two where I will demonstrate how we can achieve SSO with Django applications for the B2E scenario, focused on [The Django admin site](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/), through Auth0.
 
 ## Managing permissions through claims
 
-The idea is quite simple: after the user's login, we'll include all groups he has inside a custom claim. Of course, this strategy is not production-ready, but let's keep things simple for the article's sake. Let's see an image that illustrates the whole flow:
+The idea is quite simple: after the user's login, we'll include all groups he belongs to inside a custom claim. Of course, this strategy is not production-ready, but let's keep things simple for the article's sake. Let's see an image that illustrates the whole flow:
 
 ![Sequence diagram that shows 4 columns. It has the user, the admin portal, the auth0 tenant, and the XYZ company. Basically it demonstrates the authentication process among these entities.](/assets/posts/blog-22-order-1-image-1-sequential-diagram.png "Sequence diagram.")
 
@@ -29,7 +29,7 @@ To add an ***Action***, we first should choose one of the flows available:
 
 ![Actions has 6 flows: login, machine to machine, pre user registration, post user registration, post change password, and send phone messages.](/assets/posts/blog-22-order-2-image-2-flows.png "Flows available in Actions.")
 
-Let's pick ***login flow*** following the [sequence diagram we saw earlier](#managing-permissions-through-claims). Next, click on the plus and symbol and choose ***Build Custom***.
+Let's pick ***login flow*** following the [sequence diagram we saw earlier](#managing-permissions-through-claims). Next, click on the plus symbol and choose ***Build Custom***.
 
 ![Where you should click to build a custom action.](/assets/posts/blog-22-order-3-image-3-build-custom.png "Build custom action.")
 
@@ -75,12 +75,12 @@ exports.onExecutePostLogin = async (event, api) => {
 
 An essential thing to mention here is the part where we use the Management API. It has [rate limits](https://auth0.com/docs/troubleshoot/customer-support/operational-policies/rate-limit-policy/management-api-endpoint-rate-limits), so we're leaving it this way just for the article's sake. With that said, let's explain the script:
 
-1. First, we collect must have secrets.
+1. First, we collect "must have" secrets.
 2. We use the secrets from the previous step to instantiate a class to deal with the Management API.
-3. We retrieve all user attributes given his ID.
+3. We retrieve all user attributes given the user ID.
 4. If the user has the root attribute `groups`, we add it as a [custom claim](https://auth0.com/docs/secure/tokens/json-web-tokens/create-namespaced-custom-claims) in the [ID token](https://auth0.com/docs/secure/tokens/id-tokens).
 
-You might be thinking: Why use the Management API if the Action [delivers user attributes](https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow/event-object), including application metadata? Sadly, some attributes are not available, and `groups` is one of them. I found [this explanation](https://community.auth0.com/t/user-object-in-actions-is-missing-groups/64189/3?u=willianantunes) on Auth0 Community, but still, it's not available.
+You might be thinking: Why do we use the Management API if the Action [delivers user attributes](https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow/event-object) also including "application metadata"? Sadly, some attributes are not available, and `groups` is one of them. I found [this explanation](https://community.auth0.com/t/user-object-in-actions-is-missing-groups/64189/3?u=willianantunes) on Auth0 Community, but still, it's not available.
 
 Depending on how you configure your enterprise connection with the directory service, it may include the root attribute `groups`. For example, look at how I configured mine for testing purposes:
 

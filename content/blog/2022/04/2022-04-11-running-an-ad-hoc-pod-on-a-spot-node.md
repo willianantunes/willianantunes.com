@@ -69,4 +69,4 @@ Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 0.55 seconds
 ```
 
-I hope it may help you. See you 😄!
+I hope this may help you. See you 😄!

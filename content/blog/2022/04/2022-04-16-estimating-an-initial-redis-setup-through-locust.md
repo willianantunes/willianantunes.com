@@ -325,7 +325,7 @@ While the load testing was being executed, I was checking Redis through `docker 
 
 ## Conclusion
 
-When I thought I was in trouble because of the short time I had to estimate the Redis instance, Locust was there! I really believed it would consume lots of time because you have to write the scripts yourself, but it's the opposite, even with a non-HTTP system, such as Redis. Furthermore, [Locust's API](https://docs.locust.io/en/stable/api.html) seems simple, and it was easy to follow for what I needed.
+When I thought I was in trouble because of the short time I had to estimate the Redis instance, Locust was there! I really believed it would consume lots of time because you have to write the scripts yourself. However, it's the opposite, even with a non-HTTP system, such as Redis. Furthermore, [Locust's API](https://docs.locust.io/en/stable/api.html) is simple, and it was easy to follow for what I needed.
 
 [See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2022/04/load-testing-redis-locust).
 

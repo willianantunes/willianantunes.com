@@ -11,7 +11,7 @@ tags:
 ---
 **Warning:** This is a note, so don't expect much 😅!
 
-Suppose your *REST API ID* is `xyz-acme`, and you are only concerned about OpenAPI 3. It's recommended to export the existing API definition before importing a new configuration on Amazon API Gateway. If you don't, I recommend creating some samples so you don't struggle with the contract you should follow. So, first, export your existing API definition:
+Suppose your *REST API ID* is `xyz-acme`, and you are only concerned about OpenAPI 3. It's recommended to export the existing API definition before importing a new configuration on Amazon API Gateway. If you don't have any existing API definition, I recommend creating some samples so you don't struggle with the contract you should follow. So, first, export your existing API definition:
 
 ```shell
 aws apigateway get-export --parameters extensions='apigateway' \
@@ -21,7 +21,7 @@ aws apigateway get-export --parameters extensions='apigateway' \
 --export-type oas30 stage_prd-extensions_apigateway-jafar_api_definition.yaml
 ```
 
-Just leaving here a sample, you'd have the following:
+As an example, you'd have the following:
 
 ```yaml
 openapi: "3.0.1"
@@ -416,7 +416,7 @@ aws apigateway create-deployment \
 --description "chore(users): add new routes"
 ```
 
-If you need a rollback, you should get which deployment your stage was pointing to. To list all deployments:
+If you need a rollback, you should identify which deployment your stage was pointing to. To list all deployments:
 
 ```shell
 aws apigateway get-deployments \
@@ -440,4 +440,4 @@ aws apigateway delete-deployment \
 --deployment-id YTREWQ
 ```
 
-I hope it may help you. See you 😄!
+I hope this may help you. See you 😄!
