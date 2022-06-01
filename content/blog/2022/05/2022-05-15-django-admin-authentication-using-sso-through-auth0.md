@@ -17,7 +17,7 @@ This post is the second post of two, where I demonstrate how we can achieve SSO 
 
 ## Avoid creating credentials everywhere: use SSO
 
-If you are an employee and use other credentials apart from yours to access the company's internal applications, you can be sure this scenario is wrong. Unfortunately, this is so bad that it can lead to bizarre situations. For example, people may ask other employees to share their credentials because they forget theirs; they have so many credentials that it's hard to memorize them. Another example is when your company has 10 Django services running separately, and each application has its own database and [admin interface](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/) so people can configure them. That means 10 possible credentials for each person, or even worse: 1 credential shared among your employees. How about having only one credential 🤔?! Single sign-on (SSO) is one approach to minimize credential management risks.
+If you are an employee and use other credentials apart from yours to access the company's internal applications, this is a bad approach. Unfortunately, this is so problematic that it can lead to bizarre situations. For example, people may ask other employees to share their credentials because they forgot theirs; they have so many credentials that it's hard to memorize them. Another example is when your company has 10 Django services running separately, and each application has its own database and [admin interface](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/) so people can configure them. That means 10 possible credentials for each person, or even worse: 1 credential shared among your employees. How about having only one credential 🤔?! Single sign-on (SSO) is one approach to minimize credential management risks.
 
 ## Using SSO with Django Admin
 
@@ -29,7 +29,7 @@ We can change it to something like this:
 
 ![Custom Django login interface. It has the classical username and password fields, including the single sign-on (SSO) option.](/assets/posts/blog-22-order-2-image-2-django-login-interface-sso.png "Custom Django login interface.")
 
-The SSO option would be the way for all employees, whereas username and password would be used only by developers if required. Let's understand what we need to do to achieve this.
+Developers would use username and password if required, whereas all other employees would use the SSO option. Let's understand what we need to do to achieve this.
 
 ### The Django authentication system
 
@@ -37,13 +37,13 @@ Django has a [robust authentication system](https://docs.djangoproject.com/en/4.
 
 ![It shows a list of available permission on Django. In addition, it highlights 8 permissions that represent CRUD operations.](/assets/posts/blog-22-order-3-image-3-django-models-permissions.png "Sample permissions.")
 
-That's how we can use the groups in JWT to bind the incoming user to a set of permissions 💡! To create a set of permissions, you create a group on Django. Let's say the group viewer:
+That's how we can use the groups in JWT to bind the incoming user to a set of permissions 💡! To create a set of permissions, you create a group on Django. Let's look at the group viewer:
 
 ![It shows a sample group named viewer. It has two permissions.](/assets/posts/blog-22-order-4-image-4-django-group-viewer.png "Sample group.")
 
 ### Using an OpenID Connect library
 
-So far, so good: we can use the groups that come with the JWT and create some kind of mapping; if the user is in group XYZ, we map to group viewer on Django, for example. This is the business rule, but how do we handle the Django integration with the Identity Provider? Instead of reinventing the wheel, we can use the awesome [mozilla-django-oidc](https://pypi.org/project/mozilla-django-oidc/). It will enable smooth integration with the identity provider using the authorization code grant type. The image below illustrates the login flow (I remove some steps from the Authorization Code grant type) and where we'll leave the business rule in step 8:
+So far, so good: we can use the groups that come with the JWT and create some kind of mapping. If the user is in group XYZ, we map to group viewer on Django, for example. This is the business rule, but how do we handle the Django integration with the Identity Provider? Instead of reinventing the wheel, we can use the awesome [mozilla-django-oidc](https://pypi.org/project/mozilla-django-oidc/). It will enable smooth integration with the identity provider using the authorization code grant type. The image below illustrates the login flow (I removed some steps from the Authorization Code grant type) and where we'll leave the business rule in step 8:
 
 ![Diagram illustrating the login flow with 9 steps. It starts with the user clicking on SSO login and ends with the user accessing the admin page.](/assets/posts/blog-22-order-5-image-5-oidc-flow.png "Login flow diagram.")
 
@@ -89,7 +89,7 @@ That's how we should organize the templates:
 .   .       └── login.html # Login interface
 ```
 
-To enable the user to click on the SSO link on the login interface, that's one way we can configure `login.html`:
+To enable the user to click on the SSO link on the login interface is one way we can configure `login.html`:
 
 ```html
 {% extends "admin/login.html" %}
@@ -162,7 +162,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 ```
 
-The class [`CustomOIDCAuthenticationBackend`](https://github.com/willianantunes/tutorials/blob/1956d5f39701097e4e04be8aaa435354f50198fd/2022/05/django-admin-auth-sso/admin-backend/django_admin_auth_sso/support/oidc_helpers.py#L17) is a subclass of [`OIDCAuthenticationBackend`](https://github.com/mozilla/mozilla-django-oidc/blob/2a7a1b23175316db22b9f7b6a850819fdb86cc58/mozilla_django_oidc/auth.py#L43). This is the spot where the magic happens regarding the group mapping. I won't explain it in detail. I strongly recommend running [all the tests](https://github.com/willianantunes/tutorials/blob/1956d5f39701097e4e04be8aaa435354f50198fd/2022/05/django-admin-auth-sso/admin-backend/tests/django_admin_auth_sso/support/test_oidc_helpers.py#L24) and debugging them to fully understand what is happening, but summarizing the overridden methods:
+The class [`CustomOIDCAuthenticationBackend`](https://github.com/willianantunes/tutorials/blob/1956d5f39701097e4e04be8aaa435354f50198fd/2022/05/django-admin-auth-sso/admin-backend/django_admin_auth_sso/support/oidc_helpers.py#L17) is a subclass of [`OIDCAuthenticationBackend`](https://github.com/mozilla/mozilla-django-oidc/blob/2a7a1b23175316db22b9f7b6a850819fdb86cc58/mozilla_django_oidc/auth.py#L43). This is the spot where the magic happens regarding the group mapping. I won't explain it in detail. I strongly recommend running [all the tests](https://github.com/willianantunes/tutorials/blob/1956d5f39701097e4e04be8aaa435354f50198fd/2022/05/django-admin-auth-sso/admin-backend/tests/django_admin_auth_sso/support/test_oidc_helpers.py#L24) and debugging them to fully understand what is happening. However, let's summarize the overridden methods:
 
 * `verify_claims`: Verify the provided claims to decide if authentication should be allowed.
 * `create_user`: Create a new user on Django.
@@ -177,7 +177,7 @@ We must provide at least three parameters:
 * Application Client ID.
 * Application Client secret.
 
-Using the identity provider domain, we can configure the other required attributes (see more details in the [library's documentation](https://mozilla-django-oidc.readthedocs.io/en/stable/installation.html)). That's how we can set the `settings.py`:
+Using the *identity provider domain*, we can configure the other required attributes (see more details in the [library's documentation](https://mozilla-django-oidc.readthedocs.io/en/stable/installation.html)) in `settings.py`. So, that's how we can set it:
 
 ```python
 CUSTOM_OIDC_GROUPS_CLAIM = os.environ.get("CUSTOM_OIDC_GROUPS_CLAIM", "groups")
