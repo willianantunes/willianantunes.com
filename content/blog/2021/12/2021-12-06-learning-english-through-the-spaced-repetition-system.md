@@ -215,6 +215,46 @@ It's used to express the past consequence of an unrealistic action in the past. 
 * If you had said "on Christmas day" instead of "on Christmas", you would have said it correctly. We use "on" for the day and "at" for the seasonal celebration. Consequently, you can say "at Christmas".
 * I wasn't hungry yesterday, but if I had been hungry, I would have eaten something.
 
+## Notes for prepositions
+
+Transportation:
+
+- At
+  - I'm waiting for you **at the airport**.
+- On
+  - You're **on the bus**.
+  - I'm **on a boat** (only use it if it's a big boat).
+  - You are always **on the bicycle**.
+- In
+  - I'm **in a boat** (if a boat is small enough).
+  - She gets **in the car**.
+
+Place and location:
+
+- At
+  - Jafar wasn't **at home** yesterday.
+  - Meet me **at my house** or do you prefer at 231 Bering Ave in Toronto?
+- On
+  - The picture is **on page 10**.
+  - The map lies **on the desk**.
+- In
+  - I'm writing this **in a room**.
+
+Time:
+
+- At
+  - Jafar drinks a lot **at Christmas**.
+  - Let's meet **at noon**.
+- On
+  - Jafar drinks a lot **on Christmas day**.
+  - We moved into this house **on 18 December 2021**.
+  - Let's talk **on Sunday**. How about **on my birthday**?
+- In
+  - I started my professional carrier **in 2013**. **In the year 2013**, I created my first program.
+  - I'm writing this blog post **in the evening**.
+
+James gave a great explanation in his channel about [prepositions on, at, in, and by](https://www.youtube.com/watch?v=sN5H7YTo_IQ). I recommend also the sites [Walden University](https://academicguides.waldenu.edu/writingcenter/grammar/prepositions), [Englisch Hilfen](https://www.englisch-hilfen.de/en/grammar_list/prepositions.htm), and [English Club](https://www.englishclub.com/grammar/prepositions-at-in-on-time.htm).
+
 ## Notes for words that end in ED
 
 When the last sound before -ed is voiced (which means you will feel your vocal cords vibrate), the -ed sound is [/d/](https://en.wikipedia.org/wiki/Voiced_dental_and_alveolar_plosives).
@@ -289,7 +329,7 @@ I use the charts below to understand how I pronounce phonemes. Still, it's impor
 Tricky words are those words that cannot be sounded out easily. One of the reasons is concerning phonemes that do not exist in people's mother language, like TH sound for Brazilians. In addition, [English has many vowels](https://www.babbel.com/en/magazine/english-vowel-sounds) that are not used in other languages, thus making the learning process a bit difficult.
 
 - [feel, fuel, fill, few](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=feel%2C%20fuel%2C%20fill%2C%20few)
-- [cheat, sheet, shit](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=cheat%2C%20sheet%2C%20shit)
+- [cheat, sheet, shit, chit](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=cheat%2C%20sheet%2C%20shit%2C%20chit)
 
 ## Conclusion
 
