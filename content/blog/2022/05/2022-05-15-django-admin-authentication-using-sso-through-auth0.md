@@ -11,7 +11,7 @@ tags:
   - auth0
   - jwt
 ---
-This post is the second post of two, where I demonstrate how we can achieve SSO with Django applications for the [B2E](https://auth0.com/docs/get-started/architecture-scenarios/b2e) scenario, focused on [The Django admin site](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/) through Auth0. You can check the first one about [adding custom claims to JWT](https://www.willianantunes.com/blog/2022/04/add-claims-to-jwt-through-actions-on-auth0/)! By the way, I gave a talk explaining the whole solution, and it's available on YouTube:
+This post is the second post of two, where I demonstrate how we can achieve SSO with Django applications for the [B2E](https://auth0.com/docs/get-started/architecture-scenarios/b2e) scenario, focused on [The Django admin site](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/) through Auth0. You can check the first post about [adding custom claims to JWT](https://www.willianantunes.com/blog/2022/04/add-claims-to-jwt-through-actions-on-auth0/)! By the way, I gave a talk explaining the whole solution, and it's available on YouTube:
 
 `youtube: https://youtu.be/mgyWOq-NzSo`
 

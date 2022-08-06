@@ -12,13 +12,13 @@ tags:
   - kind
   - postgresql
 ---
-Shorter incidents? Fewer escalations? That's something you can only understand playing the real thing. So let's see Rundeck in action on Kubernetes! By the way, we'll use [Rundeck Kubernetes Plugin](https://github.com/rundeck-plugins/kubernetes) to run our jobs on pods.
+Shorter incidents? Fewer escalations? That's something you can only understand playing with the real thing. So let's see Rundeck in action on Kubernetes! By the way, we'll use [Rundeck Kubernetes Plugin](https://github.com/rundeck-plugins/kubernetes) to run our jobs on pods.
 
-**A very important notice:** You can always stick with Helm, but [there is no official chart](https://github.com/rundeck/rundeck/issues/6619). You can use the [deprecated one](https://github.com/helm/charts/tree/master/incubator/rundeck) or [another](https://github.com/EugenMayer/helm-charts) that's been trying to be up to date. However, I think it's crucial to comprehend the whole thing behind the curtain.
+**A very important notice:** You can always stick with Helm, but [there is no official chart](https://github.com/rundeck/rundeck/issues/6619). You can use the [unofficial chart which is deprecated](https://github.com/helm/charts/tree/master/incubator/rundeck) or [the version](https://github.com/EugenMayer/helm-charts) that's been updated by the community. However, I think it's crucial to comprehend the details behind the curtain.
 
 ## What you need to have before going on
 
-We'll use [kind](https://kind.sigs.k8s.io/) to create our local Kubernetes clusters. The nodes will run on [Docker](https://docs.docker.com/get-docker/), so you'll need it too. Finally, we'll run some commands to deploy manifests on K8S using [kubectl](https://kubernetes.io/docs/tasks/tools/). I have [this script](https://github.com/willianantunes/personal-environment/blob/92d4ba18bfd244cbfa9c5812b4c74a41f6c94a87/src/utils/must_have_packages.sh) where you can copy and paste exactly what you need. All things said, let's continue.
+We'll use [kind](https://kind.sigs.k8s.io/) to create our local Kubernetes clusters. The nodes will run on [Docker](https://docs.docker.com/get-docker/), so you'll need that too. Finally, we'll run some commands to deploy manifests on K8S using [kubectl](https://kubernetes.io/docs/tasks/tools/). I have [this script](https://github.com/willianantunes/personal-environment/blob/92d4ba18bfd244cbfa9c5812b4c74a41f6c94a87/src/utils/must_have_packages.sh) where you can copy and paste exactly what you need. All things said, let's continue.
 
 ## Create a Rundeck image locally
 
@@ -69,7 +69,7 @@ efdab88979a4   kindest/node:v1.24.0   "/usr/local/bin/entr…"   5 minutes ago  
 
 ## Sanity check
 
-Do you know what happens when you delete a namespace? Can you imagine doing it in your company's cluster? So, it's crucial making sure you are using the proper context created by kind:
+Do you know what happens when you delete a namespace? Can you imagine doing it in your company's cluster? So, it's **crucial making sure you are using the proper context created by kind**:
 
 ```shell
 ▶ kubectl config current-context
@@ -78,7 +78,7 @@ kind-kind
 
 ## Create a dedicated namespace
 
-We'll have a namespace responsible for support tools. So, let's create one and make it the default from now on.
+We need a namespace responsible for support tools. So, let's create one and make it the default from now on.
 
 ```shell
 kubectl create namespace support-tools
@@ -87,7 +87,7 @@ kubectl config set-context --current --namespace=support-tools
 
 ## Load the Rundeck image into the Kubernetes cluster
 
-To enable the cluster using the image we had built, we can use the following [kind command](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster):
+To enable the cluster using the image we built, we can use the following [kind command](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster):
 
 ```shell
 kind load docker-image rundeck-k8s:latest
@@ -102,13 +102,13 @@ docker exec -it kind-control-plane crictl images
 
 ## Install all the required manifests
 
-I recommend leaving this enabled in one dedicated terminal:
+I recommend leaving this enabled on one dedicated terminal:
 
 ```shell
 kubectl get events -w
 ```
 
-Then we can create the required manifest: 
+Then we can create the required manifests: 
 
 ```shell
 kubectl apply -f k8s-manifests/0-database.yaml

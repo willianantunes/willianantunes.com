@@ -61,7 +61,7 @@ All email templates come with some configuration about i18n. Look at this exampl
 {% endif %}
 ```
 
-The project also includes [basic tests](https://github.com/willianantunes/tutorials/tree/092ca24e059a29f2af3cdcd94191542623e04808/2022/06/auth0-liquid-tester/spec). In theory, you can create a test for each email template to guarantee that Liquid can render it correctly, including any required param that must be present, like `{{ code }}` or `{{ url }}`. Check out [this sample](https://github.com/willianantunes/tutorials/blob/092ca24e059a29f2af3cdcd94191542623e04808/2022/06/auth0-liquid-tester/spec/email_controller_spec.rb#L4-L20) about the *verification email with the link*:
+The project also includes [basic tests](https://github.com/willianantunes/tutorials/tree/092ca24e059a29f2af3cdcd94191542623e04808/2022/06/auth0-liquid-tester/spec). In theory, you can create a test for each email template to guarantee that Liquid can render it correctly, including any required param that must be present, like `{{ code }}` or `{{ url }}`. Check out [this sample](https://github.com/willianantunes/tutorials/blob/092ca24e059a29f2af3cdcd94191542623e04808/2022/06/auth0-liquid-tester/spec/email_controller_spec.rb#L4-L20) where we assert that the verification email is rendered properly:
 
 ```ruby
 RSpec.describe(EmailController) do
@@ -182,7 +182,7 @@ This would happen only during the sign-up flow. The user would have to accept be
 
 ## Conclusion
 
-At first glance, Auth0 seems to have all the sample projects you need to create yours, but that's partly correct. Most sample projects are not production-ready, which is understandable from a certain point of view. Nevertheless, Auth0 offers a great development experience, and I can assure you it's on a whole different level when you compare it with its competitors. Excellent docs, various sample projects, great articles, easy integration process, [diversity of libraries and SDKs](https://auth0.com/docs/libraries), and many more. However, it's not flawless, and that's totally fine 🙂.
+At first glance, Auth0 seems to have all the sample projects you need to create yours, but that's only partly correct. Most sample projects are not production-ready, which is understandable from a certain point of view. Nevertheless, Auth0 offers a great development experience, and I can assure you it's on a whole different level when you compare it with its competitors. Excellent docs, various sample projects, great articles, easy integration process, [diversity of libraries and SDKs](https://auth0.com/docs/libraries), and many more. However, it's not flawless, and that's totally fine 🙂.
 
 [See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2022/06/auth0-liquid-tester).
 
