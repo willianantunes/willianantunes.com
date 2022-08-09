@@ -9,7 +9,7 @@ function renderHeadings(headings) {
       {headings.map(heading => {
         const key = heading.id
         const anchor = `#${heading.id}`
-        const label = heading.value
+        const label = heading.value.replace(/<\/?[^>]+(>|$)/g, "")
 
         return (
           <li key={key}>
