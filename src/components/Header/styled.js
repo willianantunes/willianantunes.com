@@ -55,6 +55,7 @@ export const WrapperSocialButton = styled(IconButton).attrs({
   rel: "noreferrer noopener",
   target: "_blank",
 })`
+  padding: 6px;
   & svg {
     width: 20px;
   }

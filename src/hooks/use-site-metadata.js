@@ -28,6 +28,8 @@ export function useSiteMetadata() {
               twitter
               youtube
               hackerrank
+              strava
+              leetcode
             }
           }
         }

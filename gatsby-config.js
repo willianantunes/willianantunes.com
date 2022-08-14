@@ -26,6 +26,8 @@ const siteMetadata = {
     dockerhub: `https://hub.docker.com/u/willianantunes`,
     stackoverflow: `https://stackoverflow.com/users/3899136/willian-antunes`,
     hackerrank: `https://www.hackerrank.com/willianantunes`,
+    strava: `https://www.strava.com/athletes/willian-antunes`,
+    leetcode: `https://leetcode.com/willianantunes/`,
   },
 }
 
