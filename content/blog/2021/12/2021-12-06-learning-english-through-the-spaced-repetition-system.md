@@ -331,6 +331,13 @@ Tricky words are those words that cannot be sounded out easily. One of the reaso
 - [feel, fuel, fill, few](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=feel%2C%20fuel%2C%20fill%2C%20few)
 - [cheat, sheet, shit, chit](https://www.raveofphonetics.com?language=en-us&show-phonetic=0&show-punctuations=0&show-stress=1&show-syllables=1&text=cheat%2C%20sheet%2C%20shit%2C%20chit)
 
+## Notes for words that confuse
+
+Some words may confuse even native English speakers, so don't blame yourself. With proper training, we can mitigate misunderstandings. Let's learn through sample phrases:
+
+- I don’t like to lay my purse on the floor.
+- Yesterday, he lay down to sleep at ten o’clock. Tonight, he won’t lie down until midnight.
+
 ## Conclusion
 
 Over time I'll come here and update this post with more data and even corrections. Ultimately, I'm going to use it for myself 🤣. As I explained initially, this repetition process helps me a lot, and it's crucial to have a native English tutor helping you during the path. I hope it turns out to be useful for you too.
