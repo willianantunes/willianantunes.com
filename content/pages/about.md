@@ -14,7 +14,7 @@ Here's what I use. Suggestions appreciated!
 Either I code on Ubuntu or macOS. Thanks to my [personal-environment project](https://github.com/willianantunes/personal-environment), I can quickly set up a new Ubuntu OS. My personal computer is a Windows 10 Pro, but I use VMWare Workstation Player to run an Ubuntu VM. Apart from the operational system, I use the following:
 
 * [JetBrains All Products Pack](https://www.jetbrains.com/all/)
-* [Excalidraw](https://excalidraw.com/)
+* [Excalidraw](https://excalidraw.com/) / [tldraw](https://www.tldraw.com/)
 * [StackEdit](https://stackedit.io/)
 * [diagrams.net (formerly draw.io)](https://app.diagrams.net/)
 * [SqlDBM](https://app.sqldbm.com/)
@@ -33,7 +33,9 @@ Either I code on Ubuntu or macOS. Thanks to my [personal-environment project](ht
   * Headphones: [AKG K92](https://www.akg.com/Headphones/Professional%20Headphones/K92.html)
   * Keyboard and mouse: all from HP and wired
   * Webcam and microphone: [Logitech C270 HD](https://www.logitech.com/en-us/products/webcams/c270-hd-webcam.960-000694.html)
-* Working PC: [Laptop Vostro 14 5000](https://www.dell.com/pt-br/work/shop/laptop-2-em-1/notebook-vostro-14-5000/spd/vostro-14-5402-laptop/v5402w3003w?view=configurations)
+* Laptops: 
+  * Dell Vostro 14 5402
+  * Dell Inspiron 14 5402
 
 - - -
 
@@ -166,6 +168,13 @@ Since the English part of the interview wasn't good, I decided to focus on it. A
 [Rave of Phonetics](https://www.raveofphonetics.com/) and this website are some results of my decision to take a sabbatical period. Nothing like new experiences 😄!
 
 As a consequence of the love I told you at the beginning of my journey, I've never stopped studying and learning new things in programming. Have you ever read something like "software developers are students for life"? This can be seen as a burden because it's accurate, but I love it 😎!
+
+- - -
+
+## Get discounts! Let's help each other 😆
+
+- [10 minutes free trial on Cambly](https://www.cambly.com/invite/MNAB9BYA?st=122322&sc=4)
+- [Earn 100 BRL to start your business on Contabilizei](https://www.contabilizei.com.br/programa-de-indicacao?ref=a78fb494a8ce140dbb255cafe79de868&nome=Willian&email=willian.lima.antunes@gmail.com&utm_source=plataforma&utm_campaign=MGM&utm_source=plataforma)
 
 - - -
 
