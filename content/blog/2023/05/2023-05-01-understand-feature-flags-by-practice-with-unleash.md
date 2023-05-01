@@ -50,7 +50,7 @@ Talking about a centralized solution, have you ever heard of [Unleash](https://d
 
 ## Unleash
 
-It has excellent documentation explaining how it works, how is its architecture options, pricing, and many other things. The primary reason I've chosen it to comprehend a centralized solution it's because [it is open-source](https://github.com/Unleash/unleash). Let's explore how it works in a Python/Django project and a JavaScript/Next.js project. First of all, access [this folder](https://github.com/willianantunes/tutorials/tree/master/2023/04/feature_toggle_unleash) and execute the command:
+It has excellent documentation explaining how it works, how is its architecture options, pricing, and many other things. The primary reason I've chosen it to comprehend a centralized solution it's because [it is open-source](https://github.com/Unleash/unleash). Let's explore how it works in a Python/Django project and a JavaScript/Next.js project. First of all, access [this folder](https://github.com/willianantunes/tutorials/tree/master/2023/05/feature_toggle_unleash) and execute the command:
 
 ```shellsession
 docker-compose up
@@ -171,6 +171,6 @@ You can circumvent an outage of the feature management server by doing two thing
 
 A feature flag is necessary if you want to take a step forward for frequent releases. It comes with some impacts, though. Now you have to do more tests to check how a particular business rule behaves if a toggle XYZ and ACME are activated or how it acts if only toggle XYZ is activated, for example. This means your tests are more expensive now. Beyond that, a feature toggle governance is also required. What if a team left behind a toggle that should have been removed? There are types of toggles; one may be of type permission (no expected lifetime), and the other may be of type experiment (expected lifetime of 40 days). Well, it's a game of tradeoffs.
 
-[See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2023/04/feature_toggle_unleash).
+[See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2023/05/feature_toggle_unleash).
 
 Posted listening to [All Apologies, Nirvana](https://youtu.be/aWmkuH1k7uA) 🎶.
