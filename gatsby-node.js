@@ -1,4 +1,4 @@
-const { BlogNodeHandler, PageNodeHandler } = require("./src/config/gatsby-node-handlers")
+const { BlogNodeHandler, PageNodeHandler, RemarkRelativeImages } = require("./src/config/gatsby-node-handlers")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // https://www.gatsbyjs.com/docs/reference/config-files/actions/#createPage
@@ -20,4 +20,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   BlogNodeHandler.createNodeHandler(createNodeField, getNode, node)
+  RemarkRelativeImages.createNodeHandler(createNodeField, node)
 }

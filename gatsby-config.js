@@ -53,21 +53,15 @@ const plugins = [
       name: `pages`,
     },
   },
-  `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
   {
     resolve: `gatsby-transformer-remark`,
     options: {
       plugins: [
         `gatsby-remark-embed-video`,
         `gatsby-remark-responsive-iframe`,
-        // It will update the path related to images contained in a markdown file
-        `gatsby-remark-relative-images`,
-        {
-          // It will create publicURL
-          resolve: `gatsby-remark-images`,
-          options: {},
-        },
+        `gatsby-remark-images`,
         `gatsby-remark-autolink-headers`,
         `gatsby-remark-prismjs`,
         `gatsby-remark-external-links`,

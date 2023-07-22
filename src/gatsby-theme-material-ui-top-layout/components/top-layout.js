@@ -3,7 +3,7 @@ import { ThemeProvider as StyledComponentsThemeProvider } from "styled-component
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Viewport from "gatsby-theme-material-ui-top-layout/src/components/viewport"
-import { createMuiTheme } from "@material-ui/core"
+import { createTheme } from "@material-ui/core/styles"
 import { themeConfiguration } from "../theme"
 import { useDarkThemeContext } from "../../contexts/dark-theme-context"
 
@@ -14,7 +14,7 @@ export default function TopLayout({ children }) {
 
   const memoizedTheme = useMemo(() => {
     themeConfiguration.palette.type = paletteType
-    return createMuiTheme(themeConfiguration)
+    return createTheme(themeConfiguration)
   }, [paletteType])
 
   const [mounted, setMounted] = useState(false)

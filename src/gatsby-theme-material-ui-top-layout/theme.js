@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core"
+import { createTheme } from "@material-ui/core/styles"
 
 export const themeConfiguration = {
   typography: {
@@ -44,4 +44,4 @@ export const themeConfiguration = {
   },
 }
 
-export default createMuiTheme(themeConfiguration)
+export default createTheme(themeConfiguration)
