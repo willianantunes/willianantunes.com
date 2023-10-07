@@ -11,6 +11,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     isPermanent: true,
   })
 
+  createRedirect({
+    fromPath: "/blog/2023/09/understanding-read-phenomena-by-practice-with-mariadb-and-postgresql",
+    toPath: "/blog/2023/09/understanding-read-phenomena-by-practice-with-mariadb-postgresql-and-sqlserver",
+    isPermanent: true,
+  })
+
   await BlogNodeHandler.createPagesHandler(graphql, createPage)
   await PageNodeHandler.createPagesHandler(graphql, createPage)
 }

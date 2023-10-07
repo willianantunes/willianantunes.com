@@ -1,6 +1,6 @@
 ---
 id: a1373370-5e53-11ee-94c7-cf2a83f67466
-title: Understanding Read Phenomena by Practice with MariaDB and PostgreSQL
+title: Understanding Read Phenomena by Practice with MariaDB, PostgreSQL, and SQL Server
 date: 2023-09-28T23:06:17.544Z
 cover: /assets/posts/blog-38-understanding-read-phenomena-by-practice-with-mariadb-and-postgresql.png
 description: Read phenomena is a must-know topic if you design an application
@@ -11,17 +11,25 @@ tags:
   - postgresql
   - mariadb
   - acid
+  - sqlserver
 ---
 **Warning:** This is a note, so don't expect much 😅!
 
-Let's see each read phenomenon, starting with MariaDB and then PostgreSQL. I'll cover the very basics of isolation by practice, also. That's crucial for an application developer to understand. For example, suppose you are designing a new application with a context where concurrency may lead to an inconsistent state of its data. In that case, an appropriate [database isolation](https://en.wikipedia.org/wiki/Isolation_(database_systems)) can help you. Check out the table below about *isolation levels vs read phenomena*. We'll explore each one.
+Let's see each read phenomenon, starting with MariaDB, PostgreSQL, and then SQL Server. I'll cover the very basics of isolation by practice, also. That's crucial for an application developer to understand. For example, suppose you are designing a new application with a context where concurrency may lead to an inconsistent state of your data. In that case, an appropriate [database isolation](https://en.wikipedia.org/wiki/Isolation_(database_systems)) can help you. [Optimistic or pessimistic locking](https://vladmihalcea.com/optimistic-vs-pessimistic-locking/), either. Check out the table below about isolation levels vs read phenomena. We'll explore each one.
 
 | Isolation Level  | Dirty Read             | Nonrepeatable Read | Phantom Read           | Serialization Anomaly |
-| ---------------- | ---------------------- | ------------------ | ---------------------- | --------------------- |
+|------------------|------------------------|--------------------|------------------------|-----------------------|
 | Read uncommitted | Allowed, but not in PG | Possible           | Possible               | Possible              |
 | Read committed   | Not possible           | Possible           | Possible               | Possible              |
 | Repeatable read  | Not possible           | Not possible       | Allowed, but not in PG | Possible              |
 | Serializable     | Not possible           | Not possible       | Not possible           | Not possible          |
+
+- **Dirty read**: It's when you read a row that has not been committed yet by another transaction. What if the other transaction executes rollback while your transaction continues processing using it? This is the typical scenario for the dirty read.
+- **Non-repeatable read**: You are in a transaction and execute a certain DQL. When you repeat the same very DQL, you read another value, though you hadn't changed anything.
+- **Phantom read**: You execute a DQL twice. The first time, it returns 10 rows, then using the same query for a second time, it returns 11.
+- **Serialization anomalies**: Serialization anomalies occur when the order in which concurrent transactions are executed affects the final outcome of the transactions. This can lead to data corruption or inconsistent results. If two transactions are not modifying the same data, then there is no risk of a serialization anomaly.
+  - **Lost updates**: You have two transactions running concurrently. They try to update the same row. The first committed update is overwritten by the second committed update. You lose your data.
+  - **Write skew**: It happens when your transaction reads a stale data because a concurrent committed transaction changed its value.
 
 A quick notice: When you see a `TX #NUMBER`, you must open a terminal with a CLI that connects with the target database. [Download the project](https://github.com/willianantunes/tutorials/tree/master/2023/09/database_isolation) so you can execute the commands by yourself.
 
@@ -50,8 +58,6 @@ mariadb -u root -p'root' \
 It's worth mentioning that the isolation level in MariaDB is `REPEATABLE READ` by default. Know more in the [knowledge base](https://mariadb.com/kb/en/mariadb-transactions-and-isolation-levels-for-sql-server-users/#isolation-levels-and-locks).
 
 ### Dirty read
-
-It's when you read a row that has not been committed yet by another transaction. What if the other transaction executes rollback while your transaction continues processing using it? This is the typical scenario for the dirty read.
 
 TX 1:
 
@@ -130,7 +136,7 @@ TX 1:
 SELECT SUM(balance) FROM core_account;
 ```
 
-You don't get `55000`, but `55001`, actually. This is not a `dirty read` because TX 2 committed its data. We query and receive a certain value, and when we repeat the exact same query, it gives you another value. Thus, the phenomena name `non-repeatable read`.
+You don't get `55000`, but `55001`, actually. This is not a `dirty read` because TX 2 committed its data. We query and receive a certain value, and when we repeat the exact same query, it gives you another value. Thus, the phenomenon name `non-repeatable read`.
 
 Output:
 
@@ -188,7 +194,7 @@ We get `11` rows and `55051` when it should be `10` rows and `55001`. One row ha
 
 ### Lost updates
 
-You have to do the commands quickly to reproduce the `lost update` phenomena. If you delay doing so, you'll notice that the TX 2 SQL will block during the update statement until, eventually, it receives the error `ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction`.
+You have to do the commands quickly to reproduce the `lost update` phenomenon. If you delay doing so, you'll notice that the TX 2 SQL will block during the update statement until, eventually, it receives the error `ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction`.
 
 We are not specifying the isolation level. So, it will be [REPEATABLE READ](https://mariadb.com/kb/en/set-transaction/#repeatable-read) by default. Check it by executing the command `SELECT @@global.transaction_ISOLATION;`. By the way, repeatable read should not accept lost updates, but [this seems not to be true in MySQL/MariaDB](https://stackoverflow.com/a/10428319/3899136).
 
@@ -490,3 +496,60 @@ That means the third row with client_addr as `172.27.0.4` wants a lock but is be
 ```
 
 If a resource is currently locked in an incompatible mode, any transaction attempting to acquire the lock is queued and must wait until the lock is released, as seen with TX 2. Waiting transactions do not utilize processor resources; the backend processes involved enter a dormant state and are awakened by the operating system when the resource becomes available. Look at [relation-level locks](https://postgrespro.com/blog/pgsql/5967999) for additional information.
+
+## Understanding read phenomena in SQL Server
+
+> Notice: I added this section after I published this note. The project is up-to-date also 😁.
+
+You start with the following command:
+
+```shell
+docker-compose up db-sqlserver
+```
+
+When it's up and running, you can issue the following in another terminal:
+
+```shell
+docker-compose run terminal-sqlserver
+```
+
+Then connect to the database instance using [sqlcmd](https://learn.microsoft.com/en-us/sql/tools/sqlcmd/sqlcmd-use-utility?view=sql-server-ver16) utility:
+
+```shell
+/opt/mssql-tools/bin/sqlcmd -S db-sqlserver -d "development" -U sa -P "T@R63dis"
+```
+
+After each statement you must execute `GO`. You can [change the transaction isolation level](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-ver16) to check how the transaction behaves.
+
+The default isolation level in SQL Server is `READ COMMITTED`. Know more in [its guide](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-ver16).
+
+Interesting articles from Microsoft:
+
+- [Transaction locking and row versioning guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver16).
+- [Deadlocks guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-deadlocks-guide?view=sql-server-ver16).
+
+### Dirty read
+
+| TX 1                                                                                                                          | TX 2                                                                                         |
+|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED; BEGIN TRANSACTION; SELECT * FROM core_account WHERE username = 'ysullivan'; | -                                                                                            |
+| -                                                                                                                             | BEGIN TRANSACTION; UPDATE core_account SET balance = 1001.0000 WHERE username = 'ysullivan'; |
+| SELECT * FROM core_account WHERE username = 'ysullivan';                                                                      | -                                                                                            |
+
+### Non-repeatable read
+
+| TX 1                                                      | TX 2                                                                                                        |
+|-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| BEGIN TRANSACTION; SELECT SUM(balance) FROM core_account; | -                                                                                                           |
+| -                                                         | BEGIN TRANSACTION; UPDATE core_account SET balance = balance + 1 WHERE username = 'ysullivan'; COMMIT TRAN; |
+| SELECT SUM(balance) FROM core_account;                    | -                                                                                                           |
+
+Try to execute the first query including `SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;` and see how the transaction behaves.
+
+### Phantom read
+
+| TX 1                                                                | TX 2                                                                                                                                                                                                                 |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| BEGIN TRANSACTION; SELECT COUNT(*), SUM(balance) FROM core_account; | -                                                                                                                                                                                                                    |
+| -                                                                   | BEGIN TRANSACTION; INSERT INTO core_account (id, created_at, updated_at, username, balance) VALUES (LOWER(REPLACE(NEWID(), '-', '')),SYSDATETIMEOFFSET(),SYSDATETIMEOFFSET(),'willianantunes',50.0000); COMMIT TRAN; |
+| SELECT COUNT(*), SUM(balance) FROM core_account;                    | -                                                                                                                                                                                                                    |
