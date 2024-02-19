@@ -14,7 +14,7 @@ tags:
   - terraform
   - networking
 ---
-We'll understand how to build a [hub-spoke network topology](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) through practice. We won't cover many aspects of networking design, such as [proper subnetting](https://serverfault.com/questions/849712/pros-and-cons-of-larger-network-subnets), [broadcast domain](https://www.geeksforgeeks.org/collision-domain-and-broadcast-domain-in-computer-network/), [dynamic routing](https://en.wikipedia.org/wiki/Dynamic_routing), and others.
+We'll understand how to build a [hub-spoke network topology](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli) through practice. We won't cover many aspects of networking design though, such as [proper subnetting](https://serverfault.com/questions/849712/pros-and-cons-of-larger-network-subnets), [broadcast domain](https://www.geeksforgeeks.org/collision-domain-and-broadcast-domain-in-computer-network/), [dynamic routing](https://en.wikipedia.org/wiki/Dynamic_routing), and others.
 
 ## The hypothetical scenario
 
@@ -162,7 +162,7 @@ With Network Watcher, we don't need to access the machine to test connectivity.
 
 ## Conclusion
 
-Suppose you are learning how to design and implement networking topologies. In that case, it's highly recommended to do it first on the Packet Tracer to comprehend theories, then go to a cloud service such as Azure. Learning by practice is fantastic because you consolidate everything through mistakes we usually face in production environments.
+Suppose you have to learn how to design and implement networking topologies, though you only know the very basics. In that case, it's highly recommended to do it first on the Packet Tracer to comprehend theories, then go to a cloud service such as Azure. Learning by practice is fantastic because you consolidate everything through mistakes we usually face in production environments.
 
 [See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2024/02/hub-spoke-azure).
 
