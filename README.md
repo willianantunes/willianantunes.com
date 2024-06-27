@@ -1,8 +1,6 @@
 # My honest personal website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/17cd91a0-e169-48d7-9948-526cb08d7826/deploy-status)](https://app.netlify.com/sites/hungry-leakey-3d2ebb/deploys)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=willianantunes_willianantunes.com&metric=coverage)](https://sonarcloud.io/dashboard?id=willianantunes_willianantunes.com)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=willianantunes_willianantunes.com&metric=ncloc)](https://sonarcloud.io/dashboard?id=willianantunes_willianantunes.com)
 
 At the beginning of 2021, I created a project called [Rave of Phonetics](https://www.raveofphonetics.com/), and you can know how I had the idea through the blog post [public and useful tool to understand phonetics](https://www.raveofphonetics.com/blog/2021/02/public-and-useful-tool-to-understand-phonetics/). With all the lessons learned I gathered from it, I thought it was time to create my very blog from scratch to discover even more things. That's how it came to life! Curiosity as always 👀
 
