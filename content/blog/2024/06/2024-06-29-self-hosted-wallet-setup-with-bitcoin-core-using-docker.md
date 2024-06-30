@@ -105,9 +105,15 @@ You'll have to enter the password generated earlier. 🔐
 
 Check out the blog [Bitcoin Node with RegTest mode using Docker](https://www.willianantunes.com/blog/2022/04/bitcoin-node-with-regtest-mode-using-docker/). You'll u how to create addresses, receive a blog reward of 50 bitcoins, and many more. You can easily adapt the provided [Bitcoin configuration files](https://en.bitcoin.it/wiki/Running_Bitcoin#Bitcoin.conf_Configuration_File) with [Bitcoin Core Config Generator](https://jlopp.github.io/bitcoin-core-config-generator/).
 
+## Important notice
+
+Try to keep your `wallet.dat` on a single computer. Don't keep it on multiple computers. For example, suppose you have your `wallet.dat` on device A and the very same file on device B. You create an address through device A, and then it receives money. If you try to check your balance through device B, it won't be able to retrieve the up-to-date value, even though your blockchain is fully synchronized. It happens because one wallet won't have addresses that are in the other. Don't lose your money. ⚠️
+
+Another important point is that blockchain rescan capability on prune nodes is not possible at the time this article was written. Look at the [issue](https://github.com/bitcoin/bitcoin/issues/29183) regarding its implementation. This means you can't import your `wallet.dat` unless you [repeat the initial synchronization of the blockchain](https://bitcoin.stackexchange.com/a/99853), which takes a lot of time.
+
 ## Conclusion.
 
-Using two nodes is more secure. The middleware node has a connection to the internet. The wallet node does not have it. In case the middleware node is compromised, your wallet node is protected. Of course, the attacker might access the wallet node through the middleware, though the chances of that happening are astronomically low.
+Using two nodes is more secure. The middleware node has a connection to the internet. The wallet node does not have it. In case the middleware node is compromised, your wallet node is protected. The walled node serves only to sign transactions and the middleware to propagate them to the network. Of course, the attacker might access the wallet node through the middleware, though the chances of that happening are astronomically low. By the way, you can use an alternative approach of [signing transactions offline and generating addresses with descriptors](https://bitcointalk.org/index.php?topic=5392824.0).
 
 [See everything we did here on GitHub](https://github.com/willianantunes/tutorials/tree/master/2024/06/self-hosted-wallet-bitcoin-core-docker).
 
