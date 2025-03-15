@@ -51,6 +51,7 @@ Either I code on Ubuntu or macOS. Thanks to my [personal-environment project](ht
 * 😓 I have [Osgood-Schlatter disease](https://en.wikipedia.org/wiki/Osgood%E2%80%93Schlatter_disease).
 * 😱 I had Prognathism. Know how it was solved [here](https://willianantunes.blogspot.com/2012/02/cirurgia-ortognatica-pos-operatorio.html).
 * 🚴 [I went from S. Paulo to Santos](https://www.strava.com/activities/1141720090), but with my "little thin" (Brazilian term for bicycle)!
+* 📝 I wrote a Libertarian Constitution for Brazil ([Constituição Libertária do Brasil](https://constituicao-libertaria.github.io/constituicao/)). Where the government is based on city-states.
 
 - - -
 
